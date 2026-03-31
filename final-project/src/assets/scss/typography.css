@@ -22,3 +22,21 @@
     color: #757575;
     text-align: left;
 }
+
+/* 標籤文字 */
+.lable-lg{
+    font-size: 24px;
+}
+.lable-md{
+    font-size: 20px;
+}
+.lable-sm{
+    font-size: 16px;
+}
+.lable-xs{
+    font-size: 14px;
+}
+.lable-num{
+    font-size: 40px;
+    font-weight: bold;
+}
