@@ -1,0 +1,61 @@
+/* 全域按鈕骨架 */
+.my-btn {
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center; 
+    width: auto;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s; /* 讓變色平滑一點 */
+}
+.pill{
+    border-radius: 50px;
+}
+.square{
+    border-radius: 8px;
+}
+
+/* 預設顏色 */
+.btn-primary {
+    background-color: #4A6FFE;
+    color: #FAFAFA;
+}
+.btn-primary:hover{
+    background-color: #324BAD;
+    color: #FAFAFA;
+    transform: translateY(-2px);
+}
+/* 黃色按鈕 */
+.btn-yellow{
+    background-color: #FED94A;
+    color: #333;
+}
+.btn-yellow:hover{
+    background-color: #FEE584;
+    color: #333;
+    transform: translateY(-2px);
+}
+/* 綠色按鈕 */
+.btn-green{
+    background-color: #C8F55A;
+    color: #333;
+    border: #333 1px solid;
+}
+.btn-green:hover{
+    background-color: #A8CE4C;
+    color: #333;
+    border: #333 1px solid;
+    transform: translateY(-2px);
+}
+/* 黑色按鈕 */
+.btn-black {
+    background-color: #333;
+    color: #FAFAFA;
+}
+.btn-black:hover {
+    background-color: #FAFAFA;
+    color: #333;
+    border: 1px solid #333;
+    transform: translateY(-2px);
+}
+

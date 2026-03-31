@@ -1,0 +1,48 @@
+/* 標籤骨架 */
+.my-lable {
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center; 
+    width: auto;
+    border: #333 1px solid;
+    transition: 0.3s;
+}
+/* 藥片型/方形 */
+.pill{
+    border-radius: 50px;
+}
+.square{
+    border-radius: 8px;
+}
+
+.lable-primary {
+    background-color: #4A6FFE;
+    color: #FAFAFA;
+}
+/* 黃色按鈕 */
+.lable-yellow{
+    background-color: #FED94A;
+    color: #333;
+}
+
+/* 綠色按鈕 */
+.lable-green{
+    background-color: #C8F55A;
+    color: #333;
+}
+
+/* 白色按鈕 */
+.lable-white {
+    background-color: #FAFAFA;
+    color:#333 ;
+}
+
+.lable-disable{
+    background-color: #E0E0E0;
+    color: #333;
+}
+.lable-tag{
+    background-color: white;
+    color: #4A6FFE;
+    border: 1px solid #4A6FFE;
+}
