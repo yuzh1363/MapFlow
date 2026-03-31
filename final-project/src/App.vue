@@ -16,7 +16,6 @@ import TempleteCard from './components/TempleteCard.vue';
   <Bagde text="基礎" type="white" size="size-sm" border="square"></Bagde>
   <Bagde text="未啟用" type="tag" size="size-sm" border="pill"></Bagde>
   <hr>
-  <hr>
   <h2>卡片組件</h2>
   <SearchCard></SearchCard>
   <TempleteCard></TempleteCard>

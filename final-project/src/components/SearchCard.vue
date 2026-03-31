@@ -7,7 +7,7 @@
         <div class="job-cta">
             <div class="tag-container">
                 <div class="tag">
-                    <img src="../assets/node.svg" alt="node">20
+                    <img src="../assets/images/node.svg" alt="node">20
                 </div>
                 <Bagde text="資訊科技" type="green" border="square" size="size-xs"></Bagde>
             </div>

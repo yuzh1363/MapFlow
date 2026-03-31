@@ -11,15 +11,15 @@
             </div>
             <div class="tags">
                 <div class="tag">
-                    <img src="../assets/node.svg" alt="node">
+                    <img src="../assets/images/node.svg" alt="node">
                     200+
                 </div>
                 <div class="tag">
-                    <img src="../assets/user.svg" alt="">
+                    <img src="../assets/images/user.svg" alt="">
                     2
                 </div>
                 <div class="tag">
-                    <img src="../assets/star.svg" alt="">
+                    <img src="../assets/images/star.svg" alt="">
                     5.0(16)
                 </div>
             </div>
