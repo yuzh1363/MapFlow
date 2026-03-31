@@ -7,7 +7,10 @@
             <div class="mb-3">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="說說你遇到的問題"></textarea>
             </div>
-            <MyButton text="送出" type="green" border="square" size="size-sm"></MyButton>
+            <div class="d-flex justify-content-end">
+                <MyButton text="送出" type="green" border="square" size="size-sm" ></MyButton>
+            </div>
+            
         </form>
     </div>
 </template>
@@ -19,9 +22,11 @@ import MyButton from './MyButton.vue'
 <style scoped>
 .input-card{
     width: 500px;
+    height: 250px;
     padding: 32px 24px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 1px 1px 12px #dfdfdf ;
 }
+
 </style>
