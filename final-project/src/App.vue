@@ -1,8 +1,8 @@
 <script setup>
+  import LearningCard from './components/LearningCard.vue';
 </script>
 
 <template>
-  <Header></Header>
-  
+  <LearningCard/>
   
 </template>
