@@ -1,6 +1,7 @@
 <script setup>
   import { useAuthStore } from '../stores/auth';
   import { storeToRefs } from 'pinia';
+  import MyButton from './MyButton.vue';
 
   const authStore = useAuthStore();
   const { isLoggedIn } = storeToRefs(authStore);
@@ -14,28 +15,30 @@
     <nav class="navbar py-3 px-4 d-flex justify-content-between align-items-center">
     <div class="navbar-brand-group d-flex align-items-center gap-2">
       <div class="icon">
-        <img src="/BrandName.png" alt="MapFlow" height="24">
+        <img src="../assets/images/BrandName.png" alt="MapFlow" height="24">
       </div>
       <div class="name">
-        <img src="/LogoIcon.png" alt="Logo Icon" height="32">
+        <img src="../assets/images/LogoIcon.png" alt="Logo Icon" height="32">
       </div>
     </div>
 
     <div class="nav-links d-flex justify-content-between align-items-center">
       <ul class="nav d-flex gap-4 list-unstyled mb-0">
-        <li><a href="#" class="nav-link p-0">角色總覽</a></li>
-        <li><a href="#" class="nav-link p-0">技能總覽</a></li>
-        <li><a href="#" class="nav-link p-0">樣板商店</a></li>
-        <li><a href="#" class="nav-link p-0">聯絡我們</a></li>
+        <li><a href="#" class="nav-link p-0">開始探索</a></li>
+        <li><a href="#" class="nav-link p-0">角色樹洞</a></li>
+        <li><a href="#" class="nav-link p-0">樣板市集</a></li>
+        <li><a href="#" class="nav-link p-0">關於我們</a></li>
       </ul>
 
       <div class="auth-section ms-4">
         <div v-if="isLoggedIn" class="user" @click="handleLogout">
-          <img src="/avatar.png" alt="user" class="avatar">
+          <img src="../assets/images/avatar.png" alt="user" class="avatar">
         </div>
         <div v-else class="button d-flex gap-2">
-          <button class="btn btn-warning">註冊</button>
-          <button class="btn btn-primary" @click="authStore.login({}, 'test_token')">登入</button>
+          <MyButton text="註冊" type="yellow" border="pill" size="size-sm"></MyButton>
+          <MyButton text="登入" type="primary" border="pill" size="size-sm" @click="authStore.login({}, 'test_token')"></MyButton>
+          <!-- <button class="btn btn-warning">註冊</button>
+          <button class="btn btn-primary" @click="authStore.login({}, 'test_token')">登入</button> -->
         </div>
       </div>
     </div>
@@ -76,6 +79,7 @@
   display: inline-block; 
 
   &:hover {
+    color: var(--color-bg-primary);
     border-bottom: 2px solid var(--color-bg-primary);
   }
 }

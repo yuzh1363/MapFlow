@@ -1,9 +1,9 @@
 <script setup>
-  import FlipCard from './components/FlipCard.vue';
+  import Header from './components/Header.vue'
 </script>
 
 <template>
-  <FlipCard/>
+  <Header/>
   
   
 </template>
