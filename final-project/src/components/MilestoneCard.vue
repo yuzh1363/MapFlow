@@ -12,7 +12,7 @@
 
 <style scoped>
 .milestone-card{
-    background-color: var(--color-neutral-500);
+    background-color: var(--color-neutral-50);
     width: 180px;
     border-radius: 16px;
     padding: 8px 20px;
