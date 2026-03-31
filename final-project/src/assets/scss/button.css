@@ -12,50 +12,50 @@
     border-radius: 50px;
 }
 .square{
-    border-radius: 8px;
+    border-radius: var(--radius-base);
 }
 
 /* 預設顏色 */
 .btn-primary {
-    background-color: #4A6FFE;
-    color: #FAFAFA;
+    background-color: var(--color-primary);
+    color: var(--color-neutral-50);
 }
 .btn-primary:hover{
-    background-color: #324BAD;
-    color: #FAFAFA;
+    background-color: var(--color-primary);
+    color: var(--color-neutral-50);
     transform: translateY(-2px);
 }
 /* 黃色按鈕 */
 .btn-yellow{
     background-color: #FED94A;
-    color: #333;
+    color: var(--color-neutral-900);
 }
 .btn-yellow:hover{
     background-color: #FEE584;
-    color: #333;
+    color: var(--color-neutral-900);
     transform: translateY(-2px);
 }
 /* 綠色按鈕 */
 .btn-green{
     background-color: #C8F55A;
-    color: #333;
-    border: #333 1px solid;
+    color: var(--color-neutral-900);
+    border: var(--color-neutral-900) 1px solid;
 }
 .btn-green:hover{
     background-color: #A8CE4C;
-    color: #333;
-    border: #333 1px solid;
+    color: var(--color-neutral-900);
+    border: var(--color-neutral-900) 1px solid;
     transform: translateY(-2px);
 }
 /* 黑色按鈕 */
 .btn-black {
-    background-color: #333;
-    color: #FAFAFA;
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-50);
 }
 .btn-black:hover {
-    background-color: #FAFAFA;
-    color: #333;
-    border: 1px solid #333;
+    background-color: var(--color-neutral-50);
+    color: var(--color-neutral-900);
+    border: 1px solid var(--color-neutral-900);
     transform: translateY(-2px);
 }
 
