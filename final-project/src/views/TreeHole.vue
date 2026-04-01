@@ -1,13 +1,16 @@
 <template>
     <div class="treehole-page">
-        <div class="main-frame sticky-top ">
-            <div class="container d-flex flex-column flex-md-row justify-content-between">
-                <div class="text-container d-flex flex-column justify-content-end align-items-start">
-                    <h1 class="">角色樹洞</h1>
+        <div class="main-frame sticky-top">
+            <div class="container d-flex flex-column flex-lg-row justify-content-between gap-5">
+                <div class="text-container d-flex flex-column justify-content-end align-items-start w-100 w-lg-50 position-relative">
+                    <h1 class="display-4 fw-bold">角色樹洞</h1>
                     <p>這是角色樹洞介紹</p>
                     <img src="../assets/images/treeholeimg.png" alt="">
                 </div>
-                <InputCard></InputCard>
+                <div class="w-100 w-lg-50 d-flex justify-content-center justify-content-lg-end">
+                    <InputCard></InputCard>
+                </div>
+                
             </div>
         </div>
         <div class="root-container  position-relative mt-5" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }">
@@ -68,9 +71,11 @@ onUnmounted(() => {
 }
 img{
     position: absolute;
-    width: 500px;
+    max-width: 100%;
+    height: auto;
     top: 14px;
-    left: 140px;
+    left: 160px;
+    z-index: -1;
 }
 h1,p{
     color: var(--color-neutral-50);

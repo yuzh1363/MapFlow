@@ -3,7 +3,7 @@
         <div class="main-frame sticky-top">
             <div class="container d-flex flex-column flex-md-row">
                 <div class="text-container d-flex flex-column justify-content-center align-items-start">
-                    <h1 class="">樣板市集</h1>
+                    <h1 class="display-4 fw-bold">樣板市集</h1>
                     <p>這是樣板市集介紹</p>
                 </div>
                 <img src="../assets/images/templeteimg.png" >
@@ -79,7 +79,10 @@ onUnmounted(() => {
     position: relative;
 }
 img{
-    width: 600px;
+    max-width: 600px;
+    min-width: 350px;
+    height: auto; 
+    object-fit: contain;
     z-index: 1;
 }
 h1,p{

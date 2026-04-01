@@ -1,5 +1,5 @@
 <template>
-    <div class="input-card">
+    <div class="input-card w-100 w-md-50 w-lg-25">
         <form>
             <div class="mb-3">
                 <input class="form-control" type="text" placeholder="輸入你的職業" aria-label="default input example">
