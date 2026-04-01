@@ -9,7 +9,7 @@
                 <img src="../assets/images/templeteimg.png" alt="" >
             </div>
         </div>
-        <div class="root-container  position-relative" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }" style="z-index: 1040; margin-top: 400px; min-height: 100vh;">
+        <div class="root-container  position-relative" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }" style="z-index: 1010; margin-top: 400px; min-height: 100vh;">
             <div class="container">
                 <div class="d-flex flex-column align-items-end">
                     <SearchBar text="樣板檢索" class="mb-3"></SearchBar>
