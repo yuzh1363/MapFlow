@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router';
-
 import Templete from '../views/Templete.vue'
 import TreeHole from '../views/TreeHole.vue'
 import Search from '../views/Search.vue'

@@ -1,5 +1,14 @@
 <script setup>
+  import { useRouter } from 'vue-router';
+  import { useAuthStore } from '../stores/auth';
   import MyButton from '../components/MyButton.vue';
+
+  const router = useRouter();
+  const authStore = useAuthStore();
+  const handleLogin = () => {
+    authStore.login({ name: '測試員'}, 'test_token_456');
+    router.push('/');
+  };
 </script>
 
 <template>

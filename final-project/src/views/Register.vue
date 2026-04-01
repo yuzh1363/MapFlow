@@ -1,5 +1,15 @@
 <script setup>
+  import { useRouter } from 'vue-router';
+  import { useAuthStore } from '../stores/auth';
   import MyButton from '../components/MyButton.vue';
+
+  const router = useRouter();
+  const authStore = useAuthStore();
+  const handleRegister = () => {
+    authStore.login({ name: '新使用者'}, 'fake_token_123');
+    router.push('/');
+  };
+
 </script>
 
 <template>

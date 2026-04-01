@@ -13,7 +13,7 @@ import Register from './views/Register.vue';
   </main>
   
   
-  <!-- <Register/> -->
+  <Register/>
   <!-- <Login/> -->
   <Footer></Footer>
 </template>
