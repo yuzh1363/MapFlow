@@ -8,5 +8,5 @@ import Header from './components/Header.vue'
   <Header class="sticky-top"></Header>
   <RouterView></RouterView>
   
-  <!-- <Footer class="fixed-bottom"></Footer> -->
+  <Footer></Footer>
 </template>
