@@ -1,15 +1,15 @@
 <template>
     <footer>
-        <div class="container h-100 d-flex flex-column justify-content-between align-items-center">
+        <div class="container h-100 d-flex flex-column justify-content-between align-items-center gap-5 gap-md-3">
             <div class="nav-links d-flex justify-content-between align-items-center">
-                <ul class="nav d-flex gap-4 list-unstyled mb-0">
+                <ul class="nav d-flex flex-column flex-md-row gap-4 list-unstyled mb-0">
                     <li><a href="#" class="nav-link p-0">開始探索</a></li>
                     <li><a href="#" class="nav-link p-0">角色樹洞</a></li>
                     <li><a href="#" class="nav-link p-0">樣板市集</a></li>
                     <li><a href="#" class="nav-link p-0">關於我們</a></li>
                 </ul>
             </div>
-            <div class="contact-info w-75 d-flex justify-content-between ">
+            <div class="contact-info w-75 d-flex flex-column flex-md-row align-items-center justify-content-between ">
                 <div class="phone-info d-flex">
                     <i class="fa-solid fa-phone me-2"></i>
                     <span>0912-123-456</span>
@@ -42,7 +42,7 @@
 
 <style scoped>
 footer{
-    height: 350px;
+    /* height: 350px; */
     background-color: var(--color-neutral-900);
     color: var(--color-neutral-50);
     padding: var(--spacing-8);

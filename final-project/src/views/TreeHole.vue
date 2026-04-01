@@ -61,10 +61,7 @@ onUnmounted(() => {
     height: 400px;
     z-index: 1;
     top: 60px;
-}
-.main-frame>.container{
-    display: flex;
-    justify-content: space-between;
+    overflow: hidden
 }
 .text-container{
     position: relative;
