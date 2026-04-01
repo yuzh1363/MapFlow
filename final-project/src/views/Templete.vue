@@ -1,7 +1,7 @@
 <template>
     <div class="templete-page">
         <div class="main-frame sticky-top">
-            <div class="container">
+            <div class="container d-flex flex-column flex-md-row">
                 <div class="text-container d-flex flex-column justify-content-center align-items-start">
                     <h1 class="">樣板市集</h1>
                     <p>這是樣板市集介紹</p>
@@ -25,7 +25,7 @@
                 </div>
                 
                 <div class="content-container">
-                    <div class="row d-flex justify-content-star">
+                    <div class="row d-flex justify-content-start">
                         <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
                         <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
                         <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>

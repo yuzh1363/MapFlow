@@ -1,7 +1,7 @@
 <template>
     <div class="treehole-page">
         <div class="main-frame sticky-top ">
-            <div class="container">
+            <div class="container d-flex flex-column flex-md-row justify-content-between">
                 <div class="text-container d-flex flex-column justify-content-end align-items-start">
                     <h1 class="">角色樹洞</h1>
                     <p>這是角色樹洞介紹</p>
@@ -14,16 +14,14 @@
             <div class="container">
                 <h2 class="mb-3 ">樹洞紀錄</h2>
                 <div class="content-container">
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TreeHoleCard></TreeHoleCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TreeHoleCard></TreeHoleCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TreeHoleCard></TreeHoleCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TreeHoleCard></TreeHoleCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TreeHoleCard></TreeHoleCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TreeHoleCard></TreeHoleCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TreeHoleCard></TreeHoleCard></div>
+                    <div class="row d-flex flex-column flex-md-row align-items-center align-items-md-start">
+                        <div class="col-10 col-md-6 col-lg-4 mb-4 mx-auto"><TreeHoleCard></TreeHoleCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4 mx-auto"><TreeHoleCard></TreeHoleCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4 mx-auto"><TreeHoleCard></TreeHoleCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4 mx-auto"><TreeHoleCard></TreeHoleCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4 mx-auto"><TreeHoleCard></TreeHoleCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4 mx-auto"><TreeHoleCard></TreeHoleCard></div>
                     </div>
-                    
                 </div>
             </div>
         </div>

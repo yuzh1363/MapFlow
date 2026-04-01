@@ -21,7 +21,8 @@ import MyButton from './MyButton.vue'
 
 <style scoped>
 .input-card{
-    width: 500px;
+    width:500px ;
+    min-width: 300px;
     height: 250px;
     padding: 32px 24px;
     background-color: #fff;

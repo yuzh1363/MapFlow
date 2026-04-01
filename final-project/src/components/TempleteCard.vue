@@ -37,6 +37,7 @@
     border: 1px solid #757575;
     box-shadow: 1px 1px 12px #dfdfdf ;
     border-radius: 12px;
+    background-color: var(--color-bg-primary);
 }
 .card-container{
     padding: 16px 24px;
