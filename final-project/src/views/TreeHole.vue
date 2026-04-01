@@ -1,6 +1,6 @@
 <template>
     <div class="treehole-page">
-        <div class="main-frame fixed-top">
+        <div class="main-frame fixed-top " style="top: 60px;">
             <div class="container">
                 <div class="text-container d-flex flex-column justify-content-end align-items-start">
                     <h1 class="">角色樹洞</h1>
