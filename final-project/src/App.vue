@@ -11,6 +11,6 @@ import Register from './views/Register.vue';
   <!-- <RouterView> -->
   
   <!-- <Register/> -->
-  <Login/>
+  <!-- <Login/> -->
   <!-- <Footer class="fixed-bottom"></Footer> -->
 </template>
