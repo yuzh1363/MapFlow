@@ -1,11 +1,12 @@
 <script setup>
-  import Header from './components/Header.vue'
+  import Footer from './components/Footer.vue';
+import Header from './components/Header.vue'
 import TreeHole from './views/TreeHole.vue';
 </script>
 
 <template>
   <Header class="sticky-top"></Header>
-  <!-- <TreeHole></TreeHole> -->
+  <!-- <RouterView> -->
   
-  
+  <Footer class="fixed-bottom"></Footer>
 </template>
