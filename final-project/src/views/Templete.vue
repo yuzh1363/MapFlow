@@ -1,0 +1,85 @@
+<template>
+    <div class="templete-page">
+        <div class="main-frame fixed-top">
+            <div class="container">
+                <div class="text-container d-flex flex-column justify-content-center align-items-start">
+                    <h1 class="">樣板市集</h1>
+                    <p>這是樣板市集介紹</p>
+                </div>
+                <img src="../assets/images/templeteimg.png" alt="" >
+            </div>
+        </div>
+        <div class="root-container  sticky-top" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }">
+            <div class="container">
+                <h2 class="mb-3 ">換成搜尋列</h2>
+                <div class="content-container">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</template>
+
+<script setup>
+import TempleteCard from '../components/TempleteCard.vue'
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const isSticky = ref(false)
+const handleScroll = () => {
+  isSticky.value = window.scrollY > 400;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+</script>
+
+<style scoped>
+.templete-page{
+    background-color: #001354;
+}
+.main-frame{
+    background-color: #001354;
+    padding: var(--spacing-10) var(--spacing-24);
+    height: 400px;
+    z-index: 1;
+}
+.main-frame>.container{
+    display: flex;
+    justify-content: space-between;
+}
+.text-container{
+    position: relative;
+}
+img{
+    width: 600px;
+}
+h1,p{
+    color: var(--color-neutral-50);
+}
+.root-container{
+    border-radius: 40px 40px 0 0 ;
+    transition: border-radius 0.3s;
+    padding: var(--spacing-12) 0;
+    background-color: var(--color-bg-primary);
+    margin-top:400px;
+    z-index: 2;
+}
+.no-radius {
+  border-radius: 0;
+}
+</style>
