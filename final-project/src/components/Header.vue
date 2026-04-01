@@ -42,13 +42,8 @@
             <img src="../assets/images/avatar.png" alt="user" class="avatar">
           </div>
           <div v-else class="auth-buttons">
-            <MyButton text="註冊" type="yellow" border="pill" size="size-sm" @click="gotoRegister"/>
-            <MyButton 
-              text="登入" 
-              type="primary" 
-              border="pill" 
-              size="size-sm" 
-              @click="gotoLogin" />
+            <router-link to="/Register"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"/></router-link>         
+            <router-link to="/Login"><MyButton text="登入" type="primary" border="pill" size="size-sm" /></router-link>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ import Register from './views/Register.vue';
   <Header class="sticky-top"></Header>
   <RouterView></RouterView>
   
-  <Register/>
+  <!-- <Register/> -->
   <!-- <Login/> -->
   <!-- <Footer class="fixed-bottom"></Footer> -->
 </template>
