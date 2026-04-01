@@ -7,8 +7,8 @@ import Register from './views/Register.vue';
 </script>
 
 <template>
-  <!-- <Header class="sticky-top"></Header> -->
-  <!-- <RouterView> -->
+  <Header class="sticky-top"></Header>
+  <RouterView></RouterView>
   
   <!-- <Register/> -->
   <!-- <Login/> -->

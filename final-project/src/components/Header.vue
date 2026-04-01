@@ -24,10 +24,10 @@
 
     <div class="nav-links d-flex justify-content-between align-items-center">
       <ul class="nav d-flex gap-4 list-unstyled mb-0">
-        <li><a href="#" class="nav-link p-0">開始探索</a></li>
-        <li><a href="#" class="nav-link p-0">角色樹洞</a></li>
-        <li><a href="#" class="nav-link p-0">樣板市集</a></li>
-        <li><a href="#" class="nav-link p-0">關於我們</a></li>
+        <RouterLink to="/"><li class="nav-link p-0">開始探索</li></RouterLink>
+        <RouterLink to="/treeHole"><li class="nav-link p-0">角色樹洞</li></RouterLink>
+        <RouterLink to="/templete"><li class="nav-link p-0">樣板市集</li></RouterLink>
+        <RouterLink><li class="nav-link p-0">關於我們</li></RouterLink>
       </ul>
 
       <div class="auth-section ms-4">
