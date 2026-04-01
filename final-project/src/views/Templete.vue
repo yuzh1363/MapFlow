@@ -11,10 +11,21 @@
         </div>
         <div class="root-container  sticky-top" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }">
             <div class="container">
-                <h2 class="mb-3 ">換成搜尋列</h2>
+                <div class="d-flex flex-column align-items-end">
+                    <SearchBar text="樣板檢索" class="mb-3"></SearchBar>
+                    <div class="btn-group mb-3">
+                        <button class="btn dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                            最高分
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                            <li><a class="dropdown-item" href="#">最新</a></li>
+                            <li><a class="dropdown-item" href="#">最熱門</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
                 <div class="content-container">
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                    <div class="row d-flex justify-content-star">
                         <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
                         <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
                         <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
@@ -32,6 +43,7 @@
 
 <script setup>
 import TempleteCard from '../components/TempleteCard.vue'
+import SearchBar from '../components/SearchBar.vue'
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const isSticky = ref(false)
@@ -81,5 +93,15 @@ h1,p{
 }
 .no-radius {
   border-radius: 0;
+}
+.btn-group{
+    width: 100px;
+}
+.btn-group>button,.dropdown-menu{
+    background-color: var(--color-neutral-900);
+    color: var(--color-neutral-50);
+}
+.dropdown-item{
+    color: var(--color-neutral-50);
 }
 </style>
