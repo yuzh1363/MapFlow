@@ -56,7 +56,7 @@
       .role {
         color: var(--color-text-primary);
         font-size: var(--font-size-xl);
-        font-family: var();
+        font-family: "Noto Sans TC";
         font-weight: 600;
       }
 
