@@ -64,7 +64,6 @@
   right: 0;
   z-index: var(--z-index-sticky);
   background-color: var(--color-text-primary);
-  border-bottom: 1px solid var(--color-neutral-200);
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
 }
