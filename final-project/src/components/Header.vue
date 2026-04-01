@@ -11,7 +11,7 @@
 </script>
 
 <template>
-  <header>
+  <header class="fixed-top">
     <nav class="navbar py-3 px-4 d-flex justify-content-between align-items-center">
     <div class="navbar-brand-group d-flex align-items-center gap-2">
       <div class="icon">
@@ -27,7 +27,7 @@
         <RouterLink to="/"><li class="nav-link p-0">開始探索</li></RouterLink>
         <RouterLink to="/treeHole"><li class="nav-link p-0">角色樹洞</li></RouterLink>
         <RouterLink to="/templete"><li class="nav-link p-0">樣板市集</li></RouterLink>
-        <RouterLink><li class="nav-link p-0">關於我們</li></RouterLink>
+        <RouterLink to="/"><li class="nav-link p-0">關於我們</li></RouterLink>
       </ul>
 
       <div class="auth-section ms-4">
@@ -35,8 +35,9 @@
           <img src="../assets/images/avatar.png" alt="user" class="avatar">
         </div>
         <div v-else class="button d-flex gap-2">
-          <MyButton text="註冊" type="yellow" border="pill" size="size-sm"></MyButton>
-          <MyButton text="登入" type="primary" border="pill" size="size-sm" @click="authStore.login({}, 'test_token')"></MyButton>
+          <RouterLink to="/register"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"></MyButton></RouterLink>
+          <RouterLink to="/login"><MyButton text="登入" type="primary" border="pill" size="size-sm" @click=""></MyButton></RouterLink>
+          
           <!-- <button class="btn btn-warning">註冊</button>
           <button class="btn btn-primary" @click="authStore.login({}, 'test_token')">登入</button> -->
         </div>
@@ -49,13 +50,10 @@
 
 <style scoped>
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  
   z-index: var(--z-index-sticky);
   background-color: var(--color-text-primary);
-  border-bottom: 1px solid var(--color-neutral-200);
+  
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="templete-page">
-        <div class="main-frame fixed-top">
+        <div class="main-frame fixed-top" style="top: 60px;">
             <div class="container">
                 <div class="text-container d-flex flex-column justify-content-center align-items-start">
                     <h1 class="">樣板市集</h1>
@@ -9,7 +9,7 @@
                 <img src="../assets/images/templeteimg.png" alt="" >
             </div>
         </div>
-        <div class="root-container  sticky-top" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }">
+        <div class="root-container  position-relative" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }" style="z-index: 1040; margin-top: 400px; min-height: 100vh;">
             <div class="container">
                 <div class="d-flex flex-column align-items-end">
                     <SearchBar text="樣板檢索" class="mb-3"></SearchBar>
@@ -67,7 +67,7 @@ onUnmounted(() => {
 .main-frame{
     background-color: #001354;
     padding: var(--spacing-10) var(--spacing-24);
-    height: 400px;
+    height: 500px;
     z-index: 1;
 }
 .main-frame>.container{
@@ -88,8 +88,6 @@ h1,p{
     transition: border-radius 0.3s;
     padding: var(--spacing-12) 0;
     background-color: var(--color-bg-primary);
-    margin-top:400px;
-    z-index: 2;
 }
 .no-radius {
   border-radius: 0;

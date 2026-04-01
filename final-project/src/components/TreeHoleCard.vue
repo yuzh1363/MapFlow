@@ -33,7 +33,6 @@
 
 <style scoped lang="scss">
 .tree-hole-card {
-  width: 346px;
   height: auto;
   border: 1px solid var(--color-neutral-200);
   border-radius: var(--radius-md);

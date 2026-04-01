@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Templete from '../views/Templete.vue'
 import TreeHole from '../views/TreeHole.vue'
 import Search from '../views/Search.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 
 const routes = [
     {
@@ -19,6 +21,16 @@ const routes = [
         path: '/treeHole',
         name: 'treeHole',
         component: TreeHole
+    },
+    {
+        path: '/login',
+        name: 'login',
+        component: Login
+    },
+    {
+        path: '/register',
+        name: 'register',
+        component: Register
     }
 ];
 
