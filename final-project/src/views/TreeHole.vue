@@ -1,6 +1,6 @@
 <template>
     <div class="treehole-page">
-        <div class="main-frame fixed-top " style="top: 60px;">
+        <div class="main-frame sticky-top ">
             <div class="container">
                 <div class="text-container d-flex flex-column justify-content-end align-items-start">
                     <h1 class="">角色樹洞</h1>
@@ -10,7 +10,7 @@
                 <InputCard></InputCard>
             </div>
         </div>
-        <div class="root-container  sticky-top" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }">
+        <div class="root-container  position-relative mt-5" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }">
             <div class="container">
                 <h2 class="mb-3 ">樹洞紀錄</h2>
                 <div class="content-container">
@@ -59,6 +59,7 @@ onUnmounted(() => {
     padding: var(--spacing-10) var(--spacing-24);
     height: 400px;
     z-index: 1;
+    top: 60px;
 }
 .main-frame>.container{
     display: flex;
@@ -81,8 +82,8 @@ h1,p{
     transition: border-radius 0.3s;
     padding: var(--spacing-12) 0;
     background-color: var(--color-bg-primary);
-    margin-top:400px;
-    z-index: 2;
+    z-index: 1010;  
+    min-height: 100vh;
 }
 .no-radius {
   border-radius: 0;

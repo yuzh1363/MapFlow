@@ -42,7 +42,7 @@
 
 <style scoped>
 footer{
-    height: 370px;
+    height: 350px;
     background-color: var(--color-neutral-900);
     color: var(--color-neutral-50);
     padding: var(--spacing-8);
