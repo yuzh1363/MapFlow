@@ -1,7 +1,7 @@
 <template>
     <div class="searchbar px-1 py-2">
         <div class="input-group">
-            <input type="text" class="form-control py-2" placeholder="請輸入" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" class="form-control py-2" :placeholder="[`${text}`]" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <button type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </div>
@@ -9,7 +9,9 @@
 </template>
 
 <script setup>
-
+const props = defineProps({
+  text: String,
+});
 </script>
 
 <style scoped>
