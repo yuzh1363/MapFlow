@@ -5,7 +5,7 @@
                 <div class="text-container d-flex flex-column justify-content-end align-items-start">
                     <h1 class="">角色樹洞</h1>
                     <p>這是角色樹洞介紹</p>
-                    <img src="../assets/images/treeholeimg.svg" alt="">
+                    <img src="../assets/images/treeholeimg.png" alt="">
                 </div>
                 <InputCard></InputCard>
             </div>

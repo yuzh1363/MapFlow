@@ -9,16 +9,16 @@
                     <li><a href="#" class="nav-link p-0">關於我們</a></li>
                 </ul>
             </div>
-            <div class="contact-info w-75 d-flex justify-content-between">
-                <div class="phone-info">
+            <div class="contact-info w-75 d-flex justify-content-between ">
+                <div class="phone-info d-flex">
                     <i class="fa-solid fa-phone me-2"></i>
                     <span>0912-123-456</span>
                 </div>
-                <div class="addr-info">
+                <div class="addr-info d-flex">
                     <i class="fa-solid fa-location-dot me-2"></i>
                     <span>臺北市大安區復興南路一段390號2樓</span>
                 </div>
-                <div class="email-info">
+                <div class="email-info d-flex">
                     <i class="fa-solid fa-envelope me-2"></i>
                     <span>service@mapflow.com</span>
                 </div>
@@ -53,4 +53,5 @@ footer{
 i{
     font-size: 25px;
 }
+
 </style>
