@@ -5,7 +5,11 @@
 <template>
   <div class="login-page">
     <div class="login-pic">
-      <img src="../assets/images/Login.png" alt="Login pic">
+      <img class="bg-layer" src="../assets/images/Login_bg.png" alt="Login pic">
+      <img class="character cloudmen" src="../assets/images/cloudmen.png" alt="cloudmen">
+      <img class="character scott" src="../assets/images/scott.png" alt="scott">
+      <img class="character peggy" src="../assets/images/peggy.png" alt="peggy">
+      <img class="character wei" src="../assets/images/wei.png" alt="wei">
     </div>
 
     <div class="login-form-section">
@@ -26,7 +30,7 @@
         <div class="login-input-group">
           <input type="email" placeholder="電子信箱" class="styled-input">
           <input type="password" placeholder="密碼" class="styled-input">
-          <MyButton text="登入" type="primary" border="square" size="size-lg" class="full-width-btn"></MyButton>
+          <MyButton text="登入" type="primary" border="square" size="size-sm" class="full-width-btn"></MyButton>
         </div>
 
         <span class="forget-code">忘記密碼</span>
@@ -46,10 +50,36 @@
 .login-pic {
   flex: 1;
   height: 100vh;
-  img {
-    // width: 60%;
+  position: relative;
+  overflow: hidden;
+  .bg-layer {
+    width: 100%;
     height: 100%;
     object-fit: cover;
+    z-index: 1;
+  }
+  .character{
+    position: absolute;
+    z-index: 2;
+  }
+  .cloudmen{
+    width: 60%;
+    right: 400px;
+    top: 120px;
+  }
+  .wei{
+    right: 300px;
+    top: 400px;
+  }
+  .scott{
+    width: 60%;
+    right: -110px;
+    top: 40px;
+  }
+  .peggy{
+    width: 60%;
+    right: -110px;
+    top: 352px;
   }
 }
 
@@ -59,6 +89,7 @@
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  margin-top: 50px;
 }
 
 .content-wrapper {
@@ -114,7 +145,7 @@
 .styled-input {
   width: 100%;
   padding: 12px 16px;
-  border: 1px solid #dbdbdb;
+  border: 2px solid #dbdbdb;
   border-radius: 8px;
   font-size: 16px;
   background-color: #f9f9f9;
@@ -122,7 +153,7 @@
   transition: border-color 0.2s;
   
   &:focus {
-    border-color: #4a72ff;
+    border-color: var(--color-primary);
     background-color: #fff;
   }
 }
