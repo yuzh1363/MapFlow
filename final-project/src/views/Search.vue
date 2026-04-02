@@ -2,10 +2,57 @@
 import SearchCard from '../components/SearchCard.vue';
 import Badge from '../components/Bagde.vue'
 import MyButton from '../components/MyButton.vue'
+import gsap from 'gsap'
+import { ref, onMounted } from 'vue'
+
+// 
+onMounted(() => {
+    const tl = gsap.timeline({
+        defaults:{
+            ease: "sine.inOut"
+        }
+    })
+    // 綠：左至右平移
+    tl.to(".green", {
+        x: 20,
+        duration: 2,
+
+    }, 0);
+    // 橘色：右至左平移
+    tl.to(".orange", {
+        x: -10,
+        duration: 2,
+
+    }, 0);
+    // 藍色：左至右
+    tl.to(".blue", {
+        x: 10,
+        scale:1.15,
+        duration: 2,
+    }, 0);
+    // MapFlow：下至上
+    gsap.from(".mapflow-logo",{
+        y:100,
+        opacity:0,
+        duration:1.5,
+        ease:"power3.out",
+        delay: 0.5
+    })
+})
+
 </script>
 
 <template>
-    <div style="height: 300px; background-color: #333;"></div>
+    <div class="hero-section">
+        <div class="hero-bg">
+            <img class="layer green" src="../assets/images/green_bg.png" alt="green">
+            <img class="layer orange" src="../assets/images/orange_bg.png" alt="orange">
+            <img class="layer blue" src="../assets/images/blue_bg.png" alt="blue">
+        </div>  
+        <div class="hero-content">
+            <img class="mapflow-logo" src="../assets/images/BrandName_bg.svg" alt="MapFlow">
+        </div>
+    </div>
     <div class="container">
         <div class="container px-5 mb-5">
             <h2>推薦角色</h2>
@@ -170,6 +217,69 @@ import MyButton from '../components/MyButton.vue'
 </template>
 
 <style scoped>
+.hero-section {
+    position: relative;
+    height: 80vh;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 70px;
+    border-radius: 0 0 100px 100px;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.layer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    object-fit: cover;
+}
+.green { 
+    z-index: 2; 
+    left: -10%;
+    bottom: 25%;
+}
+.orange { 
+    z-index: 3; 
+    right: -10%; 
+    bottom: 25%; 
+}
+.blue { 
+    z-index: 4; 
+    left: 0%;
+    bottom: 0%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    margin-top: -50px;
+}
+
+.mapflow-logo {
+    width: 800px;
+    margin-bottom: 2rem;
+    /* 讓瀏覽器提前準備 */
+    will-change: transform, opacity;
+}
+
+.container{
+    margin-top: 40px;
+}
+
 #carouselExampleIndicators {
     position: relative;
     padding: 0 60px;
