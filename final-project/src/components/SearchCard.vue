@@ -1,15 +1,15 @@
 <template>
     <div class="search-card">
         <div class="job-info">
-            <div class="card-title">AI機器學習工程師</div>
-            <div class="card-content line-clamp-4">負責開發與佈署機器學習模型，優化演算法效能並處理大規模數據集。需具備 Python 程式能力及深度學習框架（如 PyTorch、TensorFlow）的使用經驗，致力於將 AI 技術轉化為實際的產品解決方案。</div>
+            <div class="card-title">{{info?.title}}</div>
+            <div class="card-content line-clamp-4">{{info?.content}}</div>
         </div>
         <div class="job-cta">
             <div class="tag-container">
                 <div class="tag">
-                    <img src="../assets/images/node.svg" alt="node">20
+                    <img src="../assets/images/node.svg" alt="node">{{info?.node}}
                 </div>
-                <Bagde text="資訊科技" type="green" border="square" size="size-xs"></Bagde>
+                <div class="my-lable lable-green size-xs square">{{ info?.type }} </div>
             </div>
             <MyButton text="查看角色地圖" border="pill" size="size-sm"></MyButton>
         </div>
@@ -20,7 +20,11 @@
 import Bagde from './Bagde.vue';
 import MyButton from './MyButton.vue';
 
-
+const props = defineProps({
+    info:Object,
+    required: true, 
+    default: () => ({})
+})
 </script>
 
 <style scoped>
