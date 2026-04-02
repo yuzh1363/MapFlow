@@ -65,6 +65,9 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.searchbar{
+    width: 33%;
+}
 .templete-page{
     background-color: #001354;
 }
