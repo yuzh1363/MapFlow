@@ -1,11 +1,12 @@
 <script setup>
 import SearchCard from '../components/SearchCard.vue';
 import Badge from '../components/Bagde.vue'
+import MyButton from '../components/MyButton.vue'
 </script>
 
 <template>
     <div style="height: 300px; background-color: #333;"></div>
-    <div class="main-container">
+    <div class="container">
         <div class="container px-5 mb-5">
             <h2>推薦角色</h2>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -122,6 +123,47 @@ import Badge from '../components/Bagde.vue'
             </div>
             
         </div>
+        <div class="container overview-container px-5 mb-5">
+            <div class="tab d-flex justify-content-between">
+                <h2>總覽</h2>
+                <div>
+                    <MyButton text="角色" border="square" size="size-sm" class="me-2"></MyButton>
+                    <MyButton text="技能" type="yellow" border="square" size="size-sm"></MyButton>
+                </div>
+            </div>
+            <div class="card-container mt-4">
+                <div class="row d-flex">
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4">
+                        <SearchCard></SearchCard>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <MyButton text="查看更多" type="yellow" border="pill" size="size-md"></MyButton>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
@@ -164,5 +206,8 @@ import Badge from '../components/Bagde.vue'
 }
 .custom-carousel-row .col {
     flex: 0 0 auto;
+}
+.card-container,.tab{
+    padding: 0 var(--spacing-24);
 }
 </style>

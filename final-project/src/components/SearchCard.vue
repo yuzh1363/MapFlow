@@ -35,8 +35,12 @@ import MyButton from './MyButton.vue';
     border: 1px solid #757575;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 1px 1px 12px #dfdfdf ;
     background-color: var(--color-neutral-50);
+    transition: all 0.2s ease-in-out;
+}
+.search-card:hover{
+    box-shadow: 1px 1px 12px #c9c9c9 ;
+    
 }
 .job-info{
     display: flex;
