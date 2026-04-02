@@ -3,10 +3,11 @@ import SearchCard from '../components/SearchCard.vue';
 import Badge from '../components/Bagde.vue'
 import MyButton from '../components/MyButton.vue'
 import gsap from 'gsap'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-// 
+//Hero-section動畫
 onMounted(() => {
+    window.addEventListener('scroll', handleScroll)
     const tl = gsap.timeline({
         defaults:{
             ease: "sine.inOut"
@@ -15,13 +16,13 @@ onMounted(() => {
     // 綠：左至右平移
     tl.to(".green", {
         x: 20,
-        duration: 2,
+        duration: 1.5,
 
     }, 0);
     // 橘色：右至左平移
     tl.to(".orange", {
-        x: -10,
-        duration: 2,
+        x: -15,
+        duration: 1.5,
 
     }, 0);
     // 藍色：左至右
@@ -39,11 +40,26 @@ onMounted(() => {
         delay: 0.5
     })
 })
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+})
+
+//向下滾動hero慢慢變透明
+const heroOpacity = ref(1)
+const handleScroll = () => {
+    //捲動高度
+    const scrollTop = window.scrollY
+    //捲動多少距離後完全透明
+    const fadeDistance = window.innerHeight * 0.8
+    //計算透明度
+    let newOpacity = 1- (scrollTop/fadeDistance)
+    heroOpacity.value = Math.max(newOpacity,0)
+}
 
 </script>
 
 <template>
-    <div class="hero-section">
+    <div class="hero-section" :style="{opacity: heroOpacity}">
         <div class="hero-bg">
             <img class="layer green" src="../assets/images/green_bg.png" alt="green">
             <img class="layer orange" src="../assets/images/orange_bg.png" alt="orange">
@@ -290,4 +306,5 @@ onMounted(() => {
 .tab{
     padding: 0 var(--spacing-24);
 }
+
 </style>
