@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-import Bagde from './Bagde.vue';
 import MyButton from './MyButton.vue';
 
 const props = defineProps({

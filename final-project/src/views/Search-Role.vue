@@ -7,7 +7,6 @@ import { storeToRefs } from 'pinia';
 const search = usesearchStore()
 const{searchs} = storeToRefs(search)
 
-console.log(searchs.value)
 </script>
 
 <template>
