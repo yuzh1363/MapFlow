@@ -25,8 +25,10 @@ import MyButton from './MyButton.vue';
 
 <style scoped>
 .search-card{
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -34,6 +36,7 @@ import MyButton from './MyButton.vue';
     border-radius: 12px;
     padding: 20px;
     box-shadow: 1px 1px 12px #dfdfdf ;
+    background-color: var(--color-neutral-50);
 }
 .job-info{
     display: flex;
