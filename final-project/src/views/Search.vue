@@ -1,5 +1,6 @@
 <script setup>
 import SearchCard from '../components/SearchCard.vue';
+import Badge from '../components/Bagde.vue'
 </script>
 
 <template>
@@ -87,6 +88,39 @@ import SearchCard from '../components/SearchCard.vue';
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+        </div>
+        <div class="container tags-container px-5 mb-5">
+            <h2>熱門技能</h2>
+            <div class="tag-list-group f-flex flex-column">
+                <div class="tags-list d-flex justify-content-evenly mb-3">
+                    <Badge text="Photoshop" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Illustrator" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="After Effect" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Figma" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Sketch" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="InDesign" type="tag" border="pill" size="size-sm"></Badge>
+                </div>
+                <div class="tags-list d-flex justify-content-evenly mb-3">
+                    <Badge text="HTML5" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="CSS 3" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Javascript" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Vue.js" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="React" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Java" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="C#" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Gemini" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Claude" type="tag" border="pill" size="size-sm"></Badge>
+                </div>
+                <div class="tags-list d-flex justify-content-evenly">
+                    <Badge text="Adobe XD" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="User Research" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Design Thinking" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="色彩學" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="Wireframe" type="tag" border="pill" size="size-sm"></Badge>
+                    <Badge text="人機互動原則" type="tag" border="pill" size="size-sm"></Badge>
+                </div>
+            </div>
+            
         </div>
     </div>
 

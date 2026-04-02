@@ -46,3 +46,8 @@
     color: var(--color-primary);
     border: 1px solid var(--color-primary);
 }
+.lable-tag:hover{
+    background-color: var(--primary-blue-500);
+    color: var(--color-neutral-50);
+    /* transform: translateY(-2px); */
+}
