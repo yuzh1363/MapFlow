@@ -5,12 +5,26 @@ import Search from '../views/Search.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Error from '../views/Error.vue'
+import SearchRole from '../views/Search-Role.vue';
+import SearchSkill from '../views/Search-Skill.vue';
 
 const routes = [
     {
         path: '/',
         name: 'search',
-        component: Search
+        component: Search,
+        children: [
+            {
+                path: '',
+                name: 'role',
+                component: SearchRole,
+             },
+            {
+                path: 'skill',
+                name: 'skill',
+                component: SearchSkill,
+            }
+            ]
     },
     {
         path: '/templete',
@@ -37,6 +51,7 @@ const routes = [
         name: 'error',
         component: Error,
     }
+    
 ];
 
 const router = createRouter({
