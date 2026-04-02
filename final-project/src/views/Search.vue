@@ -16,20 +16,22 @@ onMounted(() => {
     // 綠：左至右平移
     tl.to(".green", {
         x: 20,
-        duration: 1.5,
+        scale:1.05,
+        duration: 2,
 
     }, 0);
     // 橘色：右至左平移
     tl.to(".orange", {
         x: -15,
+        scale:1.05,
         duration: 1.5,
 
     }, 0);
     // 藍色：左至右
     tl.to(".blue", {
         x: 10,
-        scale:1.15,
-        duration: 2,
+        scale:1.05,
+        duration: 1,
     }, 0);
     // MapFlow：下至上
     gsap.from(".mapflow-logo",{
@@ -232,6 +234,7 @@ const carouselLis3 = computed(() => {
     bottom: 25%; 
 }
 .blue { 
+    overflow: visible;
     z-index: 4; 
     left: 0%;
     bottom: 0%;
