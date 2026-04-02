@@ -2,7 +2,7 @@
     <div class="search-card">
         <div class="job-info">
             <div class="card-title">Photoshop</div>
-            <div class="card-content">為強大的視覺後援。設計師主要利用其精確的影像編修、去背與校色功能，來優化介面中的產品情境照或 Banner 素材，確保視覺層次的高度專業感。</div>
+            <div class="card-content line-clamp-4">為強大的視覺後援。設計師主要利用其精確的影像編修、去背與校色功能，來優化介面中的產品情境照或 Banner 素材，確保視覺層次的高度專業感。</div>
         </div>
         <div class="job-cta">
             <div class="tag-container">
@@ -60,5 +60,12 @@ import MyButton from './MyButton.vue';
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.line-clamp-4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    word-break: break-all; 
 }
 </style>
