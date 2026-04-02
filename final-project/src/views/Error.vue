@@ -32,7 +32,7 @@
   .error-img{
     position: relative;
     top: -120px;
-    left: 878px;
+    left: 1001px;
     img{
       width:30%
     }
