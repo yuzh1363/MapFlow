@@ -4,6 +4,7 @@ import Badge from '../components/Bagde.vue'
 import MyButton from '../components/MyButton.vue'
 import gsap from 'gsap'
 import { ref, onMounted, onUnmounted } from 'vue'
+import SearchBar from '../components/SearchBar.vue'
 
 //Hero-section動畫
 onMounted(() => {
@@ -88,6 +89,13 @@ const carouselLis3 = computed(() => {
         <div class="hero-content">
             <img class="mapflow-logo" src="../assets/images/BrandName_bg.svg" alt="MapFlow">
         </div>
+    </div>
+    <div class="search-section">
+        <div class="search-txt">
+            <h1 class="search-title">開啟專業學習地圖</h1>
+            <p class="search-subtitle">超過500+種職業角色與核心技能，打造專屬你的成長學習路徑</p>
+        </div>
+        <SearchBar text="角色學習、技能樹檢索" class="search-bar" color="blue"></SearchBar>
     </div>
     <div class="container">
         <div class="container px-5 mb-5">
@@ -232,6 +240,56 @@ const carouselLis3 = computed(() => {
     will-change: transform, opacity;
 }
 
+.search-bar {
+    width: 560px; 
+    margin-top: 20px;
+}
+
+.search-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 966px;
+    height: 313px;
+    position: relative;
+    margin: -195px auto 0 auto;
+    z-index: 20;
+    border-radius: 9999px;
+    background: rgba(175, 202, 219, 0.20);
+}
+
+.search-title{
+    color: #FFF;
+    text-align: center;
+    font-family: "Noto Sans TC";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.search-subtitle{
+    color: #FFF;
+    font-family: "Noto Sans TC";
+    font-size: 20px;
+    font-style: normal;
+    /* font-weight: 500; */
+    line-height: 24px;
+    letter-spacing: 0.5px;
+}
+
+.search-bar {
+    width: 600px;
+    margin-top: 20px;
+}
+
+.search-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    border: none;
+}
 .container{
     margin-top: 40px;
 }

@@ -73,22 +73,23 @@
   }
   .cloudmen{
     width: 60%;
-    right: 400px;
-    top: 120px;
+    left: -25%;
+    top: 15%;
   }
   .wei{
-    right: 300px;
-    top: 400px;
+    width: 25%;
+    left: 25%;
+    top: 65%;
   }
   .scott{
     width: 60%;
-    right: -110px;
-    top: 40px;
+    right: -12%;
+    top: 5%;
   }
   .peggy{
     width: 60%;
-    right: -110px;
-    top: 352px;
+    right: -25%; 
+    top: 55%;
   }
 }
 

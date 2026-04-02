@@ -1,34 +1,18 @@
 <script setup>
 import MyButton from '../components/MyButton.vue'
 import SearchSkill from '../components/SearchCardSkill.vue'
+import { usesearchStore } from '../stores/searchStore';
+import { storeToRefs } from 'pinia';
+
+const search = usesearchStore()
+const{skills} = storeToRefs(search)
 </script>
 
 <template>
     <div class="card-container mt-4">
                 <div class="row d-flex">
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchSkill></SearchSkill>
+                    <div class="col-10 col-sm-6 col-md-4 mb-4 " v-for="item in skills" :key="item.id">
+                        <SearchSkill :info="item"></SearchSkill>
                     </div>
                 </div>
                 <div class="text-center">
