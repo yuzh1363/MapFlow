@@ -30,6 +30,11 @@ const routes = [
         path: '/register',
         name: 'register',
         component: Register
+    },
+    {
+        path: '/error',
+        name: 'error',
+        component: Error,
     }
 ];
 
