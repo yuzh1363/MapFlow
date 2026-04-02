@@ -29,5 +29,8 @@ import MyButton from './MyButton.vue'
     border-radius: 12px;
     box-shadow: 1px 1px 12px #dfdfdf ;
 }
-
+input:focus,textarea:focus{
+    box-shadow: none;
+    border: 2px solid var(--color-neutral-900);
+}
 </style>

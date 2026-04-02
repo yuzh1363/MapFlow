@@ -21,28 +21,28 @@
     color: var(--color-neutral-50);
 }
 .btn-primary:hover{
-    background-color: var(--color-primary);
+    background-color: var(--primary-blue-700);
     color: var(--color-neutral-50);
     transform: translateY(-2px);
 }
 /* 黃色按鈕 */
 .btn-yellow{
-    background-color: #FED94A;
+    background-color: var(--Sec-yellow-500);
     color: var(--color-neutral-900);
 }
 .btn-yellow:hover{
-    background-color: #FEE584;
+    background-color: var(--Sec-yellow-600);
     color: var(--color-neutral-900);
     transform: translateY(-2px);
 }
 /* 綠色按鈕 */
 .btn-green{
-    background-color: #C8F55A;
+    background-color: var(--Sec-green-500);
     color: var(--color-neutral-900);
     border: var(--color-neutral-900) 1px solid;
 }
 .btn-green:hover{
-    background-color: #A8CE4C;
+    background-color: var(--Sec-green-600);
     color: var(--color-neutral-900);
     border: var(--color-neutral-900) 1px solid;
     transform: translateY(-2px);

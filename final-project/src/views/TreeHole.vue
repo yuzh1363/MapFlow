@@ -26,6 +26,9 @@
                         <div class="col-10 col-md-6 col-lg-4 mb-4 mx-auto"><TreeHoleCard></TreeHoleCard></div>
                     </div>
                 </div>
+                <div class="text-center">
+                    <MyButton text="查看更多" type="yellow" border="pill" size="size-md"></MyButton>
+                </div>
             </div>
         </div>
     </div>
@@ -34,6 +37,7 @@
 
 <script setup>
 import InputCard from '../components/InputCard.vue'
+import MyButton from '../components/MyButton.vue';
 import TreeHoleCard from '../components/TreeHoleCard.vue'
 import { ref, onMounted, onUnmounted } from 'vue';
 

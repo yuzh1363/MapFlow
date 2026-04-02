@@ -35,6 +35,9 @@
                     </div>
                     
                 </div>
+                <div class="text-center">
+                    <MyButton text="查看更多" type="primary" border="pill" size="size-md"></MyButton>
+                </div>
             </div>
         </div>
     </div>
@@ -45,6 +48,7 @@
 import TempleteCard from '../components/TempleteCard.vue'
 import SearchBar from '../components/SearchBar.vue'
 import { ref, onMounted, onUnmounted } from 'vue';
+import MyButton from '../components/MyButton.vue';
 
 const isSticky = ref(false)
 const handleScroll = () => {
