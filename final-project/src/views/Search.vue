@@ -40,6 +40,23 @@ onMounted(() => {
     })
 })
 
+import { useRouter } from 'vue-router';
+import { usesearchStore } from '../stores/searchStore';
+import { computed } from 'vue';
+const search = usesearchStore()
+const router = useRouter();
+
+const carouselList = computed(() => {
+  return search.searchs.slice(0, 4);
+});
+
+const carouselList2 = computed(() => {
+  return search.searchs.slice(4, 8);
+});
+
+const carouselLis3 = computed(() => {
+  return search.searchs.slice(8, 12);
+});
 </script>
 
 <template>
@@ -77,17 +94,8 @@ onMounted(() => {
                     <div class="carousel-item active">
                         <div class="container-fluid">
                             <div class="row flex-nowrap row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 custom-carousel-row">
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
+                                <div class="col" v-for="item in carouselList" :key="item.id">
+                                    <SearchCard :info="item"></SearchCard>
                                 </div>
                             </div>
                         </div>
@@ -95,17 +103,8 @@ onMounted(() => {
                     <div class="carousel-item">
                         <div class="container-fluid">
                             <div class="row flex-nowrap row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 custom-carousel-row">
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
+                                <div class="col" v-for="item in carouselList2" :key="item.id">
+                                    <SearchCard :info="item"></SearchCard>
                                 </div>
                             </div>
                         </div>
@@ -113,17 +112,8 @@ onMounted(() => {
                     <div class="carousel-item">
                         <div class="container-fluid">
                             <div class="row flex-nowrap row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 custom-carousel-row">
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
-                                </div>
-                                <div class="col">
-                                    <SearchCard></SearchCard>
+                                <div class="col" v-for="item in carouselLis3" :key="item.id">
+                                    <SearchCard :info="item"></SearchCard>
                                 </div>
                             </div>
                         </div>
