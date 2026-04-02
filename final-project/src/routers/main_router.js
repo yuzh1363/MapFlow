@@ -4,6 +4,7 @@ import TreeHole from '../views/TreeHole.vue'
 import Search from '../views/Search.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Error from '../views/Error.vue'
 
 const routes = [
     {

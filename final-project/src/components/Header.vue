@@ -34,7 +34,7 @@
           <RouterLink to="/" class="nav-item"><li>開始探索</li></RouterLink>
           <RouterLink to="/treeHole" class="nav-item"><li>角色樹洞</li></RouterLink>
           <RouterLink to="/templete" class="nav-item"><li>樣板市集</li></RouterLink>
-          <RouterLink class="nav-item"><li>關於我們</li></RouterLink>
+          <RouterLink to="/error" class="nav-item"><li>關於我們</li></RouterLink>
         </ul>
 
         <div class="auth-wrapper">
