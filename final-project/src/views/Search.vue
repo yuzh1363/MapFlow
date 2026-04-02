@@ -16,20 +16,22 @@ onMounted(() => {
     // 綠：左至右平移
     tl.to(".green", {
         x: 20,
-        duration: 1.5,
+        scale:1.05,
+        duration: 2,
 
     }, 0);
     // 橘色：右至左平移
     tl.to(".orange", {
         x: -15,
+        scale:1.05,
         duration: 1.5,
 
     }, 0);
     // 藍色：左至右
     tl.to(".blue", {
         x: 10,
-        scale:1.15,
-        duration: 2,
+        scale:1.05,
+        duration: 1,
     }, 0);
     // MapFlow：下至上
     gsap.from(".mapflow-logo",{
@@ -60,6 +62,7 @@ import { useRouter } from 'vue-router';
 import { usesearchStore } from '../stores/searchStore';
 import { computed } from 'vue';
 const search = usesearchStore()
+
 const router = useRouter();
 
 const carouselList = computed(() => {
@@ -145,33 +148,9 @@ const carouselLis3 = computed(() => {
         </div>
         <div class="container tags-container px-5 mb-5">
             <h2>熱門技能</h2>
-            <div class="tag-list-group f-flex flex-column">
-                <div class="tags-list d-flex justify-content-evenly mb-3">
-                    <Badge text="Photoshop" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Illustrator" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="After Effect" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Figma" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Sketch" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="InDesign" type="tag" border="pill" size="size-sm"></Badge>
-                </div>
-                <div class="tags-list d-flex justify-content-evenly mb-3">
-                    <Badge text="HTML5" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="CSS 3" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Javascript" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Vue.js" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="React" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Java" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="C#" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Gemini" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Claude" type="tag" border="pill" size="size-sm"></Badge>
-                </div>
-                <div class="tags-list d-flex justify-content-evenly">
-                    <Badge text="Adobe XD" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="User Research" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Design Thinking" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="色彩學" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="Wireframe" type="tag" border="pill" size="size-sm"></Badge>
-                    <Badge text="人機互動原則" type="tag" border="pill" size="size-sm"></Badge>
+            <div class="tag-list-group f-flex flex-column mt-4">
+                <div class="tags-list d-flex justify-content-evenly mb-3 flex-wrap">
+                    <Badge :text="item.title" type="tag" border="pill" size="tag-size" v-for="item in search.skills" :key="item.id"></Badge>
                 </div>
             </div>
             
@@ -232,6 +211,7 @@ const carouselLis3 = computed(() => {
     bottom: 25%; 
 }
 .blue { 
+    overflow: visible;
     z-index: 4; 
     left: 0%;
     bottom: 0%;
@@ -297,4 +277,8 @@ const carouselLis3 = computed(() => {
     padding: 0 var(--spacing-24);
 }
 
+.tags-list {
+    /* 設定間距：第一個數字是上下，第二個是左右 */
+    gap: 12px 8px; 
+}
 </style>
