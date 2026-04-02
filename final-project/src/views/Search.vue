@@ -250,13 +250,18 @@ const carouselLis3 = computed(() => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 966px;
-    height: 313px;
+    width: 90%;
+    height: auto;
+    max-width: 1000px;
+    padding: 40px 20px;
     position: relative;
-    margin: -195px auto 0 auto;
+    margin: -150px auto 0 auto;
     z-index: 20;
     border-radius: 9999px;
     background: rgba(175, 202, 219, 0.20);
+    /* 毛玻璃效果 */
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .search-title{
