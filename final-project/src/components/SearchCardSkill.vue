@@ -1,15 +1,15 @@
 <template>
     <div class="search-card">
         <div class="job-info">
-            <div class="card-title">Photoshop</div>
-            <div class="card-content line-clamp-4">為強大的視覺後援。設計師主要利用其精確的影像編修、去背與校色功能，來優化介面中的產品情境照或 Banner 素材，確保視覺層次的高度專業感。</div>
+            <div class="card-title">{{info?.title}}</div>
+            <div class="card-content line-clamp-4">{{ info?.content }}</div>
         </div>
         <div class="job-cta">
             <div class="tag-container">
                 <div class="tag">
-                    <img src="../assets/images/node.svg" alt="node">20
+                    <img src="../assets/images/node.svg" alt="node">{{info?.node}}
                 </div>
-                <Bagde text="藝術設計" type="green" border="square" size="size-xs"></Bagde>
+                <div class="my-lable lable-green size-xs square">{{ info?.type }} </div>
             </div>
             <MyButton text="查看技能地圖" border="pill" size="size-sm"></MyButton>
         </div>
@@ -17,10 +17,13 @@
 </template>
 
 <script setup>
-import Bagde from './Bagde.vue';
 import MyButton from './MyButton.vue';
 
-
+const props = defineProps({
+    info:Object,
+    required: true, 
+    default: () => ({})
+})
 </script>
 
 <style scoped>
