@@ -2,6 +2,9 @@
 import SearchCard from '../components/SearchCard.vue';
 import Badge from '../components/Bagde.vue'
 import MyButton from '../components/MyButton.vue'
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 </script>
 
 <template>
@@ -127,41 +130,11 @@ import MyButton from '../components/MyButton.vue'
             <div class="tab d-flex justify-content-between">
                 <h2>總覽</h2>
                 <div>
-                    <MyButton text="角色" border="square" size="size-sm" class="me-2"></MyButton>
-                    <MyButton text="技能" type="yellow" border="square" size="size-sm"></MyButton>
+                    <RouterLink to="/"><MyButton text="角色" border="square" size="size-sm" class="me-2"></MyButton></RouterLink>
+                    <RouterLink to="/skill"><MyButton text="技能" type="yellow" border="square" size="size-sm"></MyButton></RouterLink>
                 </div>
             </div>
-            <div class="card-container mt-4">
-                <div class="row d-flex">
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                    <div class="col-10 col-sm-6 col-md-4 mb-4">
-                        <SearchCard></SearchCard>
-                    </div>
-                </div>
-                <div class="text-center">
-                    <MyButton text="查看更多" type="yellow" border="pill" size="size-md"></MyButton>
-                </div>
-            </div>
+            <RouterView></RouterView>
 
         </div>
     </div>
@@ -207,7 +180,7 @@ import MyButton from '../components/MyButton.vue'
 .custom-carousel-row .col {
     flex: 0 0 auto;
 }
-.card-container,.tab{
+.tab{
     padding: 0 var(--spacing-24);
 }
 </style>
