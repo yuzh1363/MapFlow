@@ -337,11 +337,10 @@ const carouselLis3 = computed(() => {
     flex: 0 0 auto;
 }
 .tab{
-    padding: 0 var(--spacing-24);
+    /* padding: 0 var(--spacing-24); */
 }
 
 .tags-list {
-    /* 設定間距：第一個數字是上下，第二個是左右 */
     gap: 12px 8px; 
 }
 </style>

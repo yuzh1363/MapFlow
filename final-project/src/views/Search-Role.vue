@@ -11,7 +11,7 @@ const{searchs} = storeToRefs(search)
 
 <template>
     <div class="card-container mt-4">
-                <div class="row d-flex">
+                <div class="row">
                     <div class="col-10 col-sm-6 col-md-4 mb-4" v-for="item in searchs" :key="item.id">
                         <SearchCard :info="item"></SearchCard>
                     </div>
@@ -27,6 +27,6 @@ const{searchs} = storeToRefs(search)
 
 <style scoped>
 .card-container,.tab{
-    padding: 0 var(--spacing-24);
+    /* padding: 0 var(--spacing-24); */
 }
 </style>
