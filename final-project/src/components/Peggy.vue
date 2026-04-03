@@ -7,18 +7,17 @@ const container = ref(null)
 onMounted(() => {
   const frames = container.value.querySelectorAll('.peggy-frame')
   
-  const tl = gsap.timeline({ repeat: -1 }) // 無限循環
+  const tl = gsap.timeline({ repeat: -1 })
 
-  // 每一幀停留的時間，可以根據體感調整 (例如 0.2 秒)
   const frameDuration = 0.3 
 
   frames.forEach((frame, index) => {
     tl.to(frame, {
       display: 'block',
-      duration: 0, // 瞬間切換
+      duration: 0,
     }, index * frameDuration)
     
-    // 如果不是最後一幀，在下一幀開始時隱藏自己
+
     tl.to(frame, {
       display: 'none',
       duration: 0,
@@ -39,22 +38,24 @@ onMounted(() => {
 <style scoped>
 .peggy-wrapper {
   position: relative;
-  width: 300px; /* 根據你的需求調整尺寸 */
+  width: 100%;
   height: auto;
+  display: flex;
+  align-items: flex-end;
 }
 
 .peggy-frame {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100%;
   height: auto;
-  display: none; /* 預設全部隱藏 */
+  display: none;
 }
 
-/* 確保第一幀在載入時先顯示，避免閃爍 */
 .peggy-frame.first {
-  position: relative; /* 讓容器有高度撐開 */
+  position: relative;
   display: block;
+  opacity: 1;
 }
 </style>
