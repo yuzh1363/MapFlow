@@ -9,7 +9,7 @@
                 <div class="tag">
                     <img src="../assets/images/node.svg" alt="node">{{info?.node}}
                 </div>
-                <div class="my-lable lable-green size-xs square">{{ info?.type }} </div>
+                <Badge :text="info.type" type="green" size="size-xs" border="square"></Badge>
             </div>
             <MyButton text="查看技能地圖" border="pill" size="size-sm"></MyButton>
         </div>
@@ -17,6 +17,7 @@
 </template>
 
 <script setup>
+import Badge from './Bagde.vue'
 import MyButton from './MyButton.vue';
 
 const props = defineProps({

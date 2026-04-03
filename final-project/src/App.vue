@@ -1,17 +1,17 @@
 <script setup>
-  // import Footer from './components/Footer.vue';
-  // import Header from './components/Header.vue'
+  import Footer from './components/Footer.vue';
+  import Header from './components/Header.vue'
   import Peggy from './components/Peggy.vue';
 
 </script>
 
 <template>
-  <!-- <Header></Header> -->
+  <Header></Header>
   <main>
-    <!-- <RouterView ></RouterView> -->
-    <Peggy/>
+    <RouterView ></RouterView>
+    <!-- <Peggy/> -->
   </main>
-  <!-- <Footer></Footer> -->
+  <Footer></Footer>
 </template>
 
 <style scoped>
