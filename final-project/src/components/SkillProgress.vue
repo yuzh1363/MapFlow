@@ -23,7 +23,7 @@
 <style scoped>
 .content {
   padding: var(--spacing-6) 39px;
-  width: 575px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

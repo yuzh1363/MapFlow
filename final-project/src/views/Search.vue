@@ -234,7 +234,7 @@ const carouselLis3 = computed(() => {
 }
 
 .mapflow-logo {
-    width: 800px;
+    width: 100%;
     margin-bottom: 2rem;
     /* 讓瀏覽器提前準備 */
     will-change: transform, opacity;

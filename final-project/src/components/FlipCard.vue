@@ -28,7 +28,6 @@ const handleFlip = () => {
 <template>
   <div class="card-scene">
     <div class="card-inner" ref="cardInner">
-      
       <div class="card-face card-front">
         <SkillProgress @click-view="handleFlip" />
       </div>
