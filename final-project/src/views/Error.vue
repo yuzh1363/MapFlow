@@ -26,6 +26,7 @@
     min-height: 100vh;
     background-color:var(----color-neutral-200);
     text-align: center;
+    margin-top: 50px;
   }
   
   .content-container{

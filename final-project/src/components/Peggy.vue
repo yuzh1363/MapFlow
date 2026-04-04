@@ -9,7 +9,7 @@ onMounted(() => {
   
   const tl = gsap.timeline({ repeat: -1 })
 
-  const frameDuration = 0.3 
+  const frameDuration = 0.5 
 
   frames.forEach((frame, index) => {
     tl.to(frame, {
