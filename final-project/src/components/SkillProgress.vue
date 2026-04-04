@@ -28,6 +28,7 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 40px;
+  border: 1px solid var(--color-neutral-900);
   background: rgba(255, 255, 255, 0.61);
 }
 .header { 

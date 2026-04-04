@@ -19,8 +19,10 @@ const handleFlip = () => {
     duration: 0.8,
     ease: "back.out(1.2)",
     overwrite: true,
-    transformPerspective: 1000,
-    force3D: true
+    z: 0.1,
+    transformPerspective: 1200,
+    force3D: true,
+    transformOrigin: "center center"
   });
 };
 </script>
@@ -42,9 +44,13 @@ const handleFlip = () => {
 
 <style scoped>
 .card-scene {
-  width: 420px;
+  width: 100%;
+  min-width: 320px;
+  max-width: 420px;
   height: 260px;
   perspective: 1200px;
+  border-radius: 40px;
+  /* border: 1px solid var(--color-neutral-900); */
 }
 
 .card-inner {
@@ -52,6 +58,7 @@ const handleFlip = () => {
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .card-face {
@@ -62,7 +69,8 @@ const handleFlip = () => {
   height: 100%;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  border-radius: 24px;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 40px;
   display: flex;
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 }

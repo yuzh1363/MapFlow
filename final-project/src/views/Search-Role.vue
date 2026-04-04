@@ -27,6 +27,6 @@ const{searchs} = storeToRefs(search)
 
 <style scoped>
 .card-container,.tab{
-    /* padding: 0 var(--spacing-24); */
+    padding: 0 var(--spacing-24);
 }
 </style>

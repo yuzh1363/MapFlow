@@ -39,7 +39,9 @@ defineEmits(['click-close'])
 .content { 
   padding: var(--spacing-6); 
   width: 100%; 
-  position: relative; 
+  position: relative;
+  border-radius: 40px;
+  border: 1px solid var(--color-neutral-900);
 }
 .close-btn {
   position: absolute;
