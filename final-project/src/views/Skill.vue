@@ -7,8 +7,8 @@
     <div class="hero-inner">
       <div class="content-block">
         <div class="title-container">
-          <h1 class="title">Photoshop</h1>
-          <p class="desc">為強大的視覺後援。設計師主要利用其精確的影像編修、去背與校色功能，來優化介面中的產品情境照或 Banner 素材，確保視覺層次的高度專業感。</p>
+          <h1 class="title display-1">Photoshop</h1>
+          <p class="desc fs-6">為強大的視覺後援。設計師主要利用其精確的影像編修、去背與校色功能，來優化介面中的產品情境照或 Banner 素材，確保視覺層次的高度專業感。</p>
         </div>
         <div class="skill-info">
           <span>技能節點 12 / 24</span>
@@ -71,24 +71,23 @@
   }
 
   .title{
-    font-size: var(--font-size-topic);
+    // font-size: var(--font-size-7xl);
     color: var(--color-bg-primary);
     font-family: "Noto Sans TC";
     font-weight: var(--font-weight-medium);
   }
   .desc{
     max-width: 90%;
-    font-size: var(--font-size-xl);
+    // font-size: var(--font-size-lg);
     color: var(--color-bg-primary);
     font-family: "Noto Sans TC";
-    // font-weight: var(--font-weight-medium);
   }
   .skill-info{
     display: flex;
     justify-content: space-between; 
     max-width: 90%;
     span{
-      font-size: var(--font-size-lg);
+      font-size: var(--font-size-base);
       color: var(--color-bg-primary);
       font-family: "Noto Sans TC";
     }
