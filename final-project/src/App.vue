@@ -1,22 +1,20 @@
 <script setup>
-  import Footer from './components/Footer.vue';
-  import Header from './components/Header.vue'
-import SkillmapCard from './components/SkillmapCard.vue';
+import Footer from './components/Footer.vue';
+import Header from './components/Header.vue'
+import Role from './views/Role.vue';
 import Skill from './views/Skill.vue';
 
 
 </script>
 
 <template>
-   <!-- <Header></Header> -->
-  <!--<main>
-    <RouterView ></RouterView>
-  </main>
-  <Footer></Footer> -->
-  <!-- <Skill></Skill> -->
-  <SkillmapCard></SkillmapCard>
+  <Header></Header>
+  <!-- <main>
+    <RouterView></RouterView>
+  </main> -->
+  <Skill></Skill>
+  <Role></Role>
+  <Footer></Footer>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

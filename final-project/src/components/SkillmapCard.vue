@@ -2,7 +2,7 @@
 import MyButton from './MyButton.vue';
 import { ref } from 'vue';
 
-const isClick = ref(true)
+const isClick = ref(false)
 
 const btnClick  = ()=>{
     isClick.value = !isClick.value

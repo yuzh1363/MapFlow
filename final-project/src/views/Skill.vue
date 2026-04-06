@@ -1,5 +1,7 @@
 <script setup>
-  import FlipCard from '../components/FlipCard.vue';
+import Bagde from '../components/Bagde.vue';
+import FlipCard from '../components/FlipCard.vue';
+import SkillmapCard from '../components/SkillmapCard.vue';
 </script>
 
 <template>
@@ -26,104 +28,146 @@
         </div>
       </div>
       <div class="card-block">
-        <FlipCard/>
+        <FlipCard />
       </div>
     </div>
   </div>
-
+  <!-- map section -->
+   <section>
+    <div class="container">
+      <h2 class="fw-bold mb-4">技能地圖</h2>
+      <div class="section-item-container d-flex gap-4">
+        <div class="map-container d-flex flex-column gap-5 w-75">
+          <SkillmapCard></SkillmapCard>
+          <SkillmapCard></SkillmapCard>
+          <SkillmapCard></SkillmapCard>
+          <SkillmapCard></SkillmapCard>
+        </div>
+        <div class="skill-side w-25 rounded-4 py-3 align-self-start">
+          <h3 class="fw-bold fs-4 text-center">相關技能</h3>
+          <div class="link-group d-flex flex-column px-5 gap-2">
+            <Bagde text="Illustrator" type="white" border="square" size="size-sm"></Bagde>
+            <Bagde text="Illustrator" type="white" border="square" size="size-sm"></Bagde>
+            <Bagde text="Illustrator" type="white" border="square" size="size-sm"></Bagde>
+            <Bagde text="Illustrator" type="white" border="square" size="size-sm"></Bagde>
+            <Bagde text="Illustrator" type="white" border="square" size="size-sm"></Bagde>
+            <Bagde text="Illustrator" type="white" border="square" size="size-sm"></Bagde>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+   </section>
 </template>
 
 <style lang="scss" scoped>
-  .hero-section{
-    min-height: 60vh;
-    background-color: var(--primary-blue-400);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    margin-top: 30px;
-  }
+.hero-section {
+  min-height: 60vh;
+  background-color: var(--primary-blue-400);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  margin-top: 30px;
+}
 
-  .hero-inner{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 1140px;
-    gap: 40px;
-  }
-  .content-block{
-    flex: 1;
-    // min-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    padding-right: 20px;
-  }
+.hero-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  gap: 40px;
+}
 
-  .card-block{
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+.content-block {
+  flex: 1;
+  // min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-right: 20px;
+}
 
-  .title{
-    // font-size: var(--font-size-7xl);
-    color: var(--color-bg-primary);
-    font-family: "Noto Sans TC";
-    font-weight: var(--font-weight-medium);
-  }
-  .desc{
-    max-width: 90%;
-    // font-size: var(--font-size-lg);
-    color: var(--color-bg-primary);
-    font-family: "Noto Sans TC";
-  }
-  .skill-info{
-    display: flex;
-    justify-content: space-between; 
-    max-width: 90%;
-    span{
-      font-size: var(--font-size-base);
-      color: var(--color-bg-primary);
-      font-family: "Noto Sans TC";
-    }
-  }
-  .user-learned{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-  .user{
-    width: 30px;
-  }
-  .learner-count{
-    font-size: var(--font-size-lg);
+.card-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  // font-size: var(--font-size-7xl);
+  color: var(--color-bg-primary);
+  font-family: "Noto Sans TC";
+  font-weight: var(--font-weight-medium);
+}
+
+.desc {
+  max-width: 90%;
+  // font-size: var(--font-size-lg);
+  color: var(--color-bg-primary);
+  font-family: "Noto Sans TC";
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+
+  span {
+    font-size: var(--font-size-base);
     color: var(--color-bg-primary);
     font-family: "Noto Sans TC";
   }
+}
 
+.user-learned {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.user {
+  width: 30px;
+}
+
+.learner-count {
+  font-size: var(--font-size-lg);
+  color: var(--color-bg-primary);
+  font-family: "Noto Sans TC";
+}
+section{
+  background-color: var(--primary-blue-50);
+}
+.skill-side{
+  background-color: var(--primary-blue-400);
+  h3{
+    color: white;
+  }
+}
 
 @media (max-width: 992px) {
-    .hero-inner {
-      flex-direction: column; 
-      flex-wrap: wrap; 
-      text-align: center;
-      gap: 50px;
-    }
-
-    .content-block, .card-block {
-      flex: none; 
-      width: 100%;
-    }
-
-    .desc, .skill-info, .user-learned {
-      margin: 0 auto; 
-      justify-content: center;
-    }
+  .hero-inner {
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 50px;
   }
-  
+
+  .content-block,
+  .card-block {
+    flex: none;
+    width: 100%;
+  }
+
+  .desc,
+  .skill-info,
+  .user-learned {
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
 </style>
