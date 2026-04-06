@@ -1,6 +1,12 @@
 <script setup>
 import MyButton from './MyButton.vue';
+import { ref } from 'vue';
 
+const isClick = ref(true)
+
+const btnClick  = ()=>{
+    isClick.value = !isClick.value
+}
 </script>
 
 <template>
@@ -30,11 +36,24 @@ import MyButton from './MyButton.vue';
             <!-- 學習資源 -->
             <div class="resource-container d-flex justify-content-between align-items-center">
                 <div class="card-title">學習資源</div>
-                <i class="fa-solid fa-angle-down"></i>
+                <i class="fa-solid fa-angle-up" @click="btnClick" v-if="isClick"></i>
+                <i class="fa-solid fa-angle-down" @click="btnClick"   v-else></i>
             </div>
             <!-- video -->
-            <div class="video-container">
-                <img src="../assets/images/封面01.jpeg" alt="">
+            <div class="video-list-group d-flex mt-4" v-if="isClick">
+                <div class="video-item">
+                    <img src="../assets/images/cover01.jpg" alt="">
+                </div>
+                <div class="video-item">
+                    <img src="../assets/images/cover02.jpg" alt="">
+                </div>
+                <div class="video-item">
+                    <img src="../assets/images/cover01.jpg" alt="">
+                </div>
+                <div class="video-item">
+                    <img src="../assets/images/cover02.jpg" alt="">
+                </div>
+
             </div>
         </div>
 
@@ -59,5 +78,21 @@ import MyButton from './MyButton.vue';
 
 i {
     font-size: var(--font-size-2xl);
+}
+
+.video-list-group {
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 10px;
+    .video-item {
+        flex: 0 0 48%;
+        aspect-ratio: 16 / 9;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
 }
 </style>
