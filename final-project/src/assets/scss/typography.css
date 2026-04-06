@@ -25,6 +25,10 @@
     color: var(--color-text-secondary);
     text-align: left;
 }
+.card-tag{
+    font-size: var(--font-size-sm);
+    color: var(--color-text-disabled);
+}
 
 /* 標籤文字 */
 .lable-lg{
