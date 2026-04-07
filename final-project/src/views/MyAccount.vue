@@ -83,6 +83,7 @@ import CommentCard from '../components/CommentCard.vue'
   #my-account-page{
     min-height: 100vh;
     width: 100%;
+    margin-bottom: 30px;
   }
   .hero-bg{
     height: 40vh;
@@ -198,11 +199,17 @@ import CommentCard from '../components/CommentCard.vue'
   }
 
   .card-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-6); 
-  width: 100%;
-  justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: var(--spacing-8); 
+    width: 100%;
+  }
+
+  .content-container {
+    width: 85%; 
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
   }
 
 </style>

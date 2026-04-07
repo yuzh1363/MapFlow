@@ -57,7 +57,7 @@
       align-self: stretch;
 
       .title{
-        color: var(--Color-Text-Primary, #333);
+        color: var(--color-text-primary);
         font-family: "Noto Sans TC";
         font-size: 20px;
         font-style: normal;
@@ -65,7 +65,7 @@
         line-height: normal;
       }
       .subtitle{
-        color: var(--Color-Neutral-400, #B1B1B1);
+        color: var(--color-neutral-400);
         font-family: "Noto Sans TC";
         font-size: 16px;
         font-style: normal;
@@ -74,14 +74,13 @@
       }
       .content{
         overflow: hidden;
-        color: var(--textSecondary, #666);
+        color: var(--textsecondary);
         text-overflow: ellipsis;
-        /* tw/card/content */
         font-family: "Noto Sans TC";
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
-        line-height: 160%; /* 22.4px */
+        line-height: 160%;
       }
     }
   }
