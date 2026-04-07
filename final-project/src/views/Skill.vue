@@ -114,7 +114,6 @@ const isShowCanva = ref(false)
 }
 
 .title {
-  // font-size: var(--font-size-7xl);
   color: var(--color-bg-primary);
   font-family: "Noto Sans TC";
   font-weight: var(--font-weight-medium);
@@ -122,9 +121,7 @@ const isShowCanva = ref(false)
 
 .desc {
   max-width: 90%;
-  // font-size: var(--font-size-lg);
   color: var(--color-bg-primary);
-  font-family: "Noto Sans TC";
 }
 
 .skill-info {
