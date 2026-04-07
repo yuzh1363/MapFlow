@@ -48,7 +48,7 @@ defineEmits(['click-close'])
   right: 15px;
   top: 15px;
   background: var(--color-support-b);
-  border: none;
+  border: 1px solid var(--color-neutral-900);
   width: 24px;
   height: 24px;
   border-radius: 50%;
