@@ -61,7 +61,7 @@ const isShowCanva = ref(false)
       </div>
     </div>
    </section>
-   <Thoughts class="offcanvas offcanvas-end" 
+   <Thoughts class="offcanvas offcanvas-end w-50" 
     :class="{ 'show': isShowCanva }" 
     :style="{ 
       visibility: isShowCanva ? 'visible' : 'hidden',

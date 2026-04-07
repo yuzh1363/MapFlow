@@ -28,6 +28,7 @@ defineEmits(['close-offcanvas']);
             <form>
                 <div class="mb-3">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="說說你遇到的瓶頸或想法"></textarea>
+                    <span style="color: var(--color-text-secondary);">請輸入10-100字心得</span>
                 </div>
                 <div class="inputbtn">
                     <input class="form-control" type="text" placeholder="#課程 #單元" aria-label="default input example">
@@ -42,9 +43,9 @@ defineEmits(['close-offcanvas']);
 .thoughts-frame {
     background-color: var(--color-neutral-50);
     max-width: 750px;
-    border-radius: var(--radius-md);
-    border: 2px solid #333;
-
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
+    border: 1px solid #333;
     width: 100%; 
     height: 100%;
     // height: 800px;
@@ -52,12 +53,12 @@ defineEmits(['close-offcanvas']);
 
     .learning-deatail-list{
         flex-grow: 1;
-        height: 450px;
+        height: 540px;
         overflow-y: auto;
     }
 }
 .input-section{
-    height: 250px;
+    height: 280px;
     width: 100%;
     background-color: var(--color-neutral-50);
     border-top: 1px solid var(--color-neutral-600);
