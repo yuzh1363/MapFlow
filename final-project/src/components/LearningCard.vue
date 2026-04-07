@@ -62,7 +62,7 @@ const props = defineProps({
     transform: translateY(-4px);
   }
   .card-title {
-    font-size: var(--font-size-2xl); /* */
+    font-size: var(--font-size-xl); /* */
     font-weight: var(--font-weight-semibold); /* */
     color: var(--color-neutral-900);
     text-align: left;
@@ -96,7 +96,7 @@ const props = defineProps({
       }
 
       .count-text {
-        font-size: var(--font-size-base);
+        font-size: var(--font-size-sm);
         color: var(--color-neutral-700);
         margin: 0;
         font-family: "Noto Sans TC", sans-serif;

@@ -84,6 +84,7 @@ import CommentCard from '../components/CommentCard.vue'
     min-height: 100vh;
     width: 100%;
     margin-bottom: 30px;
+    background-color: var(--color-neutral-50);
   }
   .hero-bg{
     height: 40vh;
@@ -111,7 +112,6 @@ import CommentCard from '../components/CommentCard.vue'
   .container{
     font-size: var(--font-size-5xl);
     color: var(--color-bg-primary);
-    font-family: "Noto Sans TC";
   }
 
   .badge-group{
@@ -134,8 +134,8 @@ import CommentCard from '../components/CommentCard.vue'
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
-    gap: 11px;
-    border-radius: 16.1px;
+    gap: 10px;
+    border-radius: 16px;
     background: var(--color-neutral-100);
     .icon{
       width: 48px;
@@ -143,15 +143,13 @@ import CommentCard from '../components/CommentCard.vue'
     }
     .title{
       color: var(--color-text-primary);
-      font-family: "Noto Sans TC";
-      font-size: var(--font-size-2xl);
+      font-size: var(--font-size-xl);
       font-style: normal;
       font-weight:var(--font-weight-regular);
       letter-spacing: 0.5px;
     }
     .count{
       color: #000;
-      font-family: "Noto Sans TC";
       font-size: 40px;
       font-style: normal;
       font-weight: var(--font-weight-bold);
@@ -174,7 +172,7 @@ import CommentCard from '../components/CommentCard.vue'
   }
 
   .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
     margin-bottom: var(--spacing-8);
     color: var(--color-neutral-900);
