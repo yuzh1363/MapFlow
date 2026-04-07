@@ -5,6 +5,7 @@ import ThoughtComment from './components/ThoughtComment.vue';
 import Thoughts from './components/Thoughts.vue';
 import Role from './views/Role.vue';
 import Skill from './views/Skill.vue';
+import MyAccount from './views/MyAccount.vue';
 
 
 </script>
@@ -12,11 +13,12 @@ import Skill from './views/Skill.vue';
 <template>
   <Header></Header>
   <main> 
-    <RouterView></RouterView>
+    <!-- <RouterView></RouterView> -->
   </main>
   <!-- <Skill></Skill> -->
   <!-- <Role></Role> -->
-   <!-- <Thoughts></Thoughts> -->
+  <!-- <Thoughts></Thoughts> -->
+  <MyAccount/>
   <Footer></Footer>
 </template>
 

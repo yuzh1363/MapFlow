@@ -1,95 +1,120 @@
 <script setup>
-  import MyButton from './MyButton.vue'
+import MyButton from './MyButton.vue'
+
+const props = defineProps({
+  title: {
+    type: String,
+    default: '職位或技能名稱'
+  },
+  // 'yellow' (角色) 或 'primary' (技能)
+  type: {
+    type: String,
+    default: 'primary' 
+  },
+  progress: {
+    type: String,
+    default: '0%'
+  },
+  countText: {
+    type: String,
+    default: '0 / 0 已完成'
+  }
+})
 </script>
+
 <template>
   <div class="learning-card">
-    <div class="title">UI/UX 設計師</div>
+    <div class="card-title">{{ title }}</div>
     
     <div class="content-container">
       <div class="progress-section">
         <div class="status-info">
           <div class="icon-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="19" viewBox="0 0 16 19" fill="none">
-              <path d="M13.0084 14.9287V4.75L11.2743 4.75V8.61799L2.60357 8.61799V14.9287L4.33772 14.9287V10.3823L11.2743 10.3823V14.9287L13.0084 14.9287Z" fill="#FED94A"/>
-              <ellipse cx="12.2152" cy="3.39292" rx="3.39292" ry="3.3929" transform="rotate(90 12.2152 3.39292)" fill="#FED94A"/>
-              <ellipse cx="12.2152" cy="15.6068" rx="3.39292" ry="3.3929" transform="rotate(90 12.2152 15.6068)" fill="#FED94A"/>
-              <ellipse cx="3.3929" cy="15.6068" rx="3.39292" ry="3.3929" transform="rotate(90 3.3929 15.6068)" fill="#FED94A"/>
-            </svg>
+            <img src="../assets/images/Dot.svg" alt="">
           </div>
-          <p class="count-text">10 / 30 已完成</p>
+          <p class="count-text">{{ countText }}</p>
         </div>
         
         <div class="progress-bar-bg">
-          <div class="progress-indicator" style="width: 33.3%"></div>
+          <div class="progress-indicator" :style="{ width: progress }"></div>
         </div>
       </div>
 
-      <MyButton text="查看詳細" type="primary" border="square" size="size-sm"></MyButton>
+      <MyButton text="查看詳細" :type="type" border="square" size="size-sm"></MyButton>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
 .learning-card {
-  width: 500px;
-  background-color: var(--color-bg-primary, #fff);
-  padding: 24px 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px; 
+  background-color: var(--color-bg-primary); /* */
+  padding: var(--spacing-6) var(--spacing-5); /* */
+  border-radius: var(--radius-md); /* */
+  box-shadow: var(--shadow-md); /* */
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: var(--spacing-4);
+  transition: transform 0.2s ease-in-out;
 
-  .title {
-    font-size: 24px;
-    font-weight: 600;
-    color: #000;
+  &:hover {
+    transform: translateY(-4px); /* 滑過時的輕微浮起感 */
+  }
+
+  .card-title {
+    font-size: var(--font-size-2xl); /* */
+    font-weight: var(--font-weight-semibold); /* */
+    color: var(--color-neutral-900);
     text-align: left;
+    font-family: "Noto Sans TC", sans-serif;
   }
 
   .content-container {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    gap: var(--spacing-4);
   }
 
   .progress-section {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-width: 300px;
+    gap: var(--spacing-3);
 
     .status-info {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: var(--spacing-2);
 
       .icon-wrapper {
         display: flex;
         align-items: center;
         svg {
-          transform: rotate(-90deg);
+          transform: rotate(-90deg); 
         }
       }
 
       .count-text {
-        font-size: 16px;
-        color: #333;
+        font-size: var(--font-size-base);
+        color: var(--color-neutral-700);
         margin: 0;
+        font-family: "Noto Sans TC", sans-serif;
       }
     }
 
     .progress-bar-bg {
       height: 12px;
-      background-color: #e5e5e5;
-      border-radius: 6px;
-      overflow: hidden; /* 確保進度條不會超出圓角 */
+      background-color: var(--color-neutral-200); /* */
+      border-radius: var(--radius-full);
+      overflow: hidden; 
       
       .progress-indicator {
         height: 100%;
-        background-color: #a3d14f; /* 圖片中的綠色 */
-        border-radius: 6px;
+        background-color: var(--color-support-b); /* 使用你風格統一的綠色 */
+        border-radius: var(--radius-full);
+        transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* 讓進度增加時帶點彈性效果 */
       }
     }
   }

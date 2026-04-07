@@ -20,7 +20,8 @@
 
 <style lang="scss" scoped>
   .comment-card{
-    width: 479px;
+    width: 100%;
+    max-width: 480px;
     height: auto;
     border: 1px solid var(--color-neutral-200);
     background-color: var(--color-bg-primary);
