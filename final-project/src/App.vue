@@ -8,7 +8,6 @@ import Skill from './views/Skill.vue';
 import MyAccount from './views/MyAccount.vue';
 
 import RoleExp from './views/RoleExp.vue';
-import Skill from './views/Skill.vue'
 
 </script>
 
@@ -21,8 +20,8 @@ import Skill from './views/Skill.vue'
   <!-- <Role></Role> -->
   <!-- <Thoughts></Thoughts> -->
   <MyAccount/>
-  <RoleExp></RoleExp>
-   <Skill></Skill>
+  <!-- <RoleExp></RoleExp>
+   <Skill></Skill> -->
   <Footer></Footer>
 </template>
 
