@@ -1,8 +1,14 @@
 <script setup>
 import MyButton from './MyButton.vue';
 import ThoughtComment from './ThoughtComment.vue';
-
+import { ref } from 'vue';
 defineEmits(['close-offcanvas']);
+
+const isPublic = ref(true)
+
+const clickPublic = ()=>{
+    isPublic.value = !isPublic.value
+}
 </script>
 
 <template>
@@ -24,7 +30,14 @@ defineEmits(['close-offcanvas']);
             <ThoughtComment></ThoughtComment>
         </div>
         <div class="input-section px-3 py-4">
-            <h4 class="mb-3">你的心得</h4>
+            <div class=" d-flex justify-content-between">
+                <h4 class="mb-3">你的心得</h4>
+                <div class="form-check form-switch">
+                    <lable class="form-check-label ms-2" for="privacyToggle">{{ isPublic ? '私人' : '公開' }}</lable>
+                    <input class="form-check-input" type="checkbox" role="switch" id="privacyToggle" v-model="isPublic">
+                </div>
+            </div>
+            
             <form>
                 <div class="mb-3">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="說說你遇到的瓶頸或想法"></textarea>
@@ -98,6 +111,19 @@ defineEmits(['close-offcanvas']);
     }
 }
 .close-btn{
+    cursor: pointer;
+}
+.form-check-input:checked {
+    background-color: var(--color-success);
+    border:none;
+}
+.form-check-input:focus {
+    // background-color: #fff;
+    box-shadow: none
+}
+.form-switch .form-check-input {
+    width: 2.5em;
+    height: 1.25em;
     cursor: pointer;
 }
 </style>

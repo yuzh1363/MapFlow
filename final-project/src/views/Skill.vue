@@ -61,18 +61,18 @@ const isShowCanva = ref(false)
       </div>
     </div>
    </section>
-   <Thoughts class="offcanvas offcanvas-end w-50" 
+   <Thoughts 
+    class="offcanvas offcanvas-end w-50" 
     :class="{ 'show': isShowCanva }" 
     :style="{ 
-      visibility: isShowCanva ? 'visible' : 'hidden',
-      display: 'block' 
+      visibility: isShowCanva ? 'visible' : 'hidden'
     }"
-    tabindex="-1"></Thoughts>
+    tabindex="-1"
+    @close-offcanvas="isShowCanva = false"></Thoughts>
     <div 
     v-if="isShowCanva" 
     class="offcanvas-backdrop fade show" 
-    @click="isShowCanva = false">
-  </div>
+    @click="isShowCanva = false"> </div>
 </template>
 
 <style lang="scss" scoped>
