@@ -85,7 +85,7 @@ import CommentCard from '../components/CommentCard.vue'
     width: 100%;
   }
   .hero-bg{
-    height: auto;
+    height: 40vh;
     background-color: var(--color-primary);
     display: flex;
     padding: var(--spacing-16) 10%;
