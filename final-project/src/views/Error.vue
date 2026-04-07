@@ -26,6 +26,7 @@
     min-height: 100vh;
     background-color:var(----color-neutral-200);
     text-align: center;
+    padding-right: 13%;
     margin-top: 50px;
   }
   

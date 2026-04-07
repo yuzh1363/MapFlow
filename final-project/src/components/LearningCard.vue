@@ -60,7 +60,7 @@ const props = defineProps({
 
   &:hover {
     transform: translateY(-4px);
-
+  }
   .card-title {
     font-size: var(--font-size-2xl); /* */
     font-weight: var(--font-weight-semibold); /* */
