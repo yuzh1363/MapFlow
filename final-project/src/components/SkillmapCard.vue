@@ -8,7 +8,7 @@ const btnClick  = ()=>{
     isClick.value = !isClick.value
 }
 
-const emit = defineEmits(['open-offcanvas'])
+const emit = defineEmits(['open-offcanvas','trigger-feedback'])
 const handleclick = ()=>{
     emit('open-offcanvas')
 }
@@ -36,7 +36,7 @@ const handleclick = ()=>{
                         很多新手會沒注意到畫布問題導致失真，印刷務必設為300DPI，網頁為72DPI
                     </div>
                 </div>
-                <MyButton text="寫心得" border="square" size="size-sm"></MyButton>
+                <MyButton text="寫心得" border="square" size="size-sm" @click="emit('trigger-feedback')"></MyButton>
             </div>
             <!-- 學習資源 -->
             <div class="resource-container d-flex justify-content-between align-items-center">
