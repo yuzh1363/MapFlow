@@ -38,9 +38,11 @@
         </ul>
 
         <div class="auth-wrapper">
-          <RouterLink to="/myaccount" v-if="isLoggedIn" class="user-profile"><div >
-            <img src="../assets/images/avatar.png" alt="user" class="avatar">
-          </div></RouterLink> 
+          <RouterLink to="/myaccount" v-if="isLoggedIn" class="user-profile">
+            <div>
+              <img src="../assets/images/rainyman.png" alt="user" class="avatar">
+            </div>
+          </RouterLink> 
           <RouterLink v-else class="auth-buttons">
             <div >
                 <router-link to="/Register"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"/></router-link>         
@@ -63,6 +65,8 @@
   background-color: var(--color-text-primary);
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
+
+  height: 60px;
 }
 
 .navbar {
@@ -76,8 +80,7 @@
     align-items: center;
     gap: 0.5rem;
 
-    .brand-name { height: 24px; }
-    .brand-icon { height: 32px; }
+    .brand-name,.brand-icon { height:24px ; }
   }
 
   .navbar-content {
@@ -115,6 +118,7 @@
     .user-profile {
       cursor: pointer;
       .avatar {
+        width: 40px;
         display: block;
       }
     }
