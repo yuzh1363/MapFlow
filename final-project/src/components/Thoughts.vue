@@ -2,7 +2,7 @@
 import MyButton from './MyButton.vue';
 import ThoughtComment from './ThoughtComment.vue';
 
-
+defineEmits(['close-offcanvas']);
 </script>
 
 <template>
@@ -12,7 +12,7 @@ import ThoughtComment from './ThoughtComment.vue';
                 <h2 class="card-title">數位影像基礎與介面導覽</h2>
                 <div class="card-sectitle">理解點陣圖邏輯與色彩空間</div>
             </div>
-            <div class="close-btn">
+            <div class="close-btn" @click="$emit('close-offcanvas')">
                 <img src="../assets/images/close.svg" alt="close button">
             </div>
         </div>
@@ -44,10 +44,14 @@ import ThoughtComment from './ThoughtComment.vue';
     max-width: 750px;
     border-radius: var(--radius-md);
     border: 2px solid #333;
-    height: 800px;
-    position: relative;
+
+    width: 100%; 
+    height: 100%;
+    // height: 800px;
+    // position: relative;
 
     .learning-deatail-list{
+        flex-grow: 1;
         height: 450px;
         overflow-y: auto;
     }

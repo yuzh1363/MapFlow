@@ -10,11 +10,11 @@ import Skill from './views/Skill.vue';
 </script>
 
 <template>
-  <Header></Header>
+  <!-- <Header></Header>
   <main> 
     <RouterView></RouterView>
-  </main>
-  <!-- <Skill></Skill> -->
+  </main> -->
+  <Skill></Skill>
   <!-- <Role></Role> -->
    <!-- <Thoughts></Thoughts> -->
   <Footer></Footer>

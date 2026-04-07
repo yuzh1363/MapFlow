@@ -2,6 +2,10 @@
 import Bagde from '../components/Bagde.vue';
 import FlipCard from '../components/FlipCard.vue';
 import SkillmapCard from '../components/SkillmapCard.vue';
+import { ref } from 'vue';
+import Thoughts from '../components/Thoughts.vue';
+
+const isShowCanva = ref(false)
 </script>
 
 <template>
@@ -38,7 +42,7 @@ import SkillmapCard from '../components/SkillmapCard.vue';
       <h2 class="fw-bold mb-4">技能地圖</h2>
       <div class="section-item-container d-flex gap-4">
         <div class="map-container d-flex flex-column gap-5 w-75">
-          <SkillmapCard></SkillmapCard>
+          <SkillmapCard @open-offcanvas="isShowCanva = true"></SkillmapCard>
           <SkillmapCard></SkillmapCard>
           <SkillmapCard></SkillmapCard>
           <SkillmapCard></SkillmapCard>
@@ -56,8 +60,19 @@ import SkillmapCard from '../components/SkillmapCard.vue';
         </div>
       </div>
     </div>
-    
    </section>
+   <Thoughts class="offcanvas offcanvas-end" 
+    :class="{ 'show': isShowCanva }" 
+    :style="{ 
+      visibility: isShowCanva ? 'visible' : 'hidden',
+      display: 'block' 
+    }"
+    tabindex="-1"></Thoughts>
+    <div 
+    v-if="isShowCanva" 
+    class="offcanvas-backdrop fade show" 
+    @click="isShowCanva = false">
+  </div>
 </template>
 
 <style lang="scss" scoped>

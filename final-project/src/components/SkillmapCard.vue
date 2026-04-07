@@ -7,6 +7,11 @@ const isClick = ref(false)
 const btnClick  = ()=>{
     isClick.value = !isClick.value
 }
+
+const emit = defineEmits(['open-offcanvas'])
+const handleclick = ()=>{
+    emit('open-offcanvas')
+}
 </script>
 
 <template>
@@ -23,7 +28,7 @@ const btnClick  = ()=>{
             </div>
             <!-- 心得+按鈕 -->
             <div class="d-flex align-items-center justify-content-between py-4 gap-3">
-                <div class="feedback p-3">
+                <div class="feedback p-3" @click="handleclick">
                     <div class="fs-6 fw-bold">
                         學習心得
                     </div>
@@ -74,10 +79,12 @@ const btnClick  = ()=>{
     border-radius: var(--radius-md);
     box-shadow: 1px 1px 5px #c9c9c9;
     width: 85%;
+    cursor: pointer;
 }
 
 i {
     font-size: var(--font-size-2xl);
+    cursor: pointer;
 }
 
 .video-list-group {
