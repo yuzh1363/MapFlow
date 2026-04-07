@@ -1,62 +1,39 @@
 <script setup>
+import MyButton from './MyButton.vue';
+import ThoughtComment from './ThoughtComment.vue';
+
 
 </script>
 
 <template>
-    <div class="thoughts-frame px-3 py-3">
-        <div class="frame-header d-flex justify-content-between mb-2">
+    <div class="thoughts-frame ">
+        <div class="frame-header d-flex justify-content-between mb-2 px-3 py-3">
             <div class="text-container">
-                <div class="card-title">數位影像基礎與介面導覽</div>
+                <h2 class="card-title">數位影像基礎與介面導覽</h2>
                 <div class="card-sectitle">理解點陣圖邏輯與色彩空間</div>
             </div>
             <div class="close-btn">
                 <img src="../assets/images/close.svg" alt="close button">
             </div>
         </div>
-        <div class="learning-deatail-list d-flex flex-column gap-3">
-            <div class="list-item py-3 px-3">
-                <div class="item-header d-flex mb-3">
-                    <div class="content-block d-flex">
-                        <div class="card-content line-clamp-2">
-                            整合模擬體驗、學習地圖與外部驗證建立信任履歷，並透過匿名樹洞分擔壓力，解決職涯轉換的認知與心理需求。整合模擬體驗、學習地圖與外部驗證建立信任履歷，並透過匿名樹洞分擔壓力，解決職涯轉換的認知與心理需求。整合模擬體驗、學習地圖與外部驗證建立信任履歷，並透過匿名樹洞分擔壓力，解決職涯轉換的認知與心理需求。
-                        </div>
-                        <div class="link-btn ">更多</div>
-                    </div>
-                    <div class="timelike">
-                        <p class="day text-center">2d</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
+        <div class="learning-deatail-list d-flex flex-column gap-3 px-3 py-1">
+            <ThoughtComment></ThoughtComment>
+            <ThoughtComment></ThoughtComment>
+            <ThoughtComment></ThoughtComment>
+            <ThoughtComment></ThoughtComment>
+            <ThoughtComment></ThoughtComment>
+        </div>
+        <div class="input-section px-3 py-4">
+            <h4 class="mb-3">你的心得</h4>
+            <form>
+                <div class="mb-3">
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="說說你遇到的瓶頸或想法"></textarea>
                 </div>
-                <div class="item-tag d-flex justify-content-between align-items-center">
-                    <div class="tag-content d-flex gap-3">
-                        <p class="card-tag">#注意到畫布問題導致失真</p>
-                        <p class="card-tag">#3-1</p>
-                    </div>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                <div class="inputbtn">
+                    <input class="form-control" type="text" placeholder="#課程 #單元" aria-label="default input example">
+                    <MyButton text="送出" type="green" border="square" size="size-sm" class="submitbtn"></MyButton>
                 </div>
-            </div>
-            <!-- 第二組 -->
-            <div class="list-item py-3 px-3">
-                <div class="item-header d-flex mb-3">
-                    <div class="content-block d-flex">
-                        <div class="card-content line-clamp-2">
-                            整合模擬體驗、學習地圖與外部驗證建立信任履歷，並透過匿名樹洞分擔壓力，解決職涯轉換的認知與心理需求。整合模擬體驗、學習地圖與外部驗證建立信任履歷，並透過匿名樹洞分擔壓力，解決職涯轉換的認知與心理需求。整合模擬體驗、學習地圖與外部驗證建立信任履歷，並透過匿名樹洞分擔壓力，解決職涯轉換的認知與心理需求。
-                        </div>
-                        <div class="link-btn ">更多</div>
-                    </div>
-                    <div class="timelike">
-                        <p class="day text-center">2d</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                </div>
-                <div class="item-tag d-flex justify-content-between align-items-center">
-                    <div class="tag-content d-flex gap-3">
-                        <p class="card-tag">#注意到畫布問題導致失真</p>
-                        <p class="card-tag">#3-1</p>
-                    </div>
-                    <i class="fa-solid fa-ellipsis-vertical"></i>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </template>
@@ -68,45 +45,54 @@
     border-radius: var(--radius-md);
     border: 2px solid #333;
     height: 800px;
-}
+    position: relative;
 
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    word-break: break-all;
-    line-height: 1.5;
-    max-height: 3em;
+    .learning-deatail-list{
+        height: 450px;
+        overflow-y: auto;
+    }
 }
+.input-section{
+    height: 250px;
+    width: 100%;
+    background-color: var(--color-neutral-50);
+    border-top: 1px solid var(--color-neutral-600);
+    border-bottom-left-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
-.list-item {
-    border-radius: var(--radius-md);
-    box-shadow: 1px 1px 5px #c9c9c9;
-}
+    h4{
+        font-weight:var(--font-weight-semibold);
+        font-size: var(--font-size-xl);
+    }
+    textarea:focus{
+        box-shadow: none;
+        border: 1px solid var(--color-neutral-900);
+        
+    }
+    .inputbtn{
+        display: flex;
+        align-items: center;
+        gap: 8px;
 
-.card-content {
-    // border: 2px solid;
-    width: 90%;
+        input{
+            height: 50px;
+            flex-grow: 1;
+            width: 100%;
+        }
+        input:focus{
+            box-shadow: none;
+            border: 1px solid var(--color-neutral-900);
+        }
+        .submitbtn{
+            width: 10%;
+        }
+        
+    }
 }
-.link-btn {
-    color: var(--primary-blue-500);
-    width: 10%;
-    display: flex;
-    align-items: end;
-}
-
-.day {
-    font-size: var(--font-size-sm);
-    color: var(--color-neutral-500);
-}
-
-.timelike {
-    display: flex;
-    flex-direction: column;
-}
-
-i {
-    font-size: var(--font-size-xl);
+.close-btn{
+    cursor: pointer;
 }
 </style>

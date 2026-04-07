@@ -4,7 +4,7 @@
             <div class="container d-flex flex-column flex-lg-row justify-content-between gap-5">
                 <div class="text-container d-flex flex-column justify-content-end align-items-start w-100 w-lg-50 position-relative">
                     <h1 class="display-4 fw-bold">角色樹洞</h1>
-                    <p>這是角色樹洞介紹</p>
+                    <p>在樹洞寫下你在生活中不同角色所遇到的問題與困境，匿名交換來自遠方的煩惱。透過分享脆弱給予彼此支持。</p>
                     <img src="../assets/images/treeholeimg.png" alt="">
                 </div>
                 <div class="w-100 w-lg-50 d-flex justify-content-center justify-content-lg-end">
@@ -62,7 +62,7 @@ onUnmounted(() => {
 .main-frame{
     background-color: #001354;
     padding: var(--spacing-10) var(--spacing-24);
-    height: 400px;
+    height: 60vh;
     z-index: 1;
     top: 60px;
     overflow: hidden

@@ -74,7 +74,7 @@ onUnmounted(() => {
 .main-frame{
     background-color: #001354;
     padding: var(--spacing-10) var(--spacing-24);
-    height: 400px;
+    height: 60vh;
     z-index: 1;
     top: 60px;
 }
