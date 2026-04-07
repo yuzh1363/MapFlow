@@ -2,6 +2,7 @@
 import Bagde from '../components/Bagde.vue';
 import LearningCard from '../components/LearningCard.vue';
 import CommentCard from '../components/CommentCard.vue'
+import LearningCardRole from '../components/LearningCardRole.vue';
 </script>
 
 <template>
@@ -46,9 +47,9 @@ import CommentCard from '../components/CommentCard.vue'
         <div class="learning-container">
           <div class="learning-column">
             <h3 class="section-title">正在學習角色</h3>
-            <LearningCard title="UI /UX 設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
-            <LearningCard title="前端工程師" type="yellow" countText="10 / 30 已完成" progress="33%" />
-            <LearningCard title="網頁設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
+            <LearningCardRole title="UI /UX 設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
+            <LearningCardRole title="前端工程師" type="yellow" countText="10 / 30 已完成" progress="33%" />
+            <LearningCardRole title="網頁設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
           </div>
           <div class="learning-column">
             <h3 class="section-title">正在學習技能</h3>

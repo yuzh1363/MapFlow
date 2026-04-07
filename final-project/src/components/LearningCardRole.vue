@@ -1,5 +1,4 @@
 <script setup>
-import Bagde from './Bagde.vue';
 import MyButton from './MyButton.vue'
 
 const props = defineProps({
@@ -25,10 +24,7 @@ const props = defineProps({
 
 <template>
   <div class="learning-card">
-    <div class="card-header d-flex gap-2">
-        <div class="card-title">{{ title }}</div>
-        <Bagde text="基礎" type="white" border="square" size="size-xs"></Bagde>
-    </div>
+    <div class="card-title">{{ title }}</div>
     
     <div class="content-container">
       <div class="progress-section">
@@ -44,7 +40,7 @@ const props = defineProps({
         </div>
       </div>
 
-      <RouterLink to="/photoshop"><MyButton text="查看詳細" :type="type" border="square" size="size-sm"></MyButton></RouterLink> 
+      <RouterLink to="/role"><MyButton text="查看詳細" :type="type" border="square" size="size-sm"></MyButton></RouterLink> 
     </div>
   </div>
 </template>

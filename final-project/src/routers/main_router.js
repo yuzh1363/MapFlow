@@ -9,6 +9,7 @@ import SearchRole from '../views/Search-Role.vue';
 import SearchSkill from '../views/Search-Skill.vue';
 import Skill from '../views/Skill.vue'
 import MyAccount from '../views/MyAccount.vue';
+import Role from '../views/Role.vue';
 
 const routes = [
     {
@@ -62,6 +63,11 @@ const routes = [
         path: '/myaccount',
         name: 'myaccount',
         component: MyAccount,
+    },
+    {
+        path: '/role',
+        name: 'role',
+        component: Role,
     }
     
 ];
