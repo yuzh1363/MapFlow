@@ -59,8 +59,7 @@ const props = defineProps({
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    transform: translateY(-4px); /* 滑過時的輕微浮起感 */
-  }
+    transform: translateY(-4px);
 
   .card-title {
     font-size: var(--font-size-2xl); /* */

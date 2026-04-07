@@ -31,13 +31,17 @@
     flex-direction: row;
     padding: var(--spacing-5) var(--spacing-4);
     gap: var(--spacing-4);
+    transition: transform 0.2s ease-in-out;
+    &:hover {
+    transform: translateY(-4px);
+    }
     .date-container{
       display: flex;
-      padding: var(--spacing-8, 8px);
+      padding: var(--spacing-2);
       flex-direction: column;
       align-items: center;
       align-self: stretch;
-      border-radius: var(--radius-8, 8px);
+      border-radius: var(--radius-8);
       color: var(--color-primary);
       text-align: center;
       font-family: "Chiron GoRound TC";
@@ -57,7 +61,7 @@
       align-self: stretch;
 
       .title{
-        color: var(--color-text-primary);
+        color: var(--color-text-rimary);
         font-family: "Noto Sans TC";
         font-size: 20px;
         font-style: normal;

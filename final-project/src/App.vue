@@ -14,12 +14,12 @@ import RoleExp from './views/RoleExp.vue';
 <template>
   <Header></Header> 
   <main> 
-    <!-- <RouterView></RouterView> -->
+    <RouterView></RouterView>
   </main>
   <!-- <Skill></Skill> -->
   <!-- <Role></Role> -->
   <!-- <Thoughts></Thoughts> -->
-  <MyAccount/>
+  <!-- <MyAccount/> -->
   <!-- <RoleExp></RoleExp>
    <Skill></Skill> -->
   <Footer></Footer>
