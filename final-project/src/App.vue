@@ -1,6 +1,8 @@
 <script setup>
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue'
+import RoleExp from './views/RoleExp.vue';
+import Skill from './views/Skill.vue'
 
 </script>
 
@@ -9,6 +11,8 @@ import Header from './components/Header.vue'
   <main> 
     <RouterView></RouterView>
   </main>
+  <RoleExp></RoleExp>
+   <Skill></Skill>
   <Footer></Footer>
 </template>
 
