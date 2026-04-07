@@ -19,9 +19,9 @@ import RoleExp from './views/RoleExp.vue';
   <!-- <Skill></Skill> -->
   <!-- <Role></Role> -->
   <!-- <Thoughts></Thoughts> -->
-  <MyAccount/>
-  <!-- <RoleExp></RoleExp>
-   <Skill></Skill> -->
+  <!-- <MyAccount/> -->
+  <RoleExp></RoleExp>
+   <!-- <Skill></Skill> --> -->
   <Footer></Footer>
 </template>
 
