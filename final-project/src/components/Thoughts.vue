@@ -54,6 +54,9 @@ const clickPublic = ()=>{
 
 <style lang="scss" scoped>
 .thoughts-frame {
+    display: flex; 
+    flex-direction: column;
+    height: 100vh;
     background-color: var(--color-neutral-50);
     max-width: 750px;
     border-top-left-radius: var(--radius-md);
@@ -61,13 +64,14 @@ const clickPublic = ()=>{
     border: 1px solid #333;
     width: 100%; 
     height: 100%;
-    // height: 800px;
-    // position: relative;
-
+    .frame-header {
+        flex-shrink: 0;
+    }
     .learning-deatail-list{
         flex-grow: 1;
-        height: 540px;
         overflow-y: auto;
+        &::-webkit-scrollbar { width: 6px; }
+        &::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
     }
 }
 .input-section{
@@ -77,9 +81,6 @@ const clickPublic = ()=>{
     border-top: 1px solid var(--color-neutral-600);
     border-bottom-left-radius: var(--radius-md);
     border-bottom-right-radius: var(--radius-md);
-    position: absolute;
-    bottom: 0;
-    left: 0;
 
     h4{
         font-weight:var(--font-weight-semibold);
