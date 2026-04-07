@@ -18,6 +18,7 @@
 }
 .wei{
     position: absolute;
+    bottom: 30px;
     left: 0;
 }
 </style>
