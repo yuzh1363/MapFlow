@@ -6,6 +6,11 @@ const isExpand = ref(false)
 const expandclick = ()=>{
     isExpand.value = !isExpand.value
 }
+
+const isLike = ref(true)
+const likeclick = ()=>{
+    isLike.value = !isLike.value
+}
 </script>
 <template>
     <div class="list-item py-3 px-3">
@@ -18,7 +23,8 @@ const expandclick = ()=>{
                     </div>
                     <div class="timelike">
                         <p class="day text-center">2d</p>
-                        <i class="fa-regular fa-heart"></i>
+                        <i class="fa-regular fa-heart" @click="likeclick" v-if="isLike"></i>
+                        <i class="fa-solid fa-heart like" @click="likeclick"  v-else></i>
                     </div>
                 </div>
                 <div class="item-tag d-flex justify-content-between align-items-center">
@@ -74,5 +80,8 @@ const expandclick = ()=>{
 i {
     font-size: var(--font-size-xl);
     cursor: pointer;
+}
+.like{
+    color: var(--color-error);
 }
 </style>

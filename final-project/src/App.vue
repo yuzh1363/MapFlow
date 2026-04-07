@@ -11,7 +11,7 @@ import MyAccount from './views/MyAccount.vue';
 </script>
 
 <template>
-  <Header></Header>
+  <Header></Header> 
   <main> 
     <!-- <RouterView></RouterView> -->
   </main>

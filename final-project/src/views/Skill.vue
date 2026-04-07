@@ -2,6 +2,12 @@
 import Bagde from '../components/Bagde.vue';
 import FlipCard from '../components/FlipCard.vue';
 import SkillmapCard from '../components/SkillmapCard.vue';
+import { ref } from 'vue';
+import Thoughts from '../components/Thoughts.vue';
+import ThoughtFeedback from '../components/ThoughtFeedback.vue'
+
+const isShowCanva = ref(false)
+const isShowModal = ref(false);
 </script>
 
 <template>
@@ -38,7 +44,7 @@ import SkillmapCard from '../components/SkillmapCard.vue';
       <h2 class="fw-bold mb-4">技能地圖</h2>
       <div class="section-item-container d-flex gap-4">
         <div class="map-container d-flex flex-column gap-5 w-75">
-          <SkillmapCard></SkillmapCard>
+          <SkillmapCard @open-offcanvas="isShowCanva = true" @trigger-feedback="isShowModal = true"></SkillmapCard>
           <SkillmapCard></SkillmapCard>
           <SkillmapCard></SkillmapCard>
           <SkillmapCard></SkillmapCard>
@@ -56,11 +62,44 @@ import SkillmapCard from '../components/SkillmapCard.vue';
         </div>
       </div>
     </div>
-    
    </section>
+   <!-- 心得側邊欄 -->
+   <Thoughts 
+    class="offcanvas offcanvas-end w-50" 
+    :class="{ 'show': isShowCanva }" 
+    :style="{ 
+      visibility: isShowCanva ? 'visible' : 'hidden'
+    }"
+    tabindex="-1"
+    @close-offcanvas="isShowCanva = false"></Thoughts>
+    <div 
+    v-if="isShowCanva" 
+    class="offcanvas-backdrop fade show" 
+    @click="isShowCanva = false"> </div>
+
+    <!-- 單獨彈出心得框 -->
+    <div 
+      class="modal fade" 
+      :class="{ 'show d-block': isShowModal }" 
+      tabindex="-1"
+      v-if="isShowModal">
+      <div class="modal-dialog modal-dialog-centered">
+          <ThoughtFeedback @close="isShowModal = false" />
+      </div>
+    </div>
+
+    <div v-if="isShowModal" class="modal-backdrop fade show"></div>
 </template>
 
 <style lang="scss" scoped>
+.modal.d-block {
+  display: block;
+  background: rgba(0, 0, 0, 0.4); /* 增加背景調暗 */
+  z-index: 1060;
+}
+.modal-backdrop {
+  z-index: 1050;
+}
 .hero-section {
   min-height: 60vh;
   background-color: var(--primary-blue-400);
@@ -99,7 +138,6 @@ import SkillmapCard from '../components/SkillmapCard.vue';
 }
 
 .title {
-  // font-size: var(--font-size-7xl);
   color: var(--color-bg-primary);
   font-family: "Noto Sans TC";
   font-weight: var(--font-weight-medium);
@@ -107,9 +145,7 @@ import SkillmapCard from '../components/SkillmapCard.vue';
 
 .desc {
   max-width: 90%;
-  // font-size: var(--font-size-lg);
   color: var(--color-bg-primary);
-  font-family: "Noto Sans TC";
 }
 
 .skill-info {
