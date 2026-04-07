@@ -39,7 +39,7 @@
         <div class="login-input-group">
           <input type="email" placeholder="電子信箱" class="styled-input">
           <input type="password" placeholder="密碼" class="styled-input">
-          <MyButton text="登入" type="primary" border="square" size="size-sm" class="full-width-btn"></MyButton>
+          <MyButton text="登入" type="primary" border="square" size="size-sm" class="full-width-btn" @click="handleLogin"></MyButton>
         </div>
 
         <span class="forget-code">忘記密碼</span>

@@ -7,6 +7,8 @@ import Register from '../views/Register.vue'
 import Error from '../views/Error.vue'
 import SearchRole from '../views/Search-Role.vue';
 import SearchSkill from '../views/Search-Skill.vue';
+import Skill from '../views/Skill.vue'
+import MyAccount from '../views/MyAccount.vue';
 
 const routes = [
     {
@@ -50,6 +52,16 @@ const routes = [
         path: '/error',
         name: 'error',
         component: Error,
+    },
+    {
+        path: '/photoshop',
+        name: 'photoshop',
+        component: Skill,
+    },
+    {
+        path: '/myaccount',
+        name: 'myaccount',
+        component: MyAccount,
     }
     
 ];

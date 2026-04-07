@@ -38,13 +38,15 @@
         </ul>
 
         <div class="auth-wrapper">
-          <div v-if="isLoggedIn" class="user-profile" @click="handleLogout">
+          <RouterLink to="/myaccount" v-if="isLoggedIn" class="user-profile"><div >
             <img src="../assets/images/avatar.png" alt="user" class="avatar">
-          </div>
-          <div v-else class="auth-buttons">
-            <router-link to="/Register"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"/></router-link>         
-            <router-link to="/Login"><MyButton text="登入" type="primary" border="pill" size="size-sm" /></router-link>
-          </div>
+          </div></RouterLink> 
+          <RouterLink v-else class="auth-buttons">
+            <div >
+                <router-link to="/Register"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"/></router-link>         
+                <router-link to="/Login"><MyButton text="登入" type="primary" border="pill" size="size-sm" /></router-link>
+            </div>
+          </RouterLink>
         </div>
       </div>
     </nav>

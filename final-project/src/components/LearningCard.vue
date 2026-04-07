@@ -40,7 +40,7 @@ const props = defineProps({
         </div>
       </div>
 
-      <MyButton text="查看詳細" :type="type" border="square" size="size-sm"></MyButton>
+      <RouterLink to="/photoshop"><MyButton text="查看詳細" :type="type" border="square" size="size-sm"></MyButton></RouterLink> 
     </div>
   </div>
 </template>
