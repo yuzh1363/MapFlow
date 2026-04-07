@@ -52,7 +52,7 @@ import MyButton from '../components/MyButton.vue';
 
 const isSticky = ref(false)
 const handleScroll = () => {
-  isSticky.value = window.scrollY > 400;
+  isSticky.value = window.scrollY > 500;
 };
 
 onMounted(() => {

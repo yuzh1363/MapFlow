@@ -23,7 +23,6 @@ import Skill from './views/Skill.vue';
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
 
-/* 設定全域字體 */
 :root, body, #app {
   font-family: 'Inter', 'Noto Sans TC', sans-serif;
   -webkit-font-smoothing: antialiased;
