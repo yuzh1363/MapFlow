@@ -41,38 +41,36 @@ import CommentCard from '../components/CommentCard.vue'
         </div>
       </div>
     </div>
-    <div class="content-section">
-      <div class="learning-container">
-        <div class="learning-column">
-          <h3 class="section-title">正在學習角色</h3>
-          <LearningCard title="UI /UX 設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
-          <LearningCard title="前端工程師" type="yellow" countText="10 / 30 已完成" progress="33%" />
-          <LearningCard title="網頁設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
+    <div class="content-container">
+      <div class="content-section">
+        <div class="learning-container">
+          <div class="learning-column">
+            <h3 class="section-title">正在學習角色</h3>
+            <LearningCard title="UI /UX 設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
+            <LearningCard title="前端工程師" type="yellow" countText="10 / 30 已完成" progress="33%" />
+            <LearningCard title="網頁設計師" type="yellow" countText="10 / 30 已完成" progress="33%" />
+          </div>
+          <div class="learning-column">
+            <h3 class="section-title">正在學習技能</h3>
+            <LearningCard title="Photoshop" type="primary" countText="10 / 30 已完成" progress="33%" />
+            <LearningCard title="Illustrator" type="primary" countText="15 / 30 已完成" progress="50%" />
+            <LearningCard title="Sketch" type="primary" countText="12 / 30 已完成" progress="40%" />
+            <LearningCard title="Figma" type="primary" countText="8 / 30 已完成" progress="25%" />
+          </div>
         </div>
-        <div class="learning-column">
-          <h3 class="section-title">正在學習技能</h3>
-          <LearningCard title="Photoshop" type="primary" countText="10 / 30 已完成" progress="33%" />
-          <LearningCard title="Illustrator" type="primary" countText="15 / 30 已完成" progress="50%" />
-          <LearningCard title="Sketch" type="primary" countText="12 / 30 已完成" progress="40%" />
-          <LearningCard title="Figma" type="primary" countText="8 / 30 已完成" progress="25%" />
+        <div class="feedback-section">
+          <h3 class="section-title">我的心得</h3>
+          <div class="card-grid">
+            <CommentCard /> <CommentCard /> <CommentCard />
+            <CommentCard /> <CommentCard /> <CommentCard />
+          </div>
         </div>
-      </div>
-
-      <div class="feedback-section">
-        <h3 class="section-title">我的心得</h3>
-        <div class="card-grid">
-          <CommentCard /> <CommentCard /> <CommentCard />
-          <CommentCard /> <CommentCard /> <CommentCard />
-
-        </div>
-      </div>
-
-      <div class="feedback-section">
-        <h3 class="section-title">收藏心得</h3>
-        <div class="card-grid">
-          <CommentCard /> <CommentCard /> <CommentCard />
-          <CommentCard /> <CommentCard /> <CommentCard />
-
+        <div class="feedback-section">
+          <h3 class="section-title">收藏心得</h3>
+          <div class="card-grid">
+            <CommentCard /> <CommentCard /> <CommentCard />
+            <CommentCard /> <CommentCard /> <CommentCard />
+          </div>
         </div>
       </div>
     </div>
@@ -90,13 +88,11 @@ import CommentCard from '../components/CommentCard.vue'
     height: auto;
     background-color: var(--color-primary);
     display: flex;
-    height: 40vh;
     padding: var(--spacing-16) 10%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 350px;
-    gap: 10px;
   }
 
   .welcome-container{
@@ -160,9 +156,17 @@ import CommentCard from '../components/CommentCard.vue'
       font-weight: var(--font-weight-bold);
     }
   }
+  .content-container{
+    width: 70%;
+    margin: 0 auto; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .content-section {
-    padding: var(--spacing-16) 10%;
+    padding-top: var(--spacing-16);
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-20);
@@ -177,12 +181,16 @@ import CommentCard from '../components/CommentCard.vue'
 
   .learning-container {
     display: flex;
+    justify-content: space-around;
     gap: 40px;
     flex-wrap: wrap;
+    width: 100%;
   }
 
   .learning-column {
-    flex: 1;
+    flex: 0 1 auto;
+    width: 100%;
+    max-width: 500px;
     min-width: 350px;
     display: flex;
     flex-direction: column;
@@ -194,7 +202,7 @@ import CommentCard from '../components/CommentCard.vue'
   flex-wrap: wrap;
   gap: var(--spacing-6); 
   width: 100%;
-  justify-content: flex-start;
+  justify-content: space-between;
   }
 
 </style>
