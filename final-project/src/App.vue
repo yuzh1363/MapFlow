@@ -10,14 +10,23 @@ import Skill from './views/Skill.vue';
 </script>
 
 <template>
-  <!-- <Header></Header>
+  <Header></Header>
   <main> 
     <RouterView></RouterView>
-  </main> -->
+  </main>
   <!-- <Skill></Skill> -->
   <!-- <Role></Role> -->
-   <Thoughts></Thoughts>
-  <!-- <Footer></Footer> -->
+   <!-- <Thoughts></Thoughts> -->
+  <Footer></Footer>
 </template>
 
-<style scoped></style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Noto+Sans+TC:wght@400;700&display=swap');
+
+/* 設定全域字體 */
+:root, body, #app {
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
