@@ -1,3 +1,31 @@
+<script setup>
+import TempleteCard from '../components/TempleteCard.vue'
+import SearchBar from '../components/SearchBar.vue'
+import { ref, onMounted, onUnmounted } from 'vue';
+import MyButton from '../components/MyButton.vue';
+
+const isSticky = ref(false)
+const handleScroll = () => {
+  isSticky.value = window.scrollY > 500;
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+const currentSort = ref('最高分');
+
+const sortOptions = ['最高分', '最新', '最熱門'];
+
+const changeSort = (item) => {
+  currentSort.value = item;
+};
+</script>
+
 <template>
     <div class="templete-page">
         <div class="main-frame sticky-top">
@@ -14,12 +42,27 @@
                 <div class="d-flex flex-column align-items-end">
                     <SearchBar text="樣板檢索" class="mb-3"></SearchBar>
                     <div class="btn-group mb-3">
-                        <button class="btn dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                            最高分
+                        <button 
+                            class="btn dropdown-toggle" 
+                            type="button" 
+                            id="defaultDropdown" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false"
+                        >
+                            {{ currentSort }}
                         </button>
+
                         <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                            <li><a class="dropdown-item" href="#">最新</a></li>
-                            <li><a class="dropdown-item" href="#">最熱門</a></li>
+                            <li v-for="item in sortOptions" :key="item">
+                            <a 
+                                class="dropdown-item d-flex justify-content-between align-items-center" 
+                                href="#" 
+                                @click.prevent="changeSort(item)"
+                            >
+                                {{ item }}
+                                <span v-if="item === currentSort" class="ms-2">✓</span>
+                            </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -44,25 +87,7 @@
     
 </template>
 
-<script setup>
-import TempleteCard from '../components/TempleteCard.vue'
-import SearchBar from '../components/SearchBar.vue'
-import { ref, onMounted, onUnmounted } from 'vue';
-import MyButton from '../components/MyButton.vue';
 
-const isSticky = ref(false)
-const handleScroll = () => {
-  isSticky.value = window.scrollY > 500;
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
-</script>
 
 <style scoped>
 .searchbar{

@@ -2,11 +2,11 @@
     <footer>
         <div class="container h-100 d-flex flex-column justify-content-between align-items-center gap-5 gap-md-3">
             <div class="nav-links d-flex justify-content-between align-items-center">
-                <ul class="nav d-flex flex-column flex-md-row gap-4 list-unstyled mb-0">
-                    <li><a href="#" class="nav-link p-0">開始探索</a></li>
-                    <li><a href="#" class="nav-link p-0">角色樹洞</a></li>
-                    <li><a href="#" class="nav-link p-0">樣板市集</a></li>
-                    <li><a href="#" class="nav-link p-0">關於我們</a></li>
+                <ul class="nav d-flex flex-column flex-md-row gap-4 list-unstyled gap-5">
+                    <RouterLink to="/" class="nav-item"><li>開始探索</li></RouterLink>
+                    <RouterLink to="/treeHole" class="nav-item"><li>角色樹洞</li></RouterLink>
+                    <RouterLink to="/templete" class="nav-item"><li>樣板市集</li></RouterLink>
+                    <RouterLink to="/error" class="nav-item"><li>關於我們</li></RouterLink>
                 </ul>
             </div>
             <div class="contact-info w-75 d-flex flex-column flex-md-row align-items-center justify-content-between ">
@@ -47,8 +47,9 @@ footer{
     color: var(--color-neutral-50);
     padding: var(--spacing-8);
 }
-.nav-link{
+.nav-item{
     color: var(--color-neutral-50);
+    text-decoration: none;
 }
 i{
     font-size: 25px;
