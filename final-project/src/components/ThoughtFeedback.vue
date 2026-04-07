@@ -18,7 +18,7 @@ const handleSend = () => {
       <div class="form-check form-switch">
         <input class="form-check-input me-1" type="checkbox" role="switch" id="privacyToggle" v-model="isPublic">
         <label class="form-check-label me-2" for="privacyToggle">
-          {{ isPublic ? '公開' : '私人' }}
+          {{ isPublic ? '公開' : '非公開' }}
         </label>
       </div>
     </div>

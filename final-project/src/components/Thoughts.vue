@@ -33,7 +33,7 @@ const clickPublic = ()=>{
             <div class=" d-flex justify-content-between">
                 <h4 class="mb-3">你的心得</h4>
                 <div class="form-check form-switch">
-                    <lable class="form-check-label ms-2" for="privacyToggle">{{ isPublic ? '私人' : '公開' }}</lable>
+                    <lable class="form-check-label ms-2" for="privacyToggle">{{ isPublic ? '公開' : '非公開' }}</lable>
                     <input class="form-check-input" type="checkbox" role="switch" id="privacyToggle" v-model="isPublic">
                 </div>
             </div>
