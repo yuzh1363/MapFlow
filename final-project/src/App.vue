@@ -1,14 +1,14 @@
 <script setup>
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue'
-import RoleExp from './views/RoleExp.vue'
+import Startroleexp from './views/Startroleexp.vue'
 </script>
 
 <template>
   <Header></Header> 
   <main> 
     <!-- <RouterView></RouterView> -->
-     <RoleExp></RoleExp>
+     <Startroleexp></Startroleexp>
   </main>
   <Footer></Footer>
 </template>
