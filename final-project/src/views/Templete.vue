@@ -68,13 +68,13 @@ const changeSort = (item) => {
                 </div>
                 
                 <div class="content-container">
-                    <div class="row d-flex justify-content-start">
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-12 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                    <div class="row d-flex flex-column flex-md-row align-items-center align-items-md-start">
+                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
                     </div>
                     
                 </div>
