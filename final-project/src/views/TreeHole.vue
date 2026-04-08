@@ -6,11 +6,18 @@
                     <h1 class="display-4 fw-bold">角色樹洞</h1>
                     <p>在樹洞寫下你在生活中不同角色所遇到的問題與困境，匿名交換來自遠方的煩惱。透過分享脆弱給予彼此支持。</p>
                 </div>
-                <div class="img-container">
+                <div class="img-container" :class="{ 'dimmed': isOpen }">
                     <img src="../assets/images/treeholeimg.png" alt="">
                 </div>
                 <div class="card-box" :class="{'active':isOpen}">
-                    <div class="circle" v-if="!isOpen" @click="isOpen = true"><i class="fa-solid fa-angle-left"></i></div>
+                    <div class="circle-group" v-if="!isOpen">
+                        <div class="bubble-image" v-if="showTooltip">
+                            <img src="../assets/images/tooltip.png" alt="">
+                        </div>
+                        <div class="circle" @click="handleOpen">
+                            <i class="fa-solid fa-angle-left"></i>
+                        </div>
+                    </div>
                     <div class="input-container">
                         <InputCard></InputCard>
                     </div>
@@ -60,6 +67,11 @@ onUnmounted(() => {
 });
 
 const isOpen = ref(false)
+const showTooltip = ref(true)
+const handleOpen = ()=>{
+    isOpen.value = true;
+    showTooltip.value = false;
+}
 </script>
 
 <style lang="scss" scoped>
@@ -74,6 +86,7 @@ const isOpen = ref(false)
     top: 60px;
     overflow: hidden
 }
+
 .all{
     border: 2px solid seagreen;
     width: 100%;
@@ -88,6 +101,10 @@ const isOpen = ref(false)
 .img-container{
     width: 100%;
     border: 2px solid salmon;
+    transition: opacity 0.5s ease;
+}
+.img-container.dimmed {
+    opacity: 0.3;
 }
 img{
     max-width: 100%;
@@ -100,7 +117,24 @@ img{
     align-items: flex-start;
     transform: translate(100%, -10%); 
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 20;
 
+    .circle-group {
+    position: absolute;
+    left: -50px;
+    top: 20px;
+
+    .bubble-image {
+    position: absolute;
+    top: -100px; 
+    left: -150px; 
+    width: 200px;
+    img {
+    width: 100%; 
+    display: block;
+}
+}
+}
     .circle{
         position: absolute;
         left: -25px; 
@@ -132,12 +166,15 @@ img{
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: transparent;
+    // background-color: rgba(0, 0, 0, 0.3);
     z-index: 5; 
+    transition: opacity 0.5s; 
 }
 
 h1,p{
     color: var(--color-neutral-50);
+    position: relative; 
+    z-index: 10;
 }
 .root-container{
     border-radius: 40px 40px 0 0 ;
