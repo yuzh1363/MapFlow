@@ -1,7 +1,7 @@
 <script setup>
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue'
-
+import GoToTop from './components/GoToTop.vue';
 </script>
 
 <template>
@@ -10,6 +10,7 @@ import Header from './components/Header.vue'
     <RouterView></RouterView>
   </main>
   <Footer></Footer>
+  <GoToTop />
 </template>
 
 <style>

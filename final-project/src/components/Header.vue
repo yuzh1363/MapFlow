@@ -3,13 +3,20 @@
   import { useAuthStore } from '../stores/auth';
   import { storeToRefs } from 'pinia';
   import MyButton from './MyButton.vue';
+  import DropMenu from './DropMenu.vue';
+  import { ref } from 'vue';
 
   const router = useRouter();
   const authStore = useAuthStore();
   const { isLoggedIn } = storeToRefs(authStore);
-  const handleLogout = () => {
-    authStore.logout();
-    router.push('/')
+  const isMenuOpen = ref(false);
+
+  const toggleMenu = () => {
+    isMenuOpen.value = !isMenuOpen.value;
+  };
+
+  const closeMenu = () => {
+    isMenuOpen.value = false;
   };
 
   const gotoLogin = () => {
@@ -38,13 +45,17 @@
         </ul>
 
         <div class="auth-wrapper">
-          <RouterLink to="/myaccount" v-if="isLoggedIn" class="user-profile">
-            <div>
+          <div v-if="isLoggedIn" class="user-profile-wrapper">
+            <div @click="toggleMenu" class="user-profile">
+              <div class="cart-outline">
+                <img src="../assets/images/cart.svg" alt="cart" class="cart">
+              </div>
               <img src="../assets/images/rainyman.png" alt="user" class="avatar">
             </div>
-          </RouterLink> 
+            <DropMenu v-if="isMenuOpen" @close="closeMenu" />
+          </div> 
           <RouterLink v-else class="auth-buttons">
-            <div >
+            <div class="btn-area">
                 <router-link to="/Register"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"/></router-link>         
                 <router-link to="/Login"><MyButton text="登入" type="primary" border="pill" size="size-sm" /></router-link>
             </div>
@@ -65,7 +76,6 @@
   background-color: var(--color-text-primary);
   box-shadow: var(--shadow-sm);
   transition: all 0.3s ease;
-
   height: 60px;
 }
 
@@ -79,8 +89,9 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
-    .brand-name,.brand-icon { height:24px ; }
+    .brand-name,.brand-icon { 
+      height:24px ; 
+    }
   }
 
   .navbar-content {
@@ -97,10 +108,9 @@
 
       .nav-item {
         font-weight: var(--font-weight-medium);
-        font-size: var(--font-size-sm);
+        font-size: var(--font-size-base);
         color: var(--color-bg-primary);
         text-decoration: none;
-        padding-bottom: 6px;
         border-bottom: 2px solid transparent;
         transition: all 0.2s ease;
         display: inline-block;
@@ -115,11 +125,36 @@
   .auth-wrapper {
     margin-left: 1.5rem;
 
+    .user-profile-wrapper {
+      position: relative;
+    }
+
     .user-profile {
+      display: flex;
+      gap: 15px;
       cursor: pointer;
+      align-items: center;
+
       .avatar {
         width: 40px;
+        height: 40px;
+        border-radius: 50%;
         display: block;
+        border: 2px solid var(--color-primary);
+      }
+      .cart{
+        width: 20px;
+        display: block;
+        object-fit: contain;
+      }
+      .cart-outline {
+        width: 32px;
+        height: 32px;
+        border: 1px solid var(--color-bg-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 
@@ -128,5 +163,10 @@
       gap: 0.5rem;
     }
   }
+}
+
+.btn-area{
+  display: flex;
+  gap: 10px;
 }
 </style>

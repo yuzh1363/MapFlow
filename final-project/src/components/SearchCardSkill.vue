@@ -1,5 +1,5 @@
 <template>
-    <div class="search-card">
+    <div class="search-card" @click="goToMap">
         <div class="job-info">
             <div class="card-title">{{info?.title}}</div>
             <div class="card-content line-clamp-4">{{ info?.content }}</div>
@@ -11,7 +11,7 @@
                 </div>
                 <Badge :text="info.type" type="green" size="size-xs" border="square"></Badge>
             </div>
-            <MyButton text="查看技能地圖" border="pill" size="size-sm"></MyButton>
+            <MyButton text="查看技能地圖" border="pill" size="size-sm" @click.stop="goToMap"></MyButton>
         </div>
     </div>
 </template>
@@ -19,12 +19,22 @@
 <script setup>
 import Badge from './Bagde.vue'
 import MyButton from './MyButton.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const props = defineProps({
-    info:Object,
-    required: true, 
-    default: () => ({})
+    info: {
+        type: Object,
+        required: true,
+        default: () => ({})
+    }
 })
+
+const goToMap = () => {
+    // 預設跳轉到 photoshop 頁面 (目前的技能詳情頁)
+    router.push('/photoshop');
+}
 </script>
 
 <style scoped>
@@ -41,6 +51,7 @@ const props = defineProps({
     padding: 20px;
     background-color: var(--color-neutral-50);
     transition: all 0.2s ease-in-out;
+    cursor: pointer;
 }
 .search-card:hover{
     box-shadow: 1px 1px 12px #c9c9c9 ;
