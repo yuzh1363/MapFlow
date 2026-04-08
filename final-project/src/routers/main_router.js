@@ -11,6 +11,7 @@ import Skill from '../views/Skill.vue'
 import MyAccount from '../views/MyAccount.vue';
 import Role from '../views/Role.vue';
 import EditData from '../views/EditData.vue';
+import EditCode from '../views/EditCode.vue';
 import Mytemplete from '../views/Mytemplete.vue';
 
 const routes = [
@@ -23,7 +24,7 @@ const routes = [
                 path: '',
                 name: 'search-role-tab',
                 component: SearchRole,
-             },
+            },
             {
                 path: 'skill',
                 name: 'search-skill-tab',
@@ -70,6 +71,11 @@ const routes = [
         path: '/editdata',
         name: 'editdata',
         component: EditData,
+    },
+    {
+        path: '/editcode',
+        name: 'editcode',
+        component: EditCode,
     },
     {
         path: '/mytemplete',

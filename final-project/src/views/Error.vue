@@ -26,8 +26,12 @@
     min-height: 100vh;
     background-color:var(----color-neutral-200);
     text-align: center;
-    padding-right: 13%;
+    padding: var(--spacing-8);
     margin-top: 50px;
+
+    @media (min-width: 992px) {
+      padding-right: 13%;
+    }
   }
   
   .content-container{
@@ -35,24 +39,38 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    gap: 10vh;
+    gap: 5vh;
+
+    @media (min-width: 768px) {
+      gap: 10vh;
+    }
   }
 
   .number-wrapper{
     position: relative;
     display: inline-block;
-    width: 60vw;
+    width: 80vw;
     max-width: 800px;
+
+    @media (min-width: 768px) {
+      width: 60vw;
+    }
   }
   .img-404{
-    width: 90%;
+    width: 100%;
     height: auto;
   }
   .peggy-position{
     position: absolute;
-    bottom: -42%;
-    right: -25%;
-    width: 50%;
+    bottom: -20%;
+    right: -10%;
+    width: 40%;
+
+    @media (min-width: 768px) {
+      bottom: -42%;
+      right: -25%;
+      width: 50%;
+    }
   }
   .error-text {
   margin-top: 2rem;

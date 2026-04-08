@@ -7,8 +7,8 @@ import GoToTop from './components/GoToTop.vue';
 <template>
   <Header></Header> 
   <main> 
-    <!-- <RouterView></RouterView> -->
-     <RoleExp></RoleExp>
+    <RouterView></RouterView>
+     <!-- <RoleExp></RoleExp> -->
   </main>
   <Footer></Footer>
   <GoToTop />

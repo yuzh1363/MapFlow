@@ -54,6 +54,12 @@
   height: 100vh;
   width: 100%;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    overflow: visible;
+  }
 }
 
 .login-pic {
@@ -61,6 +67,12 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 300px;
+    flex: none;
+  }
+
   .bg-layer {
     width: 100%;
     height: 100%;
@@ -101,6 +113,11 @@
   align-items: center;
   background-color: #fff;
   margin-top: 50px;
+
+  @media (max-width: 768px) {
+    margin-top: 0;
+    padding: var(--spacing-8) var(--spacing-4);
+  }
 }
 
 .content-wrapper {
@@ -110,6 +127,10 @@
   flex-direction: column;
   align-items: center;
   gap: 30px;
+
+  @media (max-width: 768px) {
+    gap: 20px;
+  }
 }
 
 .title {
@@ -117,6 +138,10 @@
   font-weight: 500;
   color: #333;
   margin-bottom: 10px;
+
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 }
 
 .third-party-account {

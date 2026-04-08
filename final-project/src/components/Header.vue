@@ -10,38 +10,52 @@
   const authStore = useAuthStore();
   const { isLoggedIn } = storeToRefs(authStore);
   const isMenuOpen = ref(false);
+  const isMobileMenuOpen = ref(false);
 
   const toggleMenu = () => {
     isMenuOpen.value = !isMenuOpen.value;
   };
 
+  const toggleMobileMenu = () => {
+    isMobileMenuOpen.value = !isMobileMenuOpen.value;
+  };
+
   const closeMenu = () => {
     isMenuOpen.value = false;
+    isMobileMenuOpen.value = false;
   };
 
   const gotoLogin = () => {
-    router.push('/login')
+    router.push('/login');
+    closeMenu();
   }
 
   const gotoRegister = () => {
-    router.push('/register')
+    router.push('/register');
+    closeMenu();
   }
 </script>
 
 <template>
   <header class="header">
     <nav class="navbar">
-      <RouterLink to="/" class="navbar-brand">
+      <RouterLink to="/" class="navbar-brand" @click="closeMenu">
         <img src="../assets/images/BrandName.png" alt="MapFlow" class="brand-name">
         <img src="../assets/images/LogoIcon.png" alt="Logo Icon" class="brand-icon">
       </RouterLink> 
 
-      <div class="navbar-content">
+      <button class="mobile-toggle" @click="toggleMobileMenu" :class="{ 'active': isMobileMenuOpen }">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="navbar-content" :class="{ 'show': isMobileMenuOpen }">
         <ul class="nav-menu">
-          <RouterLink to="/" class="nav-item"><li>開始探索</li></RouterLink>
-          <RouterLink to="/treeHole" class="nav-item"><li>角色樹洞</li></RouterLink>
-          <RouterLink to="/templete" class="nav-item"><li>樣板市集</li></RouterLink>
-          <RouterLink to="/error" class="nav-item"><li>關於我們</li></RouterLink>
+          <RouterLink to="/" class="nav-item" @click="closeMenu"><li>開始探索</li></RouterLink>
+          <RouterLink to="/treeHole" class="nav-item" @click="closeMenu"><li>角色樹洞</li></RouterLink>
+          <RouterLink to="/templete" class="nav-item" @click="closeMenu"><li>樣板市集</li></RouterLink>
+          <RouterLink to="/error" class="nav-item" @click="closeMenu"><li>關於我們</li></RouterLink>
         </ul>
 
         <div class="auth-wrapper">
@@ -54,15 +68,16 @@
             </div>
             <DropMenu v-if="isMenuOpen" @close="closeMenu" />
           </div> 
-          <RouterLink v-else class="auth-buttons">
+          <div v-else class="auth-buttons">
             <div class="btn-area">
-                <router-link to="/Register"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"/></router-link>         
-                <router-link to="/Login"><MyButton text="登入" type="primary" border="pill" size="size-sm" /></router-link>
+                <router-link to="/Register" @click="closeMenu"><MyButton text="註冊" type="yellow" border="pill" size="size-sm"/></router-link>         
+                <router-link to="/Login" @click="closeMenu"><MyButton text="登入" type="primary" border="pill" size="size-sm" /></router-link>
             </div>
-          </RouterLink>
+          </div>
         </div>
       </div>
     </nav>
+    <div v-if="isMobileMenuOpen" class="menu-overlay" @click="closeMenu"></div>
   </header>
 </template>
 
@@ -84,13 +99,43 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
 
   .navbar-brand {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    z-index: 1001;
     .brand-name,.brand-icon { 
       height:24px ; 
+    }
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+    .bar {
+      width: 100%;
+      height: 3px;
+      background-color: var(--color-bg-primary);
+      border-radius: 10px;
+      transition: all 0.3s linear;
+    }
+
+    &.active {
+      .bar:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+      .bar:nth-child(2) { opacity: 0; }
+      .bar:nth-child(3) { transform: rotate(-45deg) translate(7px, -8px); }
     }
   }
 
@@ -168,5 +213,64 @@
 .btn-area{
   display: flex;
   gap: 10px;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+@media (max-width: 991px) {
+  .navbar {
+    .mobile-toggle {
+      display: flex;
+    }
+
+    .navbar-content {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: var(--color-text-primary);
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 100px 40px;
+      transition: 0.3s ease;
+      box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+      z-index: 1000;
+
+      &.show {
+        right: 0;
+      }
+
+      .nav-menu {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+
+        .nav-item {
+          font-size: 1.5rem;
+        }
+      }
+
+      .auth-wrapper {
+        margin-left: 0;
+        margin-top: 2rem;
+        width: 100%;
+
+        .btn-area {
+          flex-direction: column;
+          width: 100%;
+          gap: 1rem;
+        }
+      }
+    }
+  }
 }
 </style>

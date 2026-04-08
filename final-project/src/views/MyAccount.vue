@@ -88,31 +88,53 @@ import LearningCardRole from '../components/LearningCardRole.vue';
     background-color: var(--color-neutral-50);
   }
   .hero-bg{
-    height: 40vh;
+    height: auto;
     background-color: var(--color-primary);
     display: flex;
-    padding: var(--spacing-16) 10%;
+    padding: var(--spacing-12) 5%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 350px;
+
+    @media (min-width: 992px) {
+      padding: var(--spacing-16) 10%;
+      height: 40vh;
+    }
   }
 
   .welcome-container{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    gap: var(--spacing-8);
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   .user-info{
-    width: 410px;
+    width: 100%;
+    max-width: 410px;
+    text-align: center;
+
+    @media (min-width: 992px) {
+      text-align: left;
+    }
   }
   .container{
-    font-size: var(--font-size-5xl);
+    font-size: var(--font-size-3xl);
     color: var(--color-bg-primary);
+
+    @media (min-width: 768px) {
+      font-size: var(--font-size-5xl);
+    }
   }
 
   .badge-group{
@@ -120,17 +142,29 @@ import LearningCardRole from '../components/LearningCardRole.vue';
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 27px;
+    gap: 15px;
+    flex-wrap: wrap;
+
+    @media (min-width: 992px) {
+      justify-content: flex-start;
+      gap: 27px;
+    }
   }
 
   .card-container{
     display: flex;
     align-items: center;
-    gap: 42px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      gap: 42px;
+    }
   }
   .card{
     display: flex;
-    width: 180px;
+    width: 150px;
     padding: var(--spacing-2) var(--spacing-5);
     flex-direction: column;
     justify-content: flex-end;
@@ -138,38 +172,62 @@ import LearningCardRole from '../components/LearningCardRole.vue';
     gap: 10px;
     border-radius: 16px;
     background: var(--color-neutral-100);
+
+    @media (min-width: 768px) {
+      width: 180px;
+    }
+
     .icon{
-      width: 48px;
-      height: 48px;
+      width: 36px;
+      height: 36px;
+      @media (min-width: 768px) {
+        width: 48px;
+        height: 48px;
+      }
     }
     .title{
       color: var(--color-text-primary);
-      font-size: var(--font-size-xl);
+      font-size: var(--font-size-sm);
       font-style: normal;
       font-weight:var(--font-weight-regular);
       letter-spacing: 0.5px;
+      @media (min-width: 768px) {
+        font-size: var(--font-size-xl);
+      }
     }
     .count{
       color: #000;
-      font-size: 40px;
+      font-size: 24px;
       font-style: normal;
       font-weight: var(--font-weight-bold);
+      @media (min-width: 768px) {
+        font-size: 40px;
+      }
     }
   }
   .content-container{
-    width: 70%;
+    width: 95%;
     margin: 0 auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (min-width: 768px) {
+      width: 85%;
+    }
   }
 
   .content-section {
-    padding-top: var(--spacing-16);
+    padding-top: var(--spacing-8);
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-20);
+    gap: var(--spacing-10);
+
+    @media (min-width: 768px) {
+      padding-top: var(--spacing-16);
+      gap: var(--spacing-20);
+    }
   }
 
   .section-title {
@@ -188,10 +246,9 @@ import LearningCardRole from '../components/LearningCardRole.vue';
   }
 
   .learning-column {
-    flex: 0 1 auto;
+    flex: 1 1 350px;
     width: 100%;
     max-width: 500px;
-    min-width: 350px;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-6);
@@ -199,16 +256,25 @@ import LearningCardRole from '../components/LearningCardRole.vue';
 
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-    gap: var(--spacing-8); 
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-4); 
     width: 100%;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: var(--spacing-8);
+    }
   }
 
   .content-container {
-    width: 85%; 
+    width: 95%; 
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+
+    @media (min-width: 768px) {
+      width: 85%;
+    }
   }
 
 </style>

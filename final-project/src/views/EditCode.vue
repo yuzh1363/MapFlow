@@ -1,5 +1,16 @@
 <script setup>
   import MyButton from '../components/MyButton.vue';
+  import { useRouter } from 'vue-router';
+  
+  const router = useRouter();
+  
+  const goToData = () => {
+    router.push('/editdata');
+  };
+  
+  const goToCode = () => {
+    router.push('/editcode');
+  };
 </script>
 
 <template>
@@ -14,8 +25,8 @@
     <main class="edit-form">
       <div class="tab-block">
         <div class="tab-group">
-          <MyButton text="基本資料" type="yellow" border="square" size="size-md"></MyButton>
-          <MyButton text="更改密碼" type="yellow" border="square" size="size-md" class="inactive"></MyButton>
+          <MyButton text="基本資料" type="yellow" border="square" size="size-md" class="inactive" @click="goToData"></MyButton>
+          <MyButton text="更改密碼" type="yellow" border="square" size="size-md" @click="goToCode"></MyButton>
         </div>
       </div>
       <div class="edit-content">
@@ -38,6 +49,10 @@
     display:flex;
     min-height: 100vh;
     width: 100%;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+    }
   }
   .sidebar{
     flex: 1;
@@ -48,10 +63,21 @@
     padding: 90px 20px;
     flex-direction: column;
     gap: 40px;
+
+    @media (max-width: 992px) {
+      min-width: 100%;
+      padding: var(--spacing-12) var(--spacing-4);
+      gap: var(--spacing-6);
+    }
+
     h1{
       font-size: var(--font-size-5xl);
       color: var(--color-bg-primary);
       font-family: "Noto Sans TC";
+
+      @media (max-width: 768px) {
+        font-size: var(--font-size-3xl);
+      }
     }
   }
   .user-img{
@@ -60,6 +86,11 @@
     border-radius: 50%;
     background-color: #FA6506;
     object-fit: cover;
+
+    @media (max-width: 768px) {
+      width: 150px;
+      height: 150px;
+    }
   }
 
   .edit-form{
@@ -69,18 +100,33 @@
     align-items: center;
     flex-direction: column;
     padding: 100px 10%;
+
+    @media (max-width: 992px) {
+      padding: var(--spacing-8) var(--spacing-4);
+    }
   }
   .tab-block{
     width: 100%;
     max-width: 600px;
     display: flex;
     align-items: flex-start;
+
+    @media (max-width: 768px) {
+      justify-content: center;
+    }
   }
 
   .tab-group{
     display: flex;
     gap: 20px;
     margin-bottom: 40px;
+    
+    @media (max-width: 768px) {
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .inactive {
     background-color: var(--Sec-yellow-300);
     }
