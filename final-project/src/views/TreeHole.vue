@@ -1,16 +1,21 @@
 <template>
     <div class="treehole-page">
         <div class="main-frame sticky-top">
-            <div class="container d-flex flex-column flex-lg-row justify-content-between gap-5">
-                <div class="text-container d-flex flex-column justify-content-end align-items-start w-100 w-lg-50 position-relative">
+            <div class="all container">
+                <div class="text-container">
                     <h1 class="display-4 fw-bold">角色樹洞</h1>
                     <p>在樹洞寫下你在生活中不同角色所遇到的問題與困境，匿名交換來自遠方的煩惱。透過分享脆弱給予彼此支持。</p>
+                </div>
+                <div class="img-container">
                     <img src="../assets/images/treeholeimg.png" alt="">
                 </div>
-                <div class="w-100 w-lg-50 d-flex justify-content-center justify-content-lg-end">
-                    <InputCard></InputCard>
+                <div class="card-box" :class="{'active':isOpen}">
+                    <div class="circle" v-if="!isOpen" @click="isOpen = true"><i class="fa-solid fa-angle-left"></i></div>
+                    <div class="input-container">
+                        <InputCard></InputCard>
+                    </div>
                 </div>
-                
+                <div v-if="isOpen" class="bg-overlay" @click="isOpen = false"></div>
             </div>
         </div>
         <div class="root-container  position-relative mt-5" :class="{ 'rounded-5': !isSticky, 'rounded-0': isSticky }">
@@ -53,9 +58,11 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
+
+const isOpen = ref(false)
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .treehole-page{
     background-color: #001354;
 }
@@ -67,17 +74,68 @@ onUnmounted(() => {
     top: 60px;
     overflow: hidden
 }
+.all{
+    border: 2px solid seagreen;
+    width: 100%;
+    display: flex;
+
+}
 .text-container{
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.img-container{
+    width: 100%;
+    border: 2px solid salmon;
 }
 img{
-    position: absolute;
     max-width: 100%;
-    height: auto;
-    top: 14px;
-    left: 160px;
-    z-index: -1;
 }
+.card-box{
+    position: fixed;
+    top: 30%;
+    right: 50px;
+    display: flex;
+    align-items: flex-start;
+    transform: translate(100%, -10%); 
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    .circle{
+        position: absolute;
+        left: -25px; 
+        top: -20px;
+        cursor: pointer;
+        display:flex ;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        z-index: 10;
+        i{
+            font-size: 30px;
+            color: white;
+        }
+    }
+    .input-container{
+    margin-right: -450px;
+}
+}
+.active{
+    transform: translate(-1000%, -10%);
+}
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 5; 
+}
+
 h1,p{
     color: var(--color-neutral-50);
 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="input-card w-100 w-md-50 w-lg-25">
+    <div class="input-card">
         <form>
             <div class="mb-3">
                 <input class="form-control" type="text" placeholder="輸入你的職業" aria-label="default input example">
@@ -22,7 +22,7 @@ import MyButton from './MyButton.vue'
 <style scoped>
 .input-card{
     width:500px ;
-    min-width: 300px;
+    /* min-width: 300px; */
     height: 250px;
     padding: 32px 24px;
     background-color: #fff;
