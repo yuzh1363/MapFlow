@@ -15,6 +15,9 @@ import MyButton from '../components/MyButton.vue';
             <p>今天收到我們的聽眾<span>王戴明</span>的來信，
 他正在計畫成為<span>前端工程師</span>，所以想要讓我們來模擬一下這個角色會遇到什麼問題，希望他能克服這些！你準備好了嗎？</p>
         </div>
+        <div class="exit">
+            <MyButton text="離開" border="square" size="size-md" type="green"></MyButton>
+        </div>
         <img src="../assets/images/roleexptitle.png" alt="" class="title">
         <img src="../assets/images/pocast-wei.png" alt="" class="wei">
         <img src="../assets/images/pocast-peggy.png" alt="" class="pbody">
@@ -30,6 +33,12 @@ import MyButton from '../components/MyButton.vue';
     height: 100vh;
     background-color: #000825;
     position: relative;
+}
+.exit{
+    position: absolute;
+    bottom: 100px;
+    right: 50px;
+    z-index: 5;
 }
 .left-dialog{
     position: absolute;

@@ -2,6 +2,7 @@
 import Footer from './components/Footer.vue';
 import Header from './components/Header.vue'
 import GoToTop from './components/GoToTop.vue';
+import Startroleexp from './views/Startroleexp.vue'
 </script>
 
 <template>
@@ -9,6 +10,8 @@ import GoToTop from './components/GoToTop.vue';
   <main> 
     <RouterView></RouterView>
      <!-- <RoleExp></RoleExp> -->
+    <!-- <RouterView></RouterView> -->
+     <Startroleexp></Startroleexp>
   </main>
   <Footer></Footer>
   <GoToTop />
