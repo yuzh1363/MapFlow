@@ -8,7 +8,7 @@ import MyButton from '../components/MyButton.vue';
     <div class="canva">
         <div class="left-dialog">
             <MyButton text="我要下班" type="yellow" size="size-md" border="pill"></MyButton>
-            <MyButton text="準備好了" type="primary" size="size-md" border="pill"></MyButton>
+            <RouterLink to="/start-role"><MyButton text="準備好了" type="primary" size="size-md" border="pill"></MyButton></RouterLink>
         </div>
         <div class="right-dialog">
             <h4>歡迎大家收聽角色模擬！</h4>

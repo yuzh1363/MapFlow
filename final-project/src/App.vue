@@ -4,15 +4,16 @@ import Header from './components/Header.vue'
 import GoToTop from './components/GoToTop.vue';
 import Startroleexp from './views/Startroleexp.vue'
 import Finishroleexp from './views/Finishroleexp.vue';
+import RoleExp from './views/RoleExp.vue'
 </script>
 
 <template>
   <Header></Header> 
   <main> 
-    <!-- <RouterView></RouterView> -->
+    <RouterView></RouterView>
      <!-- <RoleExp></RoleExp> -->
      <!-- <Startroleexp></Startroleexp> -->
-      <Finishroleexp></Finishroleexp>
+      <!-- <Finishroleexp></Finishroleexp> -->
   </main>
   <Footer></Footer>
   <GoToTop />

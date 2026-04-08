@@ -13,6 +13,9 @@ import Role from '../views/Role.vue';
 import EditData from '../views/EditData.vue';
 import EditCode from '../views/EditCode.vue';
 import Mytemplete from '../views/Mytemplete.vue';
+import Startroleexp from '../views/Startroleexp.vue';
+import Finishroleexp from '../views/Finishroleexp.vue';
+import RoleExp from '../views/RoleExp.vue';
 
 const routes = [
     {
@@ -86,6 +89,21 @@ const routes = [
         path: '/role',
         name: 'role-detail',
         component: Role,
+    },
+    {
+        path: '/role-exp',
+        name: 'role-exp',
+        component: RoleExp,
+    },
+    {
+        path: '/start-role',
+        name: 'start-role',
+        component: Startroleexp,
+    },
+    {
+        path: '/finish-role',
+        name: 'finish-role',
+        component: Finishroleexp,
     }
     
 ];

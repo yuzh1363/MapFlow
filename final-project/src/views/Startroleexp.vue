@@ -17,7 +17,7 @@ const changePage = (page) => {
         <div class="left-dialog">
             <p class="mb-0">我覺得他...</p>
             <MyButton text="不行" type="yellow" size="size-md" border="pill"></MyButton>
-            <MyButton text="可以" type="primary" size="size-md" border="pill"></MyButton>
+            <RouterLink to="/finish-role"><MyButton text="可以" type="primary" size="size-md" border="pill"></MyButton></RouterLink>
         </div>
         <div class="right-dialog">
             <p><span>前端工程師</span>常常加班，責任制度是常態，能接受嗎？</p>
