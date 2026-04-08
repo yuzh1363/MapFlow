@@ -17,6 +17,7 @@ import Startroleexp from '../views/Startroleexp.vue';
 import Finishroleexp from '../views/Finishroleexp.vue';
 import RoleExp from '../views/RoleExp.vue';
 import Cart from '../views/Cart.vue';
+import Checkout from '../views/Checkout.vue';
 
 const routes = [
     {
@@ -45,6 +46,11 @@ const routes = [
         path: '/cart',
         name: 'cart',
         component: Cart
+    },
+    {
+        path: '/checkout',
+        name: 'checkout',
+        component: Checkout
     },
     {
         path: '/treeHole',

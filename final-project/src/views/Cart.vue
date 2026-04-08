@@ -12,7 +12,7 @@ const goBack = () => {
 };
 
 const handleCheckout = () => {
-  alert('功能開發中！即將前往結帳...');
+  router.push('/checkout');
 };
 
 const formatCurrency = (value) => {
