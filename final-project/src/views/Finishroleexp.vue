@@ -14,13 +14,36 @@ const changePage = (page) => {
 
 <template>
     <div class="canva">
-        <div class="left-dialog">
-            <p class="mb-0">我覺得他...</p>
-            <MyButton text="不行" type="yellow" size="size-md" border="pill"></MyButton>
-            <MyButton text="可以" type="primary" size="size-md" border="pill"></MyButton>
-        </div>
-        <div class="right-dialog">
-            <p><span>前端工程師</span>常常加班，責任制度是常態，能接受嗎？</p>
+        <div class="ready">
+            <h1 class="title">準備好成為<span>前端工程師</span>了嗎</h1>
+            <div class="card-container">
+                <div class="card">
+                    <img src="../assets/images/ido.png" alt="">
+                    <p  class="fs-4 mb-0">可以</p>
+                    <div class="w-100">
+                        <sapn>10/6</sapn>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                    <MyButton text="查看詳細" border="square" size="size-md" type="primary"></MyButton>
+                </div>
+                <div class="card">
+                    <img src="../assets/images/icant.png" alt="">
+                    <p class="fs-4 mb-0">不行</p>
+                    <div class="w-100">
+                        <sapn>10/4</sapn>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <MyButton text="查看詳細" border="square" size="size-md" type="yellow"></MyButton>
+                </div>
+            </div>
+            <div class="btn-group d-flex gap-5">
+                <MyButton text="再考慮一下" type="sec" border="pill" size="size-md"></MyButton>
+                <MyButton text="我準備好了" type="primary" border="pill" size="size-md"></MyButton>
+            </div>
         </div>
         <div class="exit">
             <MyButton text="離開" border="square" size="size-md" type="green"></MyButton>
@@ -38,13 +61,9 @@ const changePage = (page) => {
         </div>
             
         <img src="../assets/images/roleexptitle.png" alt="" class="title">
-        <img src="../assets/images/confus.png" alt="" class="
-        confus">
         <img src="../assets/images/pocast-wei.png" alt="" class="wei">
         <img src="../assets/images/pocast-peggy.png" alt="" class="pbody">
         <img src="../assets/images/peggy-hand.png" alt="" class="phand">
-        <img src="../assets/images/left-dialog.png" alt="" class="l-dialog">
-        <img src="../assets/images/right-dialog.png" alt="" class="r-dialog">
     </div>
 </template>
 
@@ -55,79 +74,47 @@ const changePage = (page) => {
     background-color: #000825;
     position: relative;
 }
+span{
+    color: var(--color-primary);
+}
 .exit{
     position: absolute;
     bottom: 100px;
     right: 50px;
     z-index: 5;
 }
-.left-dialog{
+.ready{
     position: absolute;
-    top: 400px;
-    left: 400px;
-
-    background-color: #fff;
-    width: 300px;
-    height: 100px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items:center;
-    padding: 0 24px;
+    top: 10%;
+    left: 50%;       
+    transform: translateX(-50%);
     z-index: 10;
-}
-.l-dialog{
-    position: absolute;
-    top: 480px;
-    left: 400px;
-}
-.r-dialog{
-    position: absolute;
-    top: 330px;
-    right: 400px;
-}
-.right-dialog{
-    position: absolute;
-    top: 200px;
-    right: 400px;
 
-    background-color: #fff;
-    width: 430px;
-    height: 150px;
-    border-radius: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 12px 24px;
-
-    span{
-        color: var(--color-primary);
+    gap: 20px;
+    .card-container{
+        display: flex;
+        justify-content: space-between;
+        
+        .card{
+            width: 45%;
+            padding: 12px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--color-neutral-50);
     }
+    }
+    
 }
 .title{
-    position: absolute;
-    top: 30px;
-    left: 30px;
+    color: white;
 }
-.confus{
-    position: absolute;
-    z-index: 10;
-    top: 510px;
-    left: 100px;
-    animation: confus 5s ease-in-out infinite;
-}
-@keyframes confus {
-    0% {
-        transform: translateY(20px);
-    }
-    50% {
-        transform: translateY(-3px);
-    }
-    100% {
-        transform: translateY(20px);
-    }
-}
+
 .wei{
     position: absolute;
     bottom: 0px;
@@ -194,5 +181,17 @@ const changePage = (page) => {
 
 .page-btn:hover:not(.active) {
   background-color: #FFD700;
+}
+
+.progress-container {
+    width: 100%;
+    background-color: #9c9c9c;
+    height: 13px; 
+    border-radius: 100px;  
+    overflow: hidden;
+}
+.progress-bar { 
+  background: var(--color-support-b);
+  height: 100%;  
 }
 </style>

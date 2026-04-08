@@ -3,15 +3,16 @@ import Footer from './components/Footer.vue';
 import Header from './components/Header.vue'
 import GoToTop from './components/GoToTop.vue';
 import Startroleexp from './views/Startroleexp.vue'
+import Finishroleexp from './views/Finishroleexp.vue';
 </script>
 
 <template>
   <Header></Header> 
   <main> 
-    <RouterView></RouterView>
-     <!-- <RoleExp></RoleExp> -->
     <!-- <RouterView></RouterView> -->
-     <Startroleexp></Startroleexp>
+     <!-- <RoleExp></RoleExp> -->
+     <!-- <Startroleexp></Startroleexp> -->
+      <Finishroleexp></Finishroleexp>
   </main>
   <Footer></Footer>
   <GoToTop />

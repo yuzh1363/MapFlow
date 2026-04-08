@@ -25,6 +25,17 @@
     color: var(--color-neutral-50);
     transform: translateY(-2px);
 }
+.btn-sec {
+    background-color: var(--color-neutral-50);
+    border:3px solid var(--color-primary);
+    color: var(--color-primary);
+}
+.btn-sec:hover{
+    background-color: var(--color-neutral-50);
+    border:3px solid var(--primary-blue-700);
+    color: var(--primary-blue-700);
+    transform: translateY(-2px);
+}
 /* 黃色按鈕 */
 .btn-yellow{
     background-color: var(--Sec-yellow-500);
