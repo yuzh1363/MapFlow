@@ -1,12 +1,17 @@
 <script setup>
-import SearchCard from '../components/SearchCard.vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import gsap from 'gsap'
+import { usesearchStore } from '../stores/searchStore'
+import SearchCard from '../components/SearchCard.vue'
 import Badge from '../components/Bagde.vue'
 import MyButton from '../components/MyButton.vue'
-import gsap from 'gsap'
-import { ref, onMounted, onUnmounted } from 'vue'
 import SearchBar from '../components/SearchBar.vue'
+import SearchIcon from '../components/SearchIcon.vue'
 
 //Hero-section動畫
+const searchSection = ref(null)
+
 onMounted(() => {
     window.addEventListener('scroll', handleScroll)
     const tl = gsap.timeline({
@@ -59,12 +64,8 @@ const handleScroll = () => {
     heroOpacity.value = Math.max(newOpacity,0)
 }
 
-import { useRouter } from 'vue-router';
-import { usesearchStore } from '../stores/searchStore';
-import { computed } from 'vue';
 const search = usesearchStore()
-
-const router = useRouter();
+const router = useRouter()
 
 const carouselList = computed(() => {
   return search.searchs.slice(0, 4);
@@ -90,13 +91,17 @@ const carouselLis3 = computed(() => {
             <img class="mapflow-logo" src="../assets/images/BrandName_bg.svg" alt="MapFlow">
         </div>
     </div>
-    <div class="search-section">
+    <div class="search-section" ref="searchSection">
         <div class="search-txt">
             <h1 class="search-title">開啟專業學習地圖</h1>
             <p class="search-subtitle">超過500+種職業角色與核心技能，打造專屬你的成長學習路徑</p>
         </div>
         <SearchBar text="角色學習、技能樹檢索" class="search-bar" color="blue"></SearchBar>
     </div>
+
+    <!-- 懸浮搜尋按鈕組件 -->
+    <SearchIcon targetSelector=".search-section" />
+
     <div class="container">
         <div class="container px-5 mb-5">
             <h2>推薦角色</h2>
