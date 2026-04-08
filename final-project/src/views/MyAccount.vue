@@ -81,90 +81,68 @@ import LearningCardRole from '../components/LearningCardRole.vue';
 
 
 <style lang="scss" scoped>
-  #my-account-page{
+
+  #my-account-page {
     min-height: 100vh;
     width: 100%;
     margin-bottom: 30px;
     background-color: var(--color-neutral-50);
   }
-  .hero-bg{
-    height: auto;
+
+  .hero-bg {
     background-color: var(--color-primary);
     display: flex;
-    padding: var(--spacing-12) 5%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 350px;
-
-    @media (min-width: 992px) {
-      padding: var(--spacing-16) 10%;
-      height: 40vh;
-    }
+    height: 40vh;
+    padding: var(--spacing-16) 7%;
   }
 
-  .welcome-container{
+  .welcome-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     gap: var(--spacing-8);
-
-    @media (min-width: 992px) {
-      flex-direction: row;
-      justify-content: space-between;
-    }
   }
 
-  .user-info{
+  .user-info {
     width: 100%;
     max-width: 410px;
-    text-align: center;
-
-    @media (min-width: 992px) {
-      text-align: left;
-    }
+    text-align: left;
   }
-  .container{
-    font-size: var(--font-size-3xl);
+
+  .container {
+    padding: 0;
+    font-size: var(--font-size-5xl);
     color: var(--color-bg-primary);
-
-    @media (min-width: 768px) {
-      font-size: var(--font-size-5xl);
-    }
   }
 
-  .badge-group{
+  .badge-group {
     margin-top: 13px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    gap: 15px;
+    gap: 27px;
     flex-wrap: wrap;
-
-    @media (min-width: 992px) {
-      justify-content: flex-start;
-      gap: 27px;
-    }
   }
 
-  .card-container{
+  .card-container {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 42px;
     flex-wrap: wrap;
     justify-content: center;
-
-    @media (min-width: 768px) {
-      gap: 42px;
-    }
   }
-  .card{
+
+  .card {
     display: flex;
-    width: 150px;
+    width: 180px;
     padding: var(--spacing-2) var(--spacing-5);
     flex-direction: column;
     justify-content: flex-end;
@@ -173,61 +151,38 @@ import LearningCardRole from '../components/LearningCardRole.vue';
     border-radius: 16px;
     background: var(--color-neutral-100);
 
-    @media (min-width: 768px) {
-      width: 180px;
+    .icon {
+      width: 48px;
+      height: 48px;
     }
-
-    .icon{
-      width: 36px;
-      height: 36px;
-      @media (min-width: 768px) {
-        width: 48px;
-        height: 48px;
-      }
-    }
-    .title{
+    .title {
       color: var(--color-text-primary);
-      font-size: var(--font-size-sm);
+      font-size: var(--font-size-xl);
       font-style: normal;
-      font-weight:var(--font-weight-regular);
+      font-weight: var(--font-weight-regular);
       letter-spacing: 0.5px;
-      @media (min-width: 768px) {
-        font-size: var(--font-size-xl);
-      }
     }
-    .count{
+    .count {
       color: #000;
-      font-size: 24px;
+      font-size: 40px;
       font-style: normal;
       font-weight: var(--font-weight-bold);
-      @media (min-width: 768px) {
-        font-size: 40px;
-      }
     }
   }
-  .content-container{
-    width: 95%;
-    margin: 0 auto; 
+
+  .content-container {
+    width: 85%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    @media (min-width: 768px) {
-      width: 85%;
-    }
   }
 
   .content-section {
-    padding-top: var(--spacing-8);
+    padding-top: var(--spacing-16);
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-10);
-
-    @media (min-width: 768px) {
-      padding-top: var(--spacing-16);
-      gap: var(--spacing-20);
-    }
+    gap: var(--spacing-20);
   }
 
   .section-title {
@@ -256,25 +211,64 @@ import LearningCardRole from '../components/LearningCardRole.vue';
 
   .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: var(--spacing-4); 
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: var(--spacing-8);
     width: 100%;
+  }
 
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: var(--spacing-8);
+
+
+  /* 平板與手機通用微調 (Max-width: 992px) */
+  @media (max-width: 992px) {
+    .hero-bg {
+      padding: var(--spacing-12) 5%;
+      height: auto;
+    }
+
+    .welcome-container {
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .user-info {
+      text-align: center;
+    }
+
+    .badge-group {
+      justify-content: center;
+      gap: 15px;
     }
   }
 
-  .content-container {
-    width: 95%; 
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
+  /* 手機版微調 (Max-width: 768px) */
+  @media (max-width: 768px) {
+    .container {
+      font-size: var(--font-size-3xl);
+    }
 
-    @media (min-width: 768px) {
-      width: 85%;
+    .card-container {
+      gap: 20px;
+    }
+
+    .card {
+      width: 150px;
+      .icon { width: 36px; height: 36px; }
+      .title { font-size: var(--font-size-sm); }
+      .count { font-size: 24px; }
+    }
+
+    .content-container {
+      width: 95%;
+    }
+
+    .content-section {
+      padding-top: var(--spacing-8);
+      gap: var(--spacing-10);
+    }
+
+    .card-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--spacing-4);
     }
   }
-
 </style>

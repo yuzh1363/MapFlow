@@ -193,8 +193,8 @@
         object-fit: contain;
       }
       .cart-outline {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         border: 1px solid var(--color-bg-primary);
         border-radius: 50%;
         display: flex;
