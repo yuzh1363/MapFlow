@@ -1,6 +1,7 @@
 <script setup>
   import { useRouter } from 'vue-router';
   import { useAuthStore } from '../stores/auth';
+  import { useCartStore } from '../stores/cart';
   import { storeToRefs } from 'pinia';
   import MyButton from './MyButton.vue';
   import DropMenu from './DropMenu.vue';
@@ -8,7 +9,9 @@
 
   const router = useRouter();
   const authStore = useAuthStore();
+  const cartStore = useCartStore();
   const { isLoggedIn } = storeToRefs(authStore);
+  const { totalCount } = storeToRefs(cartStore);
   const isMenuOpen = ref(false);
   const isMobileMenuOpen = ref(false);
 
@@ -61,9 +64,10 @@
         <div class="auth-wrapper">
           <div v-if="isLoggedIn" class="user-profile-wrapper">
             <div @click="toggleMenu" class="user-profile">
-              <div class="cart-outline">
+              <RouterLink to="/cart" class="cart-outline">
                 <img src="../assets/images/cart.svg" alt="cart" class="cart">
-              </div>
+                <span v-if="totalCount > 0" class="cart-badge">{{ totalCount }}</span>
+              </RouterLink>
               <img src="../assets/images/rainyman.png" alt="user" class="avatar">
             </div>
             <DropMenu v-if="isMenuOpen" @close="closeMenu" />
@@ -193,6 +197,7 @@
         object-fit: contain;
       }
       .cart-outline {
+        position: relative;
         width: 40px;
         height: 40px;
         border: 1px solid var(--color-bg-primary);
@@ -200,6 +205,25 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        text-decoration: none;
+
+        .cart-badge {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          background-color: var(--color-error);
+          color: white;
+          font-size: 10px;
+          font-weight: bold;
+          min-width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2px;
+          border: 2px solid var(--color-text-primary);
+        }
       }
     }
 

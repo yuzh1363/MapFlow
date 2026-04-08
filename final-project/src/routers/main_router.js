@@ -16,6 +16,7 @@ import Mytemplete from '../views/Mytemplete.vue';
 import Startroleexp from '../views/Startroleexp.vue';
 import Finishroleexp from '../views/Finishroleexp.vue';
 import RoleExp from '../views/RoleExp.vue';
+import Cart from '../views/Cart.vue';
 
 const routes = [
     {
@@ -39,6 +40,11 @@ const routes = [
         path: '/templete',
         name: 'templete',
         component: Templete
+    },
+    {
+        path: '/cart',
+        name: 'cart',
+        component: Cart
     },
     {
         path: '/treeHole',
