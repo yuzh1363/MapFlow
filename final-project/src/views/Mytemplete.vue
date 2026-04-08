@@ -30,15 +30,15 @@ import SearchBar from '../components/SearchBar.vue'
       </div>
     </div>
     <div class="container mt-5">
-        <div class="row">
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
-            <div class="col-10 col-md-4 col-lg-3 mb-4"><SampleCard></SampleCard></div>
+        <div class="row justify-content-center">
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
+            <div class="col-10 col-md-4 col-lg-3 mb-4 d-flex justify-content-center"><SampleCard></SampleCard></div>
         </div>
     </div>
 </template>
