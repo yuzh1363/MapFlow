@@ -19,12 +19,12 @@ const routes = [
         children: [
             {
                 path: '',
-                name: 'role',
+                name: 'searchrole',
                 component: SearchRole,
              },
             {
                 path: 'skill',
-                name: 'skill',
+                name: 'searchskill',
                 component: SearchSkill,
             }
             ]
