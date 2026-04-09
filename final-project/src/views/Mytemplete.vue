@@ -10,7 +10,7 @@ import SearchBar from '../components/SearchBar.vue'
           <h1 class="display-6 text-center text-md-start">我的樣板庫</h1>
           <SearchBar text="搜尋樣板"></SearchBar>
         </div>
-        <div class="card-container w-50 d-flex justify-content-between gap-4">
+        <div class="card-container">
           <div class="card">
             <i class="fa-solid fa-pen"></i>
             <span class="title">自訂義樣板</span>
@@ -47,24 +47,42 @@ import SearchBar from '../components/SearchBar.vue'
 
 <style lang="scss" scoped>
 .hero-bg{
-    height: 40vh;
     background-color: var(--color-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+    height: 40vh;
+    padding: var(--spacing-16) 7%;
     h1{
         color: white;
     }
 }
-.card{
-    width: 33%;
-    height: 150px;
-    // min-width: 180px;
-    padding: var(--spacing-2) var(--spacing-5);
-
+.card-container{
     display: flex;
+    align-items: center;
+    gap: 42px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card{
+    display: flex;
+    width: 180px;
+    padding: var(--spacing-2) var(--spacing-5);
     flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     gap: 10px;
+    border-radius: 16px;
+    background: var(--color-neutral-100);
 
     .title{
-        font-size: var(--font-size-xl);
+        color: var(--color-text-primary);
+      font-size: var(--font-size-xl);
+      font-style: normal;
+      font-weight: var(--font-weight-regular);
+      letter-spacing: 0.5px;
     }
     .count{
         font-size: var(--font-size-3xl);
@@ -72,6 +90,31 @@ import SearchBar from '../components/SearchBar.vue'
     }
     i{
         font-size: var(--font-size-4xl);
+    }
+}
+
+@media (max-width: 992px){
+  .hero-bg {
+      padding: var(--spacing-12) 5%;
+      height: auto;
+    }
+}
+
+@media (max-width: 768px){
+  .hero-bg {
+      margin-top: 60px;
+    }
+  .card-container {
+      gap: 20px;
+    }
+
+    .card {
+      width: 150px;
+      display: flex;
+      align-items: center;
+      .icon { width: 36px; height: 36px; }
+      .title { font-size: var(--font-size-xl); }
+      .count { font-size: 24px; }
     }
 }
 </style>
