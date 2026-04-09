@@ -93,7 +93,6 @@ const handleOpen = () => {
 
 .main-frame {
     background-color: #001354;
-
     height: 60vh;
     z-index: 1;
     top: 60px;
@@ -116,23 +115,20 @@ const handleOpen = () => {
 
 .img-container {
     width: 100%;
-    border: 2px solid rgb(180, 139, 255);
+    // border: 2px solid rgb(180, 139, 255);
     transition: opacity 0.5s ease;
     display: flex;
     justify-content: center;
-    align-items:flex-start;
-    
+    align-items: flex-start;
+
     img {
         width: 100%;
-        // height: 100%;
     }
 }
 
 .img-container.dimmed {
     opacity: 0.3;
 }
-
-
 
 .card-box {
     position: fixed;
@@ -181,9 +177,6 @@ const handleOpen = () => {
             }
         }
     }
-
-
-
     .input-container {
         margin-right: -450px;
     }
@@ -199,7 +192,6 @@ const handleOpen = () => {
     left: 0;
     width: 100vw;
     height: 100vh;
-    // background-color: rgba(0, 0, 0, 0.3);
     z-index: 5;
     transition: opacity 0.5s;
 }
@@ -222,5 +214,72 @@ p {
 
 .no-radius {
     border-radius: 0;
+}
+
+@media (max-width: 994px) {
+    .main-frame {
+        height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .all {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .img-container {
+        width: 100%;
+        // border: 2px solid rgb(32, 159, 134);
+        transition: opacity 0.5s ease;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+
+        img {
+            width: 100%;
+            // aspect-ratio: 1;
+            // object-fit:cover;
+        }
+    }
+
+    .card-box {
+        top: 45%;
+        right: 30px;
+        transform: translate(50%, -10%);
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 20;
+
+        .circle-group {
+            .circle {
+                left: 30px;
+                top: -40px;
+                width: 40px;
+                height: 40px;
+
+                i {
+                    font-size: 20px;
+                }
+            }
+        }
+
+        .input-container {
+            margin-right: -450px;
+        }
+
+        .active {
+            transform: translate(-50%, -10%);
+        }
+    }
+
+    .bg-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 5;
+        transition: opacity 0.5s;
+    }
 }
 </style>
