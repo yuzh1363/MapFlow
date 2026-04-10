@@ -18,6 +18,7 @@ import Finishroleexp from '../views/Finishroleexp.vue';
 import RoleExp from '../views/RoleExp.vue';
 import Cart from '../views/Cart.vue';
 import Checkout from '../views/Checkout.vue';
+import AboutUs from '../views/AboutUs.vue';
 
 const routes = [
     {
@@ -116,6 +117,11 @@ const routes = [
         path: '/finish-role',
         name: 'finish-role',
         component: Finishroleexp,
+    },
+    {
+        path: '/about-us',
+        name: 'about-us',
+        component: AboutUs,
     }
     
 ];
