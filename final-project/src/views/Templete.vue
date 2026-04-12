@@ -68,17 +68,17 @@ const changeSort = (item) => {
                 </div>
                 
                 <div class="content-container">
-                    <div class="row d-flex flex-column flex-md-row align-items-center align-items-md-start">
-                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
-                        <div class="col-10 col-md-6 col-lg-4 mb-4"><TempleteCard></TempleteCard></div>
+                    <div class="row d-flex flex-column flex-md-row align-items-center align-items-md-start row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
+                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
+                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
+                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
+                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
+                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
                     </div>
                     
                 </div>
-                <div class="text-center">
+                <div class="text-center mt-4">
                     <MyButton text="查看更多" type="primary" border="pill" size="size-md"></MyButton>
                 </div>
             </div>

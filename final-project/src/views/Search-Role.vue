@@ -18,7 +18,7 @@ const{searchs} = storeToRefs(search)
                     
                 </div>
                 <div class="text-center">
-                    <MyButton text="查看更多" type="yellow" border="pill" size="size-md"></MyButton>
+                    <MyButton text="查看更多" type="sec" border="square" size="size-md"></MyButton>
                 </div>
             </div>
 </template>

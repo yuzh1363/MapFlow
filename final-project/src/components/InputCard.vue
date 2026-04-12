@@ -7,7 +7,8 @@
             <div class="mb-3">
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="說說你遇到的問題"></textarea>
             </div>
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-end gap-3">
+                <MyButton text="取消" type="links" border="square" size="size-sm"></MyButton>
                 <MyButton text="送出" type="green" border="square" size="size-sm" ></MyButton>
             </div>
             

@@ -173,7 +173,7 @@ const carouselLis3 = computed(() => {
                 <h2>總覽</h2>
                 <div>
                     <RouterLink to="/"><MyButton text="角色" border="square" size="size-sm" class="me-2"></MyButton></RouterLink>
-                    <RouterLink to="/skill"><MyButton text="技能" type="yellow" border="square" size="size-sm"></MyButton></RouterLink>
+                    <RouterLink to="/skill"><MyButton text="技能" type="sec" border="square" size="size-sm"></MyButton></RouterLink>
                 </div>
             </div>
             <RouterView></RouterView>
