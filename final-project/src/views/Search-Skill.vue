@@ -11,7 +11,7 @@ const{skills} = storeToRefs(search)
 <template>
     <div class="card-container mt-4">
                 <div class="row d-flex">
-                    <div class="col-10 col-sm-6 col-md-4 mb-4 " v-for="item in skills" :key="item.id">
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4 " v-for="item in skills" :key="item.id">
                         <SearchSkill :info="item"></SearchSkill>
                     </div>
                 </div>
@@ -24,7 +24,4 @@ const{skills} = storeToRefs(search)
 
 
 <style scoped>
-.card-container,.tab{
-    padding: 0 var(--spacing-24);
-}
 </style>
