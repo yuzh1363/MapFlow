@@ -92,6 +92,23 @@ const searchs = computed(() => {
     type: skill.type         
   }));
 });
+
+import { collection, doc, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
+const finalresults = ref([]);
+const handleSearch = async(keywordfromChild)=>{
+    console.log(keywordfromChild);
+    const querySnapshot = await getDocs(collection(db,"roles"));
+    const allData = querySnapshot.docs.map(doc =>({
+        id:doc.id,
+        ...doc.data()
+    }));
+    console.log("從資料庫抓到的原始資料：", allData);
+    finalresults.value = allData.filter(item =>{
+        return item.id.includes(keywordfromChild);
+    });
+    console.log("畫面應該要更新了，目前結果有：", finalresults.value.length, "筆");
+}
 </script>
 
 <template>
@@ -110,7 +127,7 @@ const searchs = computed(() => {
             <h1 class="search-title">開啟專業學習地圖</h1>
             <p class="search-subtitle">超過500+種職業角色與核心技能，打造專屬你的成長學習路徑</p>
         </div>
-        <SearchBar text="角色學習、技能樹檢索" class="search-bar" color="blue"></SearchBar>
+        <SearchBar text="角色學習、技能樹檢索" class="search-bar" color="blue" @search="handleSearch"></SearchBar>
     </div>
 
     <!-- 懸浮搜尋按鈕組件 -->
@@ -173,6 +190,10 @@ const searchs = computed(() => {
                 </button>
             </div>
         </div> -->
+        <div v-for="role in finalresults" :key="role.id">
+            {{ role.id}} - {{ role.type }}
+        </div>
+        <p v-if="finalresults.length === 0">找不到相關課程喔！</p>
         <div class="container tags-container px-5 mb-5">
             <h2>熱門技能</h2>
             <div class="tag-list-group f-flex flex-column mt-4">

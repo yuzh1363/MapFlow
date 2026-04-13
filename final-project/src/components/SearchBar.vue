@@ -1,14 +1,15 @@
 <template>
     <div class="searchbar px-1 py-2" :class="[`searchbar-${color}`]">
         <div class="input-group">
-            <input type="text" class="form-control py-2" :placeholder="text" aria-label="Search">
-            <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input type="text" class="form-control py-2" :placeholder="text" aria-label="Search" v-model="keyword">
+            <button type="button" class="search-btn"><i class="fa-solid fa-magnifying-glass" @click="onSearchClick"></i></button>
         </div>
     </div>
     
 </template>
 
 <script setup>
+import { ref } from 'vue';
 const props = defineProps({
   text: String,
   color: {
@@ -16,6 +17,13 @@ const props = defineProps({
     default: 'dark' 
   }
 });
+
+const keyword = ref();
+const emit = defineEmits(['search']);
+const onSearchClick = ()=>{
+    emit('search',keyword.value);
+}
+
 </script>
 
 <style scoped>
