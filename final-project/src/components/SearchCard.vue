@@ -10,7 +10,6 @@
                     <img src="../assets/images/node.svg" alt="node">{{info?.node}}
                 </div>
                 <Badge :text="info.type" type="green" size="size-xs" border="square"></Badge>
-                <!-- <div class="my-lable lable-green size-xs square">{{ info?.type }} </div> -->
             </div>
             <MyButton 
                 :text="isSkill ? '查看技能地圖' : '查看角色地圖'" 

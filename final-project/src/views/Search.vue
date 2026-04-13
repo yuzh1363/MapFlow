@@ -2,8 +2,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import gsap from 'gsap'
-import { usesearchStore } from '../stores/searchStore'
-import SearchCard from '../components/SearchCard.vue'
+// import { usesearchStore } from '../stores/searchStore'
 import Badge from '../components/Bagde.vue'
 import MyButton from '../components/MyButton.vue'
 import SearchBar from '../components/SearchBar.vue'
@@ -64,19 +63,34 @@ const handleScroll = () => {
     heroOpacity.value = Math.max(newOpacity,0)
 }
 
-const search = usesearchStore()
-const router = useRouter()
+// const search = usesearchStore()
+// const router = useRouter()
 
-const carouselList = computed(() => {
-  return search.searchs.slice(0, 4);
+// const carouselList = computed(() => {
+//   return search.searchs.slice(0, 4);
+// });
+
+// const carouselList2 = computed(() => {
+//   return search.searchs.slice(4, 8);
+// });
+
+// const carouselLis3 = computed(() => {
+//   return search.searchs.slice(8, 12);
+// });
+import { useskillStore } from '../stores/skillStore';
+const skillStore = useskillStore();
+onMounted(() => {
+  skillStore.fetchAllSkills();
 });
 
-const carouselList2 = computed(() => {
-  return search.searchs.slice(4, 8);
-});
-
-const carouselLis3 = computed(() => {
-  return search.searchs.slice(8, 12);
+const searchs = computed(() => {
+  return skillStore.allSkills.map(skill => ({
+    id: skill.id,
+    title: skill.id,        
+    content: skill.intro,  
+    node: skill.node,
+    type: skill.type         
+  }));
 });
 </script>
 
@@ -103,7 +117,7 @@ const carouselLis3 = computed(() => {
     <SearchIcon targetSelector=".search-section" />
 
     <div class="container">
-        <div class="container px-5 mb-5">
+        <!-- <div class="container px-5 mb-5">
             <h2>推薦角色</h2>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -158,12 +172,12 @@ const carouselLis3 = computed(() => {
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div>
+        </div> -->
         <div class="container tags-container px-5 mb-5">
             <h2>熱門技能</h2>
             <div class="tag-list-group f-flex flex-column mt-4">
                 <div class="tags-list d-flex justify-content-evenly mb-3 flex-wrap">
-                    <Badge :text="item.title" type="tag" border="pill" size="tag-size" v-for="item in search.skills" :key="item.id"></Badge>
+                    <Badge :text="item.title" type="tag" border="pill" size="tag-size" v-for="item in searchs" :key="item.id"></Badge>
                 </div>
             </div>
             

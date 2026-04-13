@@ -1,12 +1,29 @@
 <script setup>
 import MyButton from '../components/MyButton.vue'
 import SearchCard from '../components/SearchCard.vue';
-import { usesearchStore } from '../stores/searchStore';
+import {  useRoleStore} from '../stores/searchStore';
 import { storeToRefs } from 'pinia';
+import { onMounted, computed } from 'vue';
 
-const search = usesearchStore()
-const{searchs} = storeToRefs(search)
+// const search = usesearchStore()
+// const{searchs} = storeToRefs(search)
 
+const roleStore = useRoleStore();
+onMounted(() => {
+  // 1. 組件掛載後，叫 Store 去 Firebase 搬資料
+  roleStore.fetchAllRoles();
+});
+
+// 2. 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
+const searchs = computed(() => {
+  return roleStore.allRoles.map(role => ({
+    id: role.id,
+    title: role.id,         // 將文件 ID (UIUX設計師) 對應到 title
+    content: role.intro,    // 將 intro 對應到 content
+    node: role.node,
+    type: role.type         
+  }));
+});
 </script>
 
 <template>
