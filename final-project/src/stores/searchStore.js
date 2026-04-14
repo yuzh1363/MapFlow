@@ -5,6 +5,8 @@ import { doc, getDocs, collection } from "firebase/firestore";
 export const useRoleStore = defineStore("role", {
   state: () => ({
     allRoles: [], // 存放所有角色
+    allSkills: [],
+    allTempletes: [],
     currentRole: null, // 存放單一選中的角色詳情
     loading: false,
   }),
@@ -69,6 +71,27 @@ export const useRoleStore = defineStore("role", {
         }
       } catch (error) {
         console.error("讀取單一角色失敗:", error);
+      } finally {
+        this.loading = false;
+      }
+    },
+    async fetchAllTemplete() {
+      this.loading = true;
+      try {
+        const querySnapshot = await getDocs(collection(db, "templete"));
+
+        if (querySnapshot.empty) {
+          console.warn("注意：templete 集合是空的！");
+        }
+
+        const templeteData = [];
+        querySnapshot.forEach((doc) => {
+          templeteData.push({ id: doc.id, ...doc.data(), category: 'templete' });
+        });
+
+        this.allTempletes = templeteData;
+      } catch (error) {
+        console.error("Firebase 報錯詳情:", error.code, error.message);
       } finally {
         this.loading = false;
       }

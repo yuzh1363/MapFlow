@@ -2,6 +2,10 @@
 import MyButton from './MyButton.vue';
 import { ref } from 'vue';
 
+const isCheck = ref(false);
+const checkClick = ()=>{
+    isCheck.value = !isCheck.value;
+}
 const isClick = ref(false)
 
 const btnClick  = ()=>{
@@ -20,7 +24,8 @@ const handleclick = ()=>{
         <div class="all-container p-3">
             <!-- header -->
             <div class="header-container d-flex align-items-center">
-                <img src="../assets/images/lets-icons_check-fill.svg" alt="">
+                <img src="../assets/images/lets-icons_check-nofill.svg" alt="" v-if="!isCheck" @click="checkClick" style="cursor: pointer;">
+                <img src="../assets/images/lets-icons_check-fill.svg" alt="" v-else @click="checkClick" style="cursor: pointer;">
                 <div class="text-container">
                     <div class="card-title">數位影像基礎與介面導覽</div>
                     <div class="sec-title">理解點陣圖邏輯與色彩空間</div>

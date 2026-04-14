@@ -209,7 +209,6 @@ p {
     padding: var(--spacing-12) 0;
     background-color: var(--color-bg-primary);
     z-index: 1010;
-    min-height: 100vh;
 }
 
 .no-radius {

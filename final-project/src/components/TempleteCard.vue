@@ -1,21 +1,23 @@
 <template>
     <div class="templete-card">
-        <div class="card-img" style="width: 100%; height: 150px; background-color: #333;"></div>
+        <div class="card-img" style="width: 100%; height: 150px;">
+            <img :src="`/MapFlow/images/${info.imgurl}`" alt="" style="width: 100%; height: 150px;">
+        </div>
         <div class="card-container">
             <div class="content-container mb-3">
                 <div class="header-container">
-                    <div class="card-title">AI機器學習工程師</div>
+                    <div class="card-title">{{info.id}}</div>
                     <div class="d-flex">
                         <div class="user-img me-1">w</div>
-                        <p class="card-content">王大明</p>
+                        <p class="card-content">{{info.owner}}</p>
                     </div>
                 </div>
-                <div class="card-content line-clamp-4">負責開發與佈署機器學習模型，優化演算法效能並處理大規模數據集。需具備 Python 程式能力及深度學習框架（如 PyTorch、TensorFlow）的使用經驗，致力於將 AI 技術轉化為實際的產品解決方案。</div>
+                <div class="card-content line-clamp-4">{{info.intro}}</div>
             </div>
             <div class="tags d-flex justify-content-between mb-3">
                 <div class="tag card-tag">
                     <img src="../assets/images/node.svg" alt="node">
-                    200+
+                    {{info.node}}
                 </div>
                 <div class="tag card-tag">
                     <img src="../assets/images/user.svg" alt="">
@@ -23,11 +25,11 @@
                 </div>
                 <div class="tag card-tag">
                     <img src="../assets/images/star.svg" alt="">
-                    5.0(16)
+                    {{ info.star }}
                 </div>
             </div>
             <div class="purchase">
-                <span style="color: var(--primary-blue-500);" class="fs-5 me-3">NT$120</span>
+                <span style="color: var(--primary-blue-500);" class="fs-5 me-3">NT${{info.price}}</span>
                 <button><i class="fa-solid fa-cart-plus"></i></button>
             </div>
         </div>
@@ -35,8 +37,12 @@
 </template>
 
 <script setup>
-import MyButton from './MyButton.vue';
-
+const prop  = defineProps({
+    info:{
+        type: Object,
+        default: ()=>({})
+    }
+})
 
 </script>
 

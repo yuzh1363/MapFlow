@@ -24,6 +24,27 @@ const sortOptions = ['最高分', '最新', '最熱門'];
 const changeSort = (item) => {
   currentSort.value = item;
 };
+
+import { useRoleStore} from '../stores/searchStore';
+import { computed } from 'vue';
+const templeteStore = useRoleStore();
+onMounted(() => {
+  // 1. 組件掛載後，叫 Store 去 Firebase 搬資料
+  templeteStore.fetchAllTemplete();
+});
+
+// 2. 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
+const searchs = computed(() => {
+  return templeteStore.allTempletes.map(templete => ({
+    id: templete.id,       // 將文件 ID (UIUX設計師) 對應到 title
+    intro: templete.intro,
+    node: templete.node,
+    owner:templete.owner,
+    price:templete.price,
+    star:templete.star,
+    imgurl:templete.imgurl,
+  }));
+});
 </script>
 
 <template>
@@ -69,12 +90,15 @@ const changeSort = (item) => {
                 
                 <div class="content-container">
                     <div class="row d-flex flex-column flex-md-row align-items-center align-items-md-start row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                        <div class="col d-flex justify-content-center" v-for="template in searchs">
+                            <TempleteCard
+                             :info="template"></TempleteCard>
+                        </div>
+                        <!-- <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
                         <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
                         <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
                         <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
-                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
-                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
-                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
+                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div> -->
                     </div>
                     
                 </div>
