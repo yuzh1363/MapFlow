@@ -401,11 +401,6 @@ const roleGroups = computed(() => {
 .custom-carousel-row .col {
     flex: 0 0 auto;
 }
-
-.tab {
-    /* padding: 0 var(--spacing-24); */
-}
-
 .tags-list {
     gap: 12px 8px;
 }

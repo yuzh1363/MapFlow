@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
 import Templete from '../views/Templete.vue'
 import TreeHole from '../views/TreeHole.vue'
 import Search from '../views/Search.vue'
@@ -127,7 +127,7 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHistory('/MapFlow/'),
+    history: createWebHashHistory('/MapFlow/'),
     routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
