@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC-3IAk5Ix--UDyFfbnXFDv15R0AdxSDFE",
-  authDomain: "mapflow-1dcac.firebaseapp.com",
-  projectId: "mapflow-1dcac",
-  storageBucket: "mapflow-1dcac.firebasestorage.app",
-  messagingSenderId: "774277774988",
-  appId: "1:774277774988:web:96a9ee55408db2cc2645a9",
-  measurementId: "G-S4T1VPYJRG"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
