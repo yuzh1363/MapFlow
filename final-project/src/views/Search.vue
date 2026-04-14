@@ -2,11 +2,11 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import gsap from 'gsap'
-// import { usesearchStore } from '../stores/searchStore'
 import Badge from '../components/Bagde.vue'
 import MyButton from '../components/MyButton.vue'
 import SearchBar from '../components/SearchBar.vue'
 import SearchIcon from '../components/SearchIcon.vue'
+import SearchCard from '../components/SearchCard.vue'
 
 //Hero-section動畫
 const searchSection = ref(null)
@@ -14,36 +14,36 @@ const searchSection = ref(null)
 onMounted(() => {
     window.addEventListener('scroll', handleScroll)
     const tl = gsap.timeline({
-        defaults:{
+        defaults: {
             ease: "sine.inOut"
         }
     })
     // 綠：左至右平移
     tl.to(".green", {
         x: 20,
-        scale:1.05,
+        scale: 1.05,
         duration: 2,
 
     }, 0);
     // 橘色：右至左平移
     tl.to(".orange", {
         x: -15,
-        scale:1.05,
+        scale: 1.05,
         duration: 1.5,
 
     }, 0);
     // 藍色：左至右
     tl.to(".blue", {
         x: 10,
-        scale:1.05,
+        scale: 1.05,
         duration: 1,
     }, 0);
     // MapFlow：下至上
-    gsap.from(".mapflow-logo",{
-        y:100,
-        opacity:0,
-        duration:1.5,
-        ease:"power3.out",
+    gsap.from(".mapflow-logo", {
+        y: 100,
+        opacity: 0,
+        duration: 1.5,
+        ease: "power3.out",
         delay: 0.5
     })
 })
@@ -59,65 +59,84 @@ const handleScroll = () => {
     //捲動多少距離後完全透明
     const fadeDistance = window.innerHeight * 0.8
     //計算透明度
-    let newOpacity = 1- (scrollTop/fadeDistance)
-    heroOpacity.value = Math.max(newOpacity,0)
+    let newOpacity = 1 - (scrollTop / fadeDistance)
+    heroOpacity.value = Math.max(newOpacity, 0)
 }
 
-// const search = usesearchStore()
-// const router = useRouter()
-
-// const carouselList = computed(() => {
-//   return search.searchs.slice(0, 4);
-// });
-
-// const carouselList2 = computed(() => {
-//   return search.searchs.slice(4, 8);
-// });
-
-// const carouselLis3 = computed(() => {
-//   return search.searchs.slice(8, 12);
-// });
+// 從資料庫撈取技能資料
 import { useskillStore } from '../stores/skillStore';
 const skillStore = useskillStore();
 onMounted(() => {
-  skillStore.fetchAllSkills();
+    skillStore.fetchAllSkills();
 });
 
 const searchs = computed(() => {
-  return skillStore.allSkills.map(skill => ({
-    id: skill.id,
-    title: skill.id,        
-    content: skill.intro,  
-    node: skill.node,
-    type: skill.type         
-  }));
+    return skillStore.allSkills.map(skill => ({
+        id: skill.id,
+        title: skill.id,
+        content: skill.intro,
+        node: skill.node,
+        type: skill.type
+    }));
 });
 
+// 從資料庫搜尋與關鍵字相符的資料(含名稱、type)
 import { collection, doc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 const finalresults = ref([]);
-const handleSearch = async(keywordfromChild)=>{
-    console.log(keywordfromChild);
-    const querySnapshot = await getDocs(collection(db,"roles"));
-    const allData = querySnapshot.docs.map(doc =>({
-        id:doc.id,
-        ...doc.data()
+// 判斷是否按下搜尋，false則不顯示搜尋結果區塊
+const isSearch = ref(false);
+const handleSearch = async (keywordfromChild) => {
+
+    const roleSnapshot = await getDocs(collection(db, "roles"));
+    const skillSnapshot = await getDocs(collection(db, "skills"));
+
+    const roleData = roleSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+        category: '職位'
     }));
-    console.log("從資料庫抓到的原始資料：", allData);
-    finalresults.value = allData.filter(item =>{
-        return item.id.includes(keywordfromChild);
+
+    const skillData = skillSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+        category: '技能'
+    }));
+    // 將角色與技能陣列整合
+    const allData = [...roleData, ...skillData];
+    // 從allData過濾，標題或type含關鍵字即呈現在畫面上
+    finalresults.value = allData.filter(item => {
+        return item.id.includes(keywordfromChild) || item.type.includes(keywordfromChild);
     });
-    console.log("畫面應該要更新了，目前結果有：", finalresults.value.length, "筆");
+    // 搜尋後isSearch為真，搜尋結果區塊會打開
+    isSearch.value = true;
 }
+
+
+import {useRoleStore} from '../stores/searchStore';
+const roleStore = useRoleStore();
+const roleGroups = computed(() => {
+  // 1. 先從 Pinia 拿到原始的 roles 資料
+  const data = roleStore.allRoles; 
+  
+  const groups = [];
+  // 2. 使用 for 迴圈，每次跳 4 格
+  for (let i = 0; i < data.length; i += 4) {
+    // 每次切下 4 筆資料，塞進 groups 陣列中
+    groups.push(data.slice(i, i + 4));
+  }
+  
+  return groups; // 回傳結果會是 [[role1~4], [role5~8], ...]
+});
 </script>
 
 <template>
-    <div class="hero-section" :style="{opacity: heroOpacity}">
+    <div class="hero-section" :style="{ opacity: heroOpacity }">
         <div class="hero-bg">
             <img class="layer green" src="../assets/images/green_bg.png" alt="green">
             <img class="layer orange" src="../assets/images/orange_bg.png" alt="orange">
             <img class="layer blue" src="../assets/images/blue_bg.png" alt="blue">
-        </div>  
+        </div>
         <div class="hero-content">
             <img class="mapflow-logo" src="../assets/images/BrandName_bg.svg" alt="MapFlow">
         </div>
@@ -134,7 +153,18 @@ const handleSearch = async(keywordfromChild)=>{
     <SearchIcon targetSelector=".search-section" />
 
     <div class="container">
-        <!-- <div class="container px-5 mb-5">
+        <!-- 搜尋結果區塊 -->
+        <div v-if="isSearch">
+            <div class="container" v-if="finalresults.length > 0">
+                <h2>搜尋結果</h2>
+                <div class="row ">
+                    <SearchCard v-for="role in finalresults" :key="role.id" :info="role" class="mb-3"></SearchCard>
+                </div>
+            </div>
+            <h2 v-else class="text-center">找不到相關課程喔！</h2>
+        </div>
+        <!-- 推薦角色區塊 -->
+        <div class="container px-5 mb-5">
             <h2>推薦角色</h2>
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators">
@@ -154,29 +184,15 @@ const handleSearch = async(keywordfromChild)=>{
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
+                    <div
+                    v-for="(groups,index) in roleGroups"
+                    :key="index"
+                    :class="['carousel-item',{active:index === 0}]">
                         <div class="container-fluid">
-                            <div class="row flex-nowrap row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 custom-carousel-row">
-                                <div class="col" v-for="item in carouselList" :key="item.id">
-                                    <SearchCard :info="item"></SearchCard>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="container-fluid">
-                            <div class="row flex-nowrap row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 custom-carousel-row">
-                                <div class="col" v-for="item in carouselList2" :key="item.id">
-                                    <SearchCard :info="item"></SearchCard>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="container-fluid">
-                            <div class="row flex-nowrap row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 custom-carousel-row">
-                                <div class="col" v-for="item in carouselLis3" :key="item.id">
-                                    <SearchCard :info="item"></SearchCard>
+                            <div
+                                class="row flex-nowrap row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 custom-carousel-row">
+                                <div class="col" v-for="role in groups" :key="role.id">
+                                    <SearchCard :info="role"></SearchCard>
                                 </div>
                             </div>
                         </div>
@@ -189,26 +205,29 @@ const handleSearch = async(keywordfromChild)=>{
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-        </div> -->
-        <div v-for="role in finalresults" :key="role.id">
-            {{ role.id}} - {{ role.type }}
         </div>
-        <p v-if="finalresults.length === 0">找不到相關課程喔！</p>
+        <!-- 熱門技能區塊 -->
         <div class="container tags-container px-5 mb-5">
             <h2>熱門技能</h2>
             <div class="tag-list-group f-flex flex-column mt-4">
                 <div class="tags-list d-flex justify-content-evenly mb-3 flex-wrap">
-                    <Badge :text="item.title" type="tag" border="pill" size="tag-size" v-for="item in searchs" :key="item.id"></Badge>
+                    <Badge :text="item.title" type="tag" border="pill" size="tag-size" v-for="item in searchs"
+                        :key="item.id"></Badge>
                 </div>
             </div>
-            
+
         </div>
+        <!-- 總覽區塊 -->
         <div class="container overview-container px-5 mb-5">
             <div class="tab d-flex justify-content-between">
                 <h2>總覽</h2>
                 <div>
-                    <RouterLink to="/"><MyButton text="角色" border="square" size="size-sm" class="me-2"></MyButton></RouterLink>
-                    <RouterLink to="/skill"><MyButton text="技能" type="sec" border="square" size="size-sm"></MyButton></RouterLink>
+                    <RouterLink to="/">
+                        <MyButton text="角色" border="square" size="size-sm" class="me-2"></MyButton>
+                    </RouterLink>
+                    <RouterLink to="/skill">
+                        <MyButton text="技能" type="sec" border="square" size="size-sm"></MyButton>
+                    </RouterLink>
                 </div>
             </div>
             <RouterView></RouterView>
@@ -248,19 +267,22 @@ const handleSearch = async(keywordfromChild)=>{
     bottom: 0;
     object-fit: cover;
 }
-.green { 
-    z-index: 2; 
+
+.green {
+    z-index: 2;
     left: -10%;
     bottom: 25%;
 }
-.orange { 
-    z-index: 3; 
-    right: -10%; 
-    bottom: 25%; 
+
+.orange {
+    z-index: 3;
+    right: -10%;
+    bottom: 25%;
 }
-.blue { 
+
+.blue {
     overflow: visible;
-    z-index: 4; 
+    z-index: 4;
     left: 0%;
     bottom: 0%;
 }
@@ -281,7 +303,7 @@ const handleSearch = async(keywordfromChild)=>{
 }
 
 .search-bar {
-    width: 560px; 
+    width: 560px;
     margin-top: 20px;
 }
 
@@ -300,11 +322,11 @@ const handleSearch = async(keywordfromChild)=>{
     border-radius: 9999px;
     background: rgba(175, 202, 219, 0.20);
     /* 毛玻璃效果 */
-    backdrop-filter: blur(10px); 
+    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
 
-.search-title{
+.search-title {
     color: #FFF;
     text-align: center;
     font-family: "Noto Sans TC";
@@ -314,7 +336,7 @@ const handleSearch = async(keywordfromChild)=>{
     line-height: normal;
 }
 
-.search-subtitle{
+.search-subtitle {
     color: #FFF;
     font-family: "Noto Sans TC";
     font-size: 20px;
@@ -335,7 +357,8 @@ const handleSearch = async(keywordfromChild)=>{
     border-radius: var(--radius-sm);
     border: none;
 }
-.container{
+
+.container {
     margin-top: 40px;
 }
 
@@ -368,19 +391,22 @@ const handleSearch = async(keywordfromChild)=>{
     bottom: -40px;
     filter: invert(1);
 }
+
 .custom-carousel-row {
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
 }
+
 .custom-carousel-row .col {
     flex: 0 0 auto;
 }
-.tab{
+
+.tab {
     /* padding: 0 var(--spacing-24); */
 }
 
 .tags-list {
-    gap: 12px 8px; 
+    gap: 12px 8px;
 }
 </style>

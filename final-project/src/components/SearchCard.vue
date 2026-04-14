@@ -1,8 +1,8 @@
 <template>
     <div class="search-card" @click="goToMap">
         <div class="job-info">
-            <div class="card-title">{{info?.title}}</div>
-            <div class="card-content line-clamp-4">{{info?.content}}</div>
+            <div class="card-title">{{info?.id}}</div>
+            <div class="card-content line-clamp-4">{{info?.intro}}</div>
         </div>
         <div class="job-cta">
             <div class="tag-container">
@@ -25,7 +25,6 @@
 import Badge from './Bagde.vue'
 import MyButton from './MyButton.vue';
 import { useRouter } from 'vue-router';
-import { computed } from 'vue';
 
 const router = useRouter();
 
@@ -40,9 +39,8 @@ const props = defineProps({
         default: false
     }
 })
-
 const goToMap = () => {
-    if (props.isSkill || props.info.title === 'Photoshop') {
+    if (props.isSkill || props.info.id === 'Photoshop') {
         router.push('/photoshop');
     } else {
         router.push('/role');

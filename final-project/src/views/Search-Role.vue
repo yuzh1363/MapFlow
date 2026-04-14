@@ -2,11 +2,8 @@
 import MyButton from '../components/MyButton.vue'
 import SearchCard from '../components/SearchCard.vue';
 import {  useRoleStore} from '../stores/searchStore';
-import { storeToRefs } from 'pinia';
 import { onMounted, computed } from 'vue';
 
-// const search = usesearchStore()
-// const{searchs} = storeToRefs(search)
 
 const roleStore = useRoleStore();
 onMounted(() => {
@@ -19,7 +16,7 @@ const searchs = computed(() => {
   return roleStore.allRoles.map(role => ({
     id: role.id,
     title: role.id,         // 將文件 ID (UIUX設計師) 對應到 title
-    content: role.intro,    // 將 intro 對應到 content
+    intro: role.intro,
     node: role.node,
     type: role.type         
   }));
