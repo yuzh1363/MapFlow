@@ -5,16 +5,16 @@ export const useCartStore = defineStore('cart', () => {
   const items = ref([
     {
       id: 1,
-      title: 'UI/UX 設計師學習地圖',
-      price: 1200,
+      title: '成為UIUX設計師',
+      price: 250,
       image: new URL('../assets/images/cover01.jpg', import.meta.url).href,
       tags: ['入門', '實戰'],
       quantity: 1
     },
     {
       id: 2,
-      title: '前端開發者：Vue.js 進階課程',
-      price: 1500,
+      title: '平面設計實戰',
+      price: 120,
       image: new URL('../assets/images/cover02.jpg', import.meta.url).href,
       tags: ['中階', '熱門'],
       quantity: 1

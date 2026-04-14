@@ -21,7 +21,7 @@ const changePage = (page) => {
                     <img src="../assets/images/ido.png" alt="">
                     <p  class="fs-4 mb-0">可以</p>
                     <div class="w-100">
-                        <sapn>10/6</sapn>
+                        <sapn>題數：6/10</sapn>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 60%;"></div>
                         </div>
@@ -32,7 +32,7 @@ const changePage = (page) => {
                     <img src="../assets/images/icant.png" alt="">
                     <p class="fs-4 mb-0">不行</p>
                     <div class="w-100">
-                        <sapn>10/4</sapn>
+                        <sapn>題數：4/10</sapn>
                         <div class="progress-container">
                             <div class="progress-bar" style="width: 40%;"></div>
                         </div>
@@ -41,12 +41,15 @@ const changePage = (page) => {
                 </div>
             </div>
             <div class="btn-group d-flex gap-5">
-                <MyButton text="再考慮一下" type="sec" border="pill" size="size-md"></MyButton>
-                <MyButton text="我準備好了" type="primary" border="pill" size="size-md"></MyButton>
+                <RouterLink to="/role-track">
+                    <MyButton text="再考慮一下" type="sec" border="pill" size="size-md"></MyButton>
+                </RouterLink>
+                
+                <RouterLink to="/role-detail">
+                    <MyButton text="我準備好了" type="primary" border="pill" size="size-md"></MyButton>
+                </RouterLink>
+                
             </div>
-        </div>
-        <div class="exit">
-            <MyButton text="離開" border="square" size="size-md" type="green"></MyButton>
         </div>
         <div class="pagination-container d-flex gap-2">
             <button

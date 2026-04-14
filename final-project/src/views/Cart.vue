@@ -25,7 +25,7 @@ const formatCurrency = (value) => {
     <div class="container py-5">
       <div class="cart-header mb-4">
         <h1 class="h2 fw-bold">購物車</h1>
-        <p class="text-muted">確認您的學習計劃與課程</p>
+        <p class="text-muted">確認您的樣板</p>
       </div>
 
       <div v-if="cartStore.items.length > 0" class="row g-4">
@@ -59,13 +59,13 @@ const formatCurrency = (value) => {
                     </td>
                     <td class="text-center py-4">
                       <div class="quantity-control d-inline-flex align-items-center bg-light rounded-pill px-2">
-                        <button class="btn btn-sm" @click="item.quantity > 1 ? item.quantity-- : null" :disabled="item.quantity <= 1">
+                        <!-- <button class="btn btn-sm" @click="item.quantity > 1 ? item.quantity-- : null" :disabled="item.quantity <= 1">
                           <i class="fa-solid fa-minus"></i>
-                        </button>
+                        </button> -->
                         <span class="px-3 fw-bold">{{ item.quantity }}</span>
-                        <button class="btn btn-sm" @click="item.quantity++">
+                        <!-- <button class="btn btn-sm" @click="item.quantity++">
                           <i class="fa-solid fa-plus"></i>
-                        </button>
+                        </button> -->
                       </div>
                     </td>
                     <td class="text-end py-4 pe-4 fw-bold text-primary">
@@ -100,8 +100,8 @@ const formatCurrency = (value) => {
               <span class="h6 fw-bold mb-0">總計</span>
               <span class="h4 fw-bold text-primary mb-0">{{ formatCurrency(cartStore.totalAmount) }}</span>
             </div>
-            <MyButton text="前往結帳" type="primary" border="pill" size="size-lg" class="w-100 py-3" @click="handleCheckout" />
-            <MyButton text="繼續探索" border="pill" size="size-lg" class="w-100 py-3 mt-3 bg-white text-dark border-light shadow-none" @click="goBack" />
+            <MyButton text="前往結帳" type="primary" border="pill" size="size-md" class="w-100 py-2" @click="handleCheckout" />
+            <MyButton text="繼續探索" border="pill" size="size-md" class="w-100 py-2 mt-3 bg-white text-dark border-light shadow-none" @click="goBack" />
           </div>
         </div>
       </div>

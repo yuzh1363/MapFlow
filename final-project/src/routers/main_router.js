@@ -19,6 +19,7 @@ import RoleExp from '../views/RoleExp.vue';
 import Cart from '../views/Cart.vue';
 import Checkout from '../views/Checkout.vue';
 import AboutUs from '../views/AboutUs.vue';
+import RoleTrack from '../views/RoleTrack.vue';
 
 const routes = [
     {
@@ -99,7 +100,7 @@ const routes = [
         component: Mytemplete,
     },
     {
-        path: '/role',
+        path: '/role-detail',
         name: 'role-detail',
         component: Role,
     },
@@ -122,6 +123,11 @@ const routes = [
         path: '/about-us',
         name: 'about-us',
         component: AboutUs,
+    },
+    {
+        path: '/role-track',
+        name: 'role-track',
+        component: RoleTrack,
     }
     
 ];

@@ -30,7 +30,10 @@
             </div>
             <div class="purchase">
                 <span style="color: var(--primary-blue-500);" class="fs-5 me-3">NT${{info.price}}</span>
-                <button><i class="fa-solid fa-cart-plus"></i></button>
+                <RouterLink to="/cart">
+                    <button><i class="fa-solid fa-cart-plus"></i></button>
+                </RouterLink>
+                
             </div>
         </div>
     </div>

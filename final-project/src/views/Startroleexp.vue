@@ -7,8 +7,8 @@ const totalPages = 10;
 const currentPage = ref(1);
 
 const changePage = (page) => {
-  currentPage.value = page;
-  console.log(`載入第 ${page} 頁資料`);
+    currentPage.value = page;
+    console.log(`載入第 ${page} 頁資料`);
 };
 </script>
 
@@ -16,27 +16,29 @@ const changePage = (page) => {
     <div class="canva">
         <div class="left-dialog">
             <p class="mb-0">我覺得他...</p>
-            <MyButton text="不行" type="yellow" size="size-md" border="pill"></MyButton>
-            <RouterLink to="/finish-role"><MyButton text="可以" type="primary" size="size-md" border="pill"></MyButton></RouterLink>
+            <RouterLink to="/finish-role">
+                <MyButton text="不行" type="yellow" size="size-md" border="pill"></MyButton>
+            </RouterLink>
+            <RouterLink to="/finish-role">
+                <MyButton text="可以" type="primary" size="size-md" border="pill"></MyButton>
+            </RouterLink>
         </div>
         <div class="right-dialog">
             <p><span>前端工程師</span>常常加班，責任制度是常態，能接受嗎？</p>
         </div>
         <div class="exit">
-            <MyButton text="離開" border="square" size="size-md" type="green"></MyButton>
+            <RouterLink to="/role-track">
+                <MyButton text="離開" border="square" size="size-md" type="green"></MyButton>
+            </RouterLink>
+
         </div>
         <div class="pagination-container d-flex gap-2">
-            <button
-                v-for="page in totalPages"
-                :key="page"
-                class="page-btn"
-                :class="{ 'active': currentPage === page }"
-                @click="changePage(page)"
-            >
+            <button v-for="page in totalPages" :key="page" class="page-btn" :class="{ 'active': currentPage === page }"
+                @click="changePage(page)">
                 {{ page }}
             </button>
         </div>
-            
+
         <img src="../assets/images/roleexptitle.png" alt="" class="title">
         <img src="../assets/images/confus.png" alt="" class="
         confus">
@@ -49,19 +51,21 @@ const changePage = (page) => {
 </template>
 
 <style lang="scss" scoped>
-.canva{
+.canva {
     margin-top: 60px;
     height: 100vh;
     background-color: #000825;
     position: relative;
 }
-.exit{
+
+.exit {
     position: absolute;
     bottom: 100px;
     right: 50px;
     z-index: 5;
 }
-.left-dialog{
+
+.left-dialog {
     position: absolute;
     top: 400px;
     left: 400px;
@@ -72,21 +76,24 @@ const changePage = (page) => {
     border-radius: 12px;
     display: flex;
     justify-content: space-between;
-    align-items:center;
+    align-items: center;
     padding: 0 24px;
     z-index: 10;
 }
-.l-dialog{
+
+.l-dialog {
     position: absolute;
     top: 480px;
     left: 400px;
 }
-.r-dialog{
+
+.r-dialog {
     position: absolute;
     top: 330px;
     right: 400px;
 }
-.right-dialog{
+
+.right-dialog {
     position: absolute;
     top: 200px;
     right: 400px;
@@ -101,52 +108,60 @@ const changePage = (page) => {
     align-items: center;
     padding: 12px 24px;
 
-    span{
+    span {
         color: var(--color-primary);
     }
 }
-.title{
+
+.title {
     position: absolute;
     top: 30px;
     left: 30px;
 }
-.confus{
+
+.confus {
     position: absolute;
     z-index: 10;
     top: 510px;
     left: 100px;
     animation: confus 5s ease-in-out infinite;
 }
+
 @keyframes confus {
     0% {
         transform: translateY(20px);
     }
+
     50% {
         transform: translateY(-3px);
     }
+
     100% {
         transform: translateY(20px);
     }
 }
-.wei{
+
+.wei {
     position: absolute;
     bottom: 0px;
     left: 0;
     z-index: 3;
 }
-.pbody{
-  position: absolute;
-  right: -160px;
-  bottom: 0px;
-  z-index: 2;
+
+.pbody {
+    position: absolute;
+    right: -160px;
+    bottom: 0px;
+    z-index: 2;
 }
-.phand{
+
+.phand {
     position: absolute;
     right: 220px;
     bottom: 130px;
     z-index: 1;
 
-    transform-origin: bottom right; 
+    transform-origin: bottom right;
     animation: swing 2s ease-in-out infinite;
 }
 
@@ -154,18 +169,20 @@ const changePage = (page) => {
     0% {
         transform: rotate(-5deg);
     }
+
     50% {
         transform: rotate(5deg);
     }
+
     100% {
         transform: rotate(-5deg);
     }
 }
 
 .pagination-container {
-    position: absolute;  
-    bottom: 60px;    
-    left: 50%;       
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
     transform: translateX(-50%);
     padding: 20px;
     border-radius: 8px;
@@ -173,26 +190,26 @@ const changePage = (page) => {
 }
 
 .page-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%; 
-  border: none;
-  background-color: white; 
-  color: #333;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-weight: bold;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: bold;
 }
 
 .page-btn.active {
-  background-color: #FFD700; 
-  color: #333;
+    background-color: #FFD700;
+    color: #333;
 }
 
 .page-btn:hover:not(.active) {
-  background-color: #FFD700;
+    background-color: #FFD700;
 }
 </style>

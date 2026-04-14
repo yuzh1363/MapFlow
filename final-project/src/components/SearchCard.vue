@@ -43,7 +43,7 @@ const goToMap = () => {
     if (props.isSkill || props.info.id === 'Photoshop') {
         router.push('/photoshop');
     } else {
-        router.push('/role');
+        router.push('/role-track');
     }
 }
 </script>
