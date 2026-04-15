@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/MapFlow/',
+  base: '/',
   plugins: [vue()],
   css: {
     preprocessorOptions: {

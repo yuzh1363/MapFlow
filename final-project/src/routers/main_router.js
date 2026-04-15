@@ -133,7 +133,7 @@ const routes = [
 ];
 
 const router = createRouter({
-    history: createWebHashHistory('/MapFlow/'),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
