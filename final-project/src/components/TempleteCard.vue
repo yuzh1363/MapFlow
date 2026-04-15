@@ -1,7 +1,7 @@
 <template>
     <div class="templete-card">
         <div class="card-img" style="width: 100%; height: 150px;">
-            <img :src="`/MapFlow/images/${info.imgurl}`" alt="" style="width: 100%; height: 150px;">
+            <img :src="`${baseUrl}images/${info.imgurl}`" alt="" style="width: 100%; height: 150px;">
         </div>
         <div class="card-container">
             <div class="content-container mb-3">
@@ -46,7 +46,7 @@ const prop  = defineProps({
         default: ()=>({})
     }
 })
-
+const baseUrl = import.meta.env.BASE_URL;
 </script>
 
 <style scoped>
