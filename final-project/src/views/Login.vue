@@ -4,50 +4,50 @@
   import MyButton from '../components/MyButton.vue';
 
   const router = useRouter();
-  // const authStore = useAuthStore();
-  // const handleLogin = () => {
-  //   authStore.login({ name: '測試員'}, 'test_token_456');
-  //   router.push('/');
-  // };
+  const authStore = useAuthStore();
+  const handleLogin = () => {
+    authStore.login({ name: '測試員'}, 'test_token_456');
+    router.push('/');
+  };
 
-import { getAuth, } from "firebase/auth";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { ref } from 'vue';
+// import { getAuth, } from "firebase/auth";
+// import { signInWithEmailAndPassword } from "firebase/auth";
+// import { ref } from 'vue';
 
-const email = ref('');
-const password = ref('');
-const auth = getAuth();
+// const email = ref('');
+// const password = ref('');
+// const auth = getAuth();
 
-const handleLogin = async () => {
-    try {
-        const userCredential = await signInWithEmailAndPassword(
-            auth, 
-            email.value, 
-            password.value
-        );
+// const handleLogin = async () => {
+//     try {
+//         const userCredential = await signInWithEmailAndPassword(
+//             auth, 
+//             email.value, 
+//             password.value
+//         );
         
-        const user = userCredential.user;
-        console.log("登入成功，用戶為：", user.email);
+//         const user = userCredential.user;
+//         console.log("登入成功，用戶為：", user.email);
         
-        alert("登入成功！即將轉向首頁");
+//         alert("登入成功！即將轉向首頁");
         
-        // 登入成功後，通常會跳轉回首頁
-        router.push('/'); 
+//         // 登入成功後，通常會跳轉回首頁
+//         router.push('/'); 
         
-    } catch (error) {
-        // 處理常見的登入錯誤
-        const errorCode = error.code;
+//     } catch (error) {
+//         // 處理常見的登入錯誤
+//         const errorCode = error.code;
         
-        if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
-            alert('帳號或密碼錯誤，請再試一次');
-        } else if (errorCode === 'auth/invalid-email') {
-            alert('信箱格式不正確');
-        } else {
-            alert('登入發生錯誤，請稍後再試');
-            console.error(error.message);
-        }
-    }
-};
+//         if (errorCode === 'auth/user-not-found' || errorCode === 'auth/wrong-password') {
+//             alert('帳號或密碼錯誤，請再試一次');
+//         } else if (errorCode === 'auth/invalid-email') {
+//             alert('信箱格式不正確');
+//         } else {
+//             alert('登入發生錯誤，請稍後再試');
+//             console.error(error.message);
+//         }
+//     }
+// };
 </script>
 
 <template>

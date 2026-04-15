@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app); // 初始化 Auth
+// const auth = getAuth(app); 初始化 Auth
 const db = getFirestore(app);
 
 export { auth, db };;

@@ -3,46 +3,46 @@ import { useRouter } from "vue-router";
 import { useAuthStore } from "../stores/auth";
 import MyButton from "../components/MyButton.vue";
 
-// const router = useRouter();
-// const authStore = useAuthStore();
-// const handleRegister = () => {
-//   authStore.login({ name: "新使用者" }, "fake_token_123");
-//   router.push("/");
-// };
-
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { ref } from "vue";
-const email = ref("");
-const password = ref("");
-const auth = getAuth();
-
-const handleRegister = async () => {
-  try {
-    const userCredential = await createUserWithEmailAndPassword(
-      auth,
-      email.value,
-      password.value,
-    );
-    // 註冊成功後會拿到 user 資訊
-    const user = userCredential.user;
-    console.log("註冊成功：", user.email);
-    alert("歡迎加入！註冊成功");
-
-    router.push('/');
-  } catch (error) {
-    // 處理錯誤，Firebase 會回傳錯誤代碼
-    const errorCode = error.code;
-    const errorMessage = error.message;
-
-    if (errorCode === "auth/email-already-in-box") {
-      alert("此信箱已被註冊過囉！");
-    } else if (errorCode === "Firebase: Error (auth/email-already-in-use)") {
-      alert("密碼強度太弱（至少需 6 個字元）");
-    } else {
-      console.error("註冊失敗：", errorMessage);
-    }
-  }
+const router = useRouter();
+const authStore = useAuthStore();
+const handleRegister = () => {
+  authStore.login({ name: "新使用者" }, "fake_token_123");
+  router.push("/");
 };
+
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+// import { ref } from "vue";
+// const email = ref("");
+// const password = ref("");
+// const auth = getAuth();
+
+// const handleRegister = async () => {
+//   try {
+//     const userCredential = await createUserWithEmailAndPassword(
+//       auth,
+//       email.value,
+//       password.value,
+//     );
+//     // 註冊成功後會拿到 user 資訊
+//     const user = userCredential.user;
+//     console.log("註冊成功：", user.email);
+//     alert("歡迎加入！註冊成功");
+
+//     router.push('/');
+//   } catch (error) {
+//     // 處理錯誤，Firebase 會回傳錯誤代碼
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+
+//     if (errorCode === "auth/email-already-in-box") {
+//       alert("此信箱已被註冊過囉！");
+//     } else if (errorCode === "Firebase: Error (auth/email-already-in-use)") {
+//       alert("密碼強度太弱（至少需 6 個字元）");
+//     } else {
+//       console.error("註冊失敗：", errorMessage);
+//     }
+//   }
+// };
 </script>
 
 <template>
