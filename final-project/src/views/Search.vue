@@ -104,11 +104,11 @@ const handleSearch = async (keywordfromChild) => {
     }));
     // 將角色與技能陣列整合
     const allData = [...roleData, ...skillData];
-    // 從allData過濾，標題或type含關鍵字即呈現在畫面上
+    // 從allData過濾，標題或type含關鍵字呈現在畫面上
     finalresults.value = allData.filter(item => {
         return item.id.includes(keywordfromChild) || item.type.includes(keywordfromChild);
     });
-    // 搜尋後isSearch為真，搜尋結果區塊會打開
+    // 搜尋後為真，搜尋結果打開
     isSearch.value = true;
 }
 
@@ -116,17 +116,17 @@ const handleSearch = async (keywordfromChild) => {
 import {useRoleStore} from '../stores/searchStore';
 const roleStore = useRoleStore();
 const roleGroups = computed(() => {
-  // 1. 先從 Pinia 拿到原始的 roles 資料
+  // 原始 roles 資料
   const data = roleStore.allRoles; 
   
   const groups = [];
-  // 2. 使用 for 迴圈，每次跳 4 格
+  // for 迴圈跳 4 格
   for (let i = 0; i < data.length; i += 4) {
-    // 每次切下 4 筆資料，塞進 groups 陣列中
+    // 切 4 筆塞進 groups
     groups.push(data.slice(i, i + 4));
   }
   
-  return groups; // 回傳結果會是 [[role1~4], [role5~8], ...]
+  return groups; // 回傳結果 [[role1~4], [role5~8], ...]
 });
 </script>
 

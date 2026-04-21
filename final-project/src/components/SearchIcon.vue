@@ -5,10 +5,10 @@ const isVisible = ref(false);
 const isExpanded = ref(false);
 
 const handleScroll = () => {
-  // 與 GoToTop 一致：當捲動超過 400px 時顯示按鈕
+  // 捲動超過 400px 時顯示按鈕
   isVisible.value = window.scrollY > 400;
   
-  // 如果按鈕消失了，也強制收合搜尋欄
+  // 按鈕消失，強制收合搜尋欄
   if (!isVisible.value) {
     isExpanded.value = false;
   }
