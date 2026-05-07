@@ -113,20 +113,20 @@ const handleSearch = async (keywordfromChild) => {
 }
 
 
-import {useRoleStore} from '../stores/searchStore';
+import { useRoleStore } from '../stores/searchStore';
 const roleStore = useRoleStore();
 const roleGroups = computed(() => {
-  // 1. 先從 Pinia 拿到原始的 roles 資料
-  const data = roleStore.allRoles; 
-  
-  const groups = [];
-  // 2. 使用 for 迴圈，每次跳 4 格
-  for (let i = 0; i < data.length; i += 4) {
-    // 每次切下 4 筆資料，塞進 groups 陣列中
-    groups.push(data.slice(i, i + 4));
-  }
-  
-  return groups; // 回傳結果會是 [[role1~4], [role5~8], ...]
+    // 1. 先從 Pinia 拿到原始的 roles 資料
+    const data = roleStore.allRoles;
+
+    const groups = [];
+    // 2. 使用 for 迴圈，每次跳 4 格
+    for (let i = 0; i < data.length; i += 4) {
+        // 每次切下 4 筆資料，塞進 groups 陣列中
+        groups.push(data.slice(i, i + 4));
+    }
+
+    return groups; // 回傳結果會是 [[role1~4], [role5~8], ...]
 });
 </script>
 
@@ -184,10 +184,8 @@ const roleGroups = computed(() => {
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <div class="carousel-inner">
-                    <div
-                    v-for="(groups,index) in roleGroups"
-                    :key="index"
-                    :class="['carousel-item',{active:index === 0}]">
+                    <div v-for="(groups, index) in roleGroups" :key="index"
+                        :class="['carousel-item', { active: index === 0 }]">
                         <div class="container-fluid">
                             <div
                                 class="row flex-nowrap row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 custom-carousel-row">
@@ -302,18 +300,12 @@ const roleGroups = computed(() => {
     will-change: transform, opacity;
 }
 
-.search-bar {
-    width: 560px;
-    margin-top: 20px;
-}
-
 .search-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 90%;
-    height: auto;
     max-width: 1000px;
     padding: 40px 20px;
     position: relative;
@@ -347,7 +339,7 @@ const roleGroups = computed(() => {
 }
 
 .search-bar {
-    width: 600px;
+    width: 100%;
     margin-top: 20px;
 }
 
@@ -401,7 +393,89 @@ const roleGroups = computed(() => {
 .custom-carousel-row .col {
     flex: 0 0 auto;
 }
+
 .tags-list {
     gap: 12px 8px;
+}
+
+@media (max-width: 576px) {
+    .search-section {
+        padding: 16px 28px;
+        top: 30px;
+
+        .search-title {
+            font-size: 36px;
+        }
+
+        .search-subtitle {
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .search-bar {
+            width: 90%;
+            margin-top: 0px;
+        }
+    }
+
+    .hero-section {
+        position: relative;
+        height: 50vh;
+        background-color: #333;
+        overflow: hidden;
+        border-radius: 0 0 36px 36px;
+    }
+
+    .hero-bg {
+        position: absolute;
+        /* border: 5px solid salmon; */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height:80%;
+        z-index: 1;
+    }
+
+    .layer {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        object-fit: cover;
+    }
+
+    .green {
+        z-index: 2;
+        left: -10%;
+        bottom: 25%;
+    }
+
+    .orange {
+        z-index: 3;
+        right: -10%;
+        bottom: 25%;
+    }
+
+    .blue {
+        overflow: visible;
+        z-index: 4;
+        left: 0%;
+        bottom: 0%;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        color: white;
+        margin-top: -50px;
+    }
+
+    .mapflow-logo {
+        width: 80%;
+        margin-bottom: 0rem;
+        /* 讓瀏覽器提前準備 */
+        will-change: transform, opacity;
+    }
+
 }
 </style>
