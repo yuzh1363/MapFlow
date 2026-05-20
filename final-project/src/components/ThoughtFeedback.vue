@@ -7,7 +7,7 @@ const isPublic = ref(true)
 defineEmits(['close']); // 定義關閉事件
 
 const handleSend = () => {
-  // 處理送出邏輯...
+  // 處理送出邏輯
   console.log('已送出');
 };
 </script>

@@ -10,11 +10,11 @@ import { onMounted, computed } from 'vue';
 
 const skillStore = useskillStore();
 onMounted(() => {
-  // 1. 組件掛載後，叫 Store 去 Firebase 搬資料
+  // Store 去 Firebase 搬資料
   skillStore.fetchAllSkills();
 });
 
-// 2. 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
+// 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
 const searchs = computed(() => {
   return skillStore.allSkills.map(skill => ({
     id: skill.id,

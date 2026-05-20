@@ -29,14 +29,14 @@ import { useRoleStore} from '../stores/searchStore';
 import { computed } from 'vue';
 const templeteStore = useRoleStore();
 onMounted(() => {
-  // 1. 組件掛載後，叫 Store 去 Firebase 搬資料
+  // Store 去 Firebase 搬資料
   templeteStore.fetchAllTemplete();
 });
 
-// 2. 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
+// 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
 const searchs = computed(() => {
   return templeteStore.allTempletes.map(templete => ({
-    id: templete.id,       // 將文件 ID (UIUX設計師) 對應到 title
+    id: templete.id,       // 將文件 ID對應到 title
     intro: templete.intro,
     node: templete.node,
     owner:templete.owner,
@@ -94,11 +94,6 @@ const searchs = computed(() => {
                             <TempleteCard
                              :info="template"></TempleteCard>
                         </div>
-                        <!-- <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
-                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
-                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
-                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div>
-                        <div class="col d-flex justify-content-center"><TempleteCard></TempleteCard></div> -->
                     </div>
                     
                 </div>

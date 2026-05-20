@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { db } from "../firebase/index"; // 引用剛才建立的檔案
+import { db } from "../firebase/index"; // 引用firebase
 import { doc, getDocs, collection } from "firebase/firestore";
 
 export const useRoleStore = defineStore("role", {
@@ -12,7 +12,7 @@ export const useRoleStore = defineStore("role", {
   }),
 
   actions: {
-    // 需求 A：讀取整個 roles 集合 (所有文件)
+    // 讀取整個 roles 集合
     async fetchAllRoles() {
       this.loading = true;
       try {
@@ -57,7 +57,7 @@ export const useRoleStore = defineStore("role", {
       }
     },
 
-    // 需求 B：根據名稱讀取單一角色 (例如傳入 "UIUX設計師")
+    // 根據名稱讀取單一角色 (ex.UIUX設計師)
     async fetchSingleRole(roleName) {
       this.loading = true;
       try {

@@ -7,15 +7,15 @@ import { onMounted, computed } from 'vue';
 
 const roleStore = useRoleStore();
 onMounted(() => {
-  // 1. 組件掛載後，叫 Store 去 Firebase 搬資料
+  // Store 去 Firebase 搬資料
   roleStore.fetchAllRoles();
 });
 
-// 2. 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
+// 轉譯資料（如果 Firebase 欄位名跟組件 Props 名稱不一樣）
 const searchs = computed(() => {
   return roleStore.allRoles.map(role => ({
     id: role.id,
-    title: role.id,         // 將文件 ID (UIUX設計師) 對應到 title
+    title: role.id,         // 文件 ID 對應到 title
     intro: role.intro,
     node: role.node,
     type: role.type         
